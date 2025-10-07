@@ -1,0 +1,303 @@
+---
+title: "REST vs GraphQL vs gRPC — Qual tecnologia escolher para sua API?"
+description: "Explore as diferenças entre REST, GraphQL e gRPC em um artigo técnico e humanizado, com exemplos práticos em Go"
+date: "october 07, 2025"
+---
+
+> Não existe bala de prata. O segredo não é escolher a tecnologia mais nova, mas a mais adequada para o seu caso.”  
+> — *Robert C. Martin (Uncle Bob)*
+
+A comunicação entre serviços é a espinha dorsal de qualquer aplicação moderna.  
+Com o avanço das arquiteturas distribuídas — especialmente **microservices** —, surgiram diferentes formas de construir e consumir APIs.
+
+Entre as mais populares estão **REST**, **GraphQL** e **gRPC**.  
+Cada uma delas tem suas forças, fraquezas e cenários ideais.  
+Neste artigo, vamos destrinchar **quando e por que** usar cada uma, com **exemplos práticos em Go (Golang)** para consolidar os conceitos.
+
+---
+
+## REST: Simplicidade universal
+
+REST (Representational State Transfer) é o padrão mais difundido para APIs.  
+Baseia-se em princípios HTTP, onde recursos são representados por URLs e manipulados por métodos como `GET`, `POST`, `PUT` e `DELETE`.
+
+### Quando usar REST
+- Quando você precisa de **simplicidade** e **compatibilidade universal** (navegadores, mobile, IoT).  
+- Quando **legibilidade e cache HTTP** são importantes.  
+- Ideal para **APIs públicas** ou **com múltiplas linguagens consumidoras**.
+
+### Quando evitar
+- Quando a aplicação exige **alta performance e baixo overhead** (streaming ou microserviços).  
+- Quando há **necessidade de personalização de dados retornados**.
+
+---
+
+### Exemplo REST em Go
+
+**Arquivo:** `main.go`
+```go
+package main
+
+import (
+	"encoding/json"
+	"net/http"
+)
+
+type User struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+func getUser(w http.ResponseWriter, r *http.Request) {
+	user := User{ID: 1, Name: "Joaquim"}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(user)
+}
+
+func main() {
+	http.HandleFunc("/user", getUser)
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+> Resultado: Uma API REST tradicional que retorna um JSON simples e acessível via GET /user.
+
+---
+
+## GraphQL: Flexibilidade e controle
+
+Criado pelo Facebook, o **GraphQL** surgiu para resolver uma dor clássica das APIs REST: o **overfetching e underfetching** — ou seja, receber dados demais ou de menos.
+
+Com GraphQL, o cliente define **exatamente o que quer receber**.  
+Isso traz **eficiência e controle**, especialmente em interfaces ricas (como dashboards e apps complexos).
+
+---
+
+### Quando usar GraphQL
+
+- Quando o cliente precisa de **flexibilidade nos dados retornados**.  
+- Ideal para **front-ends dinâmicos** e **aplicações ricas em dados**.  
+- Quando a **evolução do schema** deve ocorrer sem quebrar compatibilidade.
+
+---
+
+### Quando evitar
+
+- Quando **performance bruta** é mais importante que flexibilidade.  
+- Em **ambientes de alta carga** ou **APIs extremamente simples**.
+
+---
+
+### Exemplo GraphQL com Go (usando `gqlgen`)
+
+**Arquivo:** `schema.graphql`
+```graphql
+type User {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  user(id: ID!): User
+}
+```
+
+**Arquivo:** `resolver.go`
+
+```go
+package graph
+
+import (
+	"context"
+	"example/graph/model"
+)
+
+func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error) {
+	return &model.User{ID: id, Name: "Joaquim"}, nil
+}
+```
+
+**Consulta GraphQL:**
+
+```graphql
+query {
+  user(id: "1") {
+    name
+  }
+}
+```
+
+> Com GraphQL, o cliente pergunta o que quer — e recebe apenas o que pediu. Nada mais, nada menos.”
+— Lee Byron (criador do GraphQL)
+
+---
+
+## gRPC: Comunicação binária e alta performance
+
+Desenvolvido pelo **Google**, o **gRPC** é uma solução moderna baseada em **Protocol Buffers (protobuf)**.  
+Ele oferece comunicação **rápida, eficiente e fortemente tipada**, ideal para **microserviços** e **comunicação interna entre servidores**.
+
+Diferente do REST e do GraphQL (que usam JSON), o gRPC transmite dados em **formato binário**, reduzindo drasticamente o tamanho das mensagens.
+
+---
+
+### Quando usar gRPC
+
+- Em **microservices** que trocam dados frequentemente.  
+- Quando você precisa de **baixa latência** e **alta performance**.  
+- Ideal para **streaming**, **IoT** e **comunicação interna segura**.
+
+---
+
+### Quando evitar
+
+- Para **APIs públicas** ou **integrações web**.  
+- Quando a **simplicidade do HTTP** é mais importante.
+
+---
+
+### Exemplo gRPC em Go
+
+#### **Arquivo:** `user.proto`
+```protobuf
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc GetUser (UserRequest) returns (UserResponse);
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message UserResponse {
+  int32 id = 1;
+  string name = 2;
+}
+```
+
+---
+
+
+**Servidor em Go:**
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"net"
+
+	pb "example.com/user"
+	"google.golang.org/grpc"
+)
+
+type server struct {
+	pb.UnimplementedUserServiceServer
+}
+
+func (s *server) GetUser(ctx context.Context, req *pb.UserRequest) (*pb.UserResponse, error) {
+	return &pb.UserResponse{Id: req.Id, Name: "Joaquim"}, nil
+}
+
+func main() {
+	lis, err := net.Listen("tcp", ":50051")
+	if err != nil {
+		log.Fatalf("Erro: %v", err)
+	}
+	grpcServer := grpc.NewServer()
+	pb.RegisterUserServiceServer(grpcServer, &server{})
+	log.Println("Servidor gRPC rodando na porta 50051")
+	grpcServer.Serve(lis)
+}
+```
+
+---
+
+**Cliente em Go:**
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+	"time"
+
+	pb "example.com/user"
+	"google.golang.org/grpc"
+)
+
+func main() {
+	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	if err != nil {
+		log.Fatalf("Falha na conexão: %v", err)
+	}
+	defer conn.Close()
+
+	client := pb.NewUserServiceClient(conn)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+
+	res, err := client.GetUser(ctx, &pb.UserRequest{Id: 1})
+	if err != nil {
+		log.Fatalf("Erro: %v", err)
+	}
+
+	log.Printf("Usuário recebido: %v", res)
+}
+```
+
+> O gRPC é amplamente usado no Google, Netflix e Uber para comunicação entre microserviços — é o “motor silencioso” da internet moderna.
+
+**Estrutura de projeto Go (multi-API):**
+
+```bash
+project/
+│
+├── rest/
+│   └── main.go
+│
+├── graphql/
+│   ├── schema.graphql
+│   ├── resolver.go
+│   └── server.go
+│
+├── grpc/
+│   ├── user.proto
+│   ├── server.go
+│   └── client.go
+│
+└── go.mod
+```
+
+> Dica: cada pasta pode ser executada independentemente para testar as abordagens.
+Assim, você consegue visualizar as diferenças de performance e estrutura entre REST, GraphQL e gRPC.
+
+## Conclusão
+
+- Use **REST** para APIs públicas e simples.
+
+- Use **GraphQL** quando o cliente precisa de controle granular sobre os dados.
+
+- Use **gRPC** quando performance e escalabilidade interna são prioridade.
+
+## Referências
+
+- [**gRPC Official Docs**](https://grpc.io/docs/)  
+  Documentação oficial do gRPC, cobrindo conceitos, tutoriais e exemplos em várias linguagens, incluindo Go.
+
+- [**GraphQL.org**](https://graphql.org/learn/)  
+  Guia oficial e completo sobre os fundamentos do GraphQL, com exemplos e boas práticas.
+
+- [**Go net/http package**](https://pkg.go.dev/net/http)  
+  Pacote padrão do Go para construção de servidores e clientes HTTP — base de muitas APIs REST.
+
+- [**gqlgen – Go GraphQL server library**](https://gqlgen.com/)  
+  Biblioteca popular e robusta para criar servidores GraphQL em Go com tipagem forte e geração de código.
+
+- **Robert C. Martin — _Clean Architecture_ (2018)**  
+  Obra de referência sobre princípios de arquitetura de software, modularidade e design limpo.
