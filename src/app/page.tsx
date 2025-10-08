@@ -15,7 +15,7 @@ const workItems: Item[] = [
     title: "Freelancer",
     role: "Desenvolvedor backend",
     period: "jan 2024 - jan 2025",
-    description: "Desenvolvimento de novas funcionalidades em sistemas backend com Golang e PostgreSQL. implementação de microservices com Docker e Kubernetes, aplicando boas práticas de segurança.",
+    description: "Desenvolvi sistemas backend em Golang com foco em clean architecture e alta performance. Implementei microserviços e automações de deploy com Docker e Kubernetes, garantindo segurança e escalabilidade. Otimizei integrações com PostgreSQL e gRPC, reduzindo tempo de resposta e aumentando a eficiência.",
     href: "https://www.tbsmart.com.br/",
   },
   {
@@ -23,7 +23,7 @@ const workItems: Item[] = [
     role: "Educador | Programação | Marketing & Projetos Web",
     period: "jan 2025 - atual",
     description:
-      "Lidero projetos educacionais em tecnologia, preparando alunos para o mercado de TI, ensino fundamentos de programação, backend e boas práticas de desenvolvimento.",
+      "Atuo como educador e mentor técnico, formando novos profissionais em programação backend, arquitetura de software e boas práticas de desenvolvimento. Lidero projetos práticos com Golang e tecnologias web modernas, conectando teoria e desafios reais do mercado. Responsável por materiais técnicos e ambientes de simulação, promovendo aprendizado aplicado e foco em qualidade e escalabilidade.",
     href: "https://allneteducacao.com.br/",
   },
 ]

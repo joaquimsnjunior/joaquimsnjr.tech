@@ -20,9 +20,9 @@ export function Header() {
         </div>
       </div>
       <p className="leading-relaxed animate-fade-in-up">
-        Desenvolvedor Go especializado em backend e sistemas escaláveis. Desde 2022, transformo ideias em código limpo, performático e resiliente.
-        Minha jornada une engenharia e educação — lidero projetos na All Net Educação formando novos talentos em tecnologia, enquanto aprimoro soluções em Go, Docker, Kubernetes e AWS.
-        Acredito que grandes sistemas nascem de pequenas decisões bem-feitas e que ensinar é a melhor forma de evoluir como desenvolvedor.
+        Desenvolvedor Golang com experiência sólida em arquitetura de sistemas escaláveis, 
+        microserviços e aplicações cloud-native. Apaixonado por ensinar e compartilhar conhecimento,
+        atuo como educador técnico, formando novos profissionais em programação backend e boas práticas de desenvolvimento.
       </p>
     </header>
   )
