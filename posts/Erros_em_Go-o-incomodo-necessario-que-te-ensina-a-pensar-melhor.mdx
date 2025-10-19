@@ -1,0 +1,145 @@
+---
+title: "Erros em Go: o incômodo necessário que te ensina a pensar melhor"
+description: "Go não tenta esconder os erros debaixo do tapete. Pelo contrário: ele esfrega na sua cara. E, sinceramente? É uma das melhores coisas que a linguagem faz por você."
+date: "october 19, 2025"
+---
+
+Sabe aquele momento em que você está programando, tudo parece encaixado, e… boom: um erro aparece?
+Pois é. Em Go, isso acontece bastante — e de propósito.
+
+Go não tenta esconder os erros debaixo do tapete.
+Pelo contrário: ele esfrega na sua cara.
+E, sinceramente? É uma das melhores coisas que a linguagem faz por você.
+
+---
+
+## O jeito Go de lidar com erros
+
+Quem vem de outras linguagens costuma achar meio “chato” escrever tanto ``if err != nil``.
+E é mesmo.
+Mas essa chatice é o preço da **clareza**.
+
+Em vez de jogar exceções pra longe ou esconder falhas num log, o Go te obriga a lidar com o erro ali, no momento em que ele acontece.
+É quase uma conversa direta entre você e o código:
+
+```go
+f, err := os.Open("file.txt")
+if err != nil {
+    return err
+}
+defer f.Close()
+```
+
+Simples. Sem drama.
+Você tentou abrir o arquivo, deu ruim, então você responde.
+Sem stacktrace de 40 linhas.
+Sem “try/catch” misterioso que o futuro você vai ter que decifrar.
+
+Caso nunca ouviu falar de try... catch [click aqui](https://www.dio.me/articles/entendendo-o-bloco-trycatch)
+
+---
+
+## Por que isso é bom (mesmo parecendo ruim)
+
+O Go quer que você **pense nos erros como parte do fluxo normal** do programa, não como exceções.
+E isso muda completamente a forma como você projeta o seu código.
+
+De repente, você começa a escrever funções mais curtas.
+Começa a checar condições antes de fazer bobagem.
+Começa a retornar mensagens de erro mais claras — porque sabe que alguém (talvez você mesmo amanhã) vai precisar entendê-las.
+
+---
+
+## Personalizando erros
+
+E se você quiser dar um toque mais seu aos erros?
+Dá pra criar mensagens mais descritivas, usando ``fmt.Errorf``:
+
+```go
+if err != nil {
+    return fmt.Errorf("falha ao abrir arquivo: %w", err)
+}
+```
+
+O ``%w`` é o segredo aqui.
+Ele “embrulha” o erro original, permitindo que você o desembrulhe depois com ``errors.Is`` ou ``errors.As``.
+É tipo um presente (meio desagradável, mas ainda assim um presente).
+
+---
+
+## Um toque de contexto
+
+Um erro sem contexto é como uma piada sem timing.
+Você até entende o que aconteceu, mas não o **porquê**.
+
+Por isso, é comum ver funções em Go adicionando contexto nos erros, como:
+
+```go
+func loadConfig(path string) error {
+    data, err := os.ReadFile(path)
+    if err != nil {
+        return fmt.Errorf("erro ao ler config (%s): %w", path, err)
+    }
+    // ...
+    return nil
+}
+```
+
+Isso faz toda a diferença quando algo quebra em produção.
+Você não quer ver só _file not found_.
+Quer ver **qual arquivo, onde e em qual parte do código**.
+
+---
+
+## E quando o erro não é “errado”?
+
+Tem uma filosofia curiosa em Go:
+Nem todo erro é um problema.
+
+Às vezes ele só indica um estado diferente, uma condição que você precisa tratar.
+Por exemplo, o ``io.EOF`` (end of file) não é “um erro” no sentido negativo.
+É só uma forma do Go te avisar: “ei, acabou o arquivo aqui”.
+
+Então, antes de sair retornando tudo, pense:
+esse erro é realmente um _erro_ ou apenas um _sinal_?
+
+---
+
+## O jeito Go de crescer como dev
+
+A primeira vez que você lida com erros em Go, parece trabalhoso.
+Mas depois de um tempo, você percebe que o Go está te treinando.
+Te forçando a pensar melhor.
+A escrever código mais responsável, previsível e fácil de manter.
+
+E isso, sinceramente, é o tipo de “erro” que vale a pena cometer.
+
+---
+
+## Conclusão
+
+Lidar com erros em Go é quase uma filosofia de vida:
+encare o problema, trate ele de frente, e siga em paz.
+
+Sem try/catch, sem drama, sem mágica.
+Apenas você, o erro e a oportunidade de fazer o código um pouquinho mais sólido do que antes.
+
+## 📚 
+
+- [**Go Blog — Error Handling and Go**](https://go.dev/blog/error-handling-and-go)  
+  Um dos textos mais clássicos sobre o tema. Explica a filosofia por trás do sistema de erros explícitos e por que Go evita exceções.
+
+- [**Go Blog — Working with Errors in Go 1.13**](https://go.dev/blog/go1.13-errors)  
+  Mostra como o Go evoluiu o tratamento de erros com `errors.Is`, `errors.As` e o operador `%w` no `fmt.Errorf`.
+
+- [**Package errors — Go Standard Library**](https://pkg.go.dev/errors)  
+  Documentação oficial do pacote `errors`, com exemplos práticos de uso, wrapping e comparação de erros.
+
+- [**Package fmt — Go Standard Library**](https://pkg.go.dev/fmt)  
+  Referência útil pra entender como formatar e enriquecer mensagens de erro com `fmt.Errorf`.
+
+- [**Effective Go — Errors**](https://go.dev/doc/effective_go#errors)  
+  Guia essencial pra escrever código idiomático em Go, com recomendações sobre retorno de erros, mensagens e boas práticas.
+
+- [**Go Proverbs — “Don’t just check errors, handle them gracefully.”**](https://go-proverbs.github.io/)  
+  Um lembrete filosófico (e real) da comunidade Go: não basta detectar o erro — é preciso tratá-lo com elegância.
