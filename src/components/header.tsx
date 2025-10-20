@@ -1,11 +1,18 @@
 import { ScrambleText } from "@/components/scramble-text"
-import { MapPin, Building2 } from "lucide-react"
+import { MapPin, CodeXml } from "lucide-react"
+import Profile  from "../../public/joaquimsnjr.jpg"
+import Image from "next/image"
 
 export function Header() {
   return (
     <header className="mb-16 space-y-4">
       <h1 className="text-4xl font-bold mb-4 animate-fade-in text-white">
-        <span className="inline-block">
+        <span className="flex items-center gap-4">
+          <Image
+            src={Profile}
+            alt="Profile"
+            className="w-12 h-12 rounded-full"
+          />
           <ScrambleText text="joaquim silva" />
         </span>
       </h1>
@@ -15,15 +22,10 @@ export function Header() {
           São Paulo, Brasil
         </div>
         <div className="flex items-center gap-2">
-          <Building2 className="w-4 h-4" />
-          Educador | All Net Educação
+          <CodeXml className="w-4 h-4" />
+          Sou desenvolvedor de software, professor e entusiasta de tecnologia.
         </div>
       </div>
-      <p className="leading-relaxed animate-fade-in-up">
-        Desenvolvedor Golang com experiência sólida em arquitetura de sistemas escaláveis, 
-        microserviços e aplicações cloud-native. Apaixonado por ensinar e compartilhar conhecimento,
-        atuo como educador técnico, formando novos profissionais em programação backend e boas práticas de desenvolvimento.
-      </p>
     </header>
   )
 }

@@ -4,24 +4,24 @@ import { Metadata } from "next"
 
 const projects = [
   {
-    title: "default-github-profile",
+    title: "JoaquimSNJR Tech",
     description:
-      "github profile default",
-    role: "default github profile",
-    period: "jun 2022 - present",
+      "Meu site pessoal onde compartilho meus projetos, posts de blog e informações sobre mim.",
+    role: "Website Pessoal",
+    period: "set 2025",
     achievements: [
-      "informação do perfil do github",
-      "apenas meu perfil",
+      "Desenvolvimento de um site responsivo",
+      "Implementação de funcionalidades interativas",
+      "Otimização para SEO e performance",
     ],
     technologies: [
-      "golang",
-      "postgresql",
-      "docker",
-      "kubernetes",
-      "aws",
-      "github actions",
+      "react",
+      "next.js",
+      "tailwind css",
+      "typescript",
+      "vercel",
     ],
-    href: "https://github.com/joaquimsnjunior",
+    href: "https://github.com/joaquimsnjunior/joaquimsnjr.tech",
   },
 ]
 

@@ -20,19 +20,24 @@ export function PostItem({ post, isSelected }: PostItemProps) {
         prefetch={true}
         className="text-gray-200 hover:text-blue-400 transition-colors duration-200"
       >
+        {post.metadata.date && (
+          <span className="mr-2 text-sm text-gray-600">
+            {new Date(post.metadata.date)
+              .toLocaleDateString("pt-BR", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })
+              .toLowerCase()}
+          </span>
+        )}
         {post.metadata.title.toLowerCase()}
+        {post.metadata.description && (
+          <span className="block text-sm text-gray-400">
+            {post.metadata.description}
+          </span>
+        )}
       </Link>
-      <div className="flex items-center text-sm text-gray-400 shrink-0">
-        <span>
-          {new Date(post.metadata.date)
-            .toLocaleDateString("pt-BR", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })
-            .toLowerCase()}
-        </span>
-      </div>
     </div>
   )
 }
