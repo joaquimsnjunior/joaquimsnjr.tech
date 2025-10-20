@@ -7,11 +7,11 @@ const links = [
   { title: "linkedin", href: "https://www.linkedin.com/in/joaquimsnjr/" },
 ]
 
-export function LinksSection() {
+export function Footer() {
   return (
-    <section className="animate-fade-in-up">
+    <footer className="mt-16 mb-8">
       <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-        <span className="text-blue-400 mr-2">*</span> links
+        <span className="text-blue-400 mr-2">*</span>
       </h2>
       <div className="flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
@@ -23,7 +23,13 @@ export function LinksSection() {
             {link.title}
           </Link>
         ))}
+        <div>
+          <span className="text-gray-500">|</span>
+        </div>
+        <div>
+          <span className="text-gray-400">{new Date().getFullYear()} &copy; joaquim silva</span>
+        </div>
       </div>
-    </section>
+    </footer>
   )
 }

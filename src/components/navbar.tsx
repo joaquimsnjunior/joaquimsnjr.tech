@@ -21,6 +21,9 @@ export function Navbar() {
         case "h":
           router.push("/")
           break
+        case "s":
+          router.push("/sobre")
+          break
         case "b":
           router.push("/blog")
           break
@@ -42,6 +45,13 @@ export function Navbar() {
           className="hover:text-blue-400 transition-colors duration-200"
         >
           [h] home
+        </Link>
+        <Link
+          href="/sobre"
+          prefetch={true}
+          className="hover:text-blue-400 transition-colors duration-200"
+        >
+          [s] sobre
         </Link>
         <Link
           href="/blog"
