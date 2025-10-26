@@ -5,16 +5,16 @@ import React from 'react'
 const workItems: Item[] = [
   {
     title: "ZinwellCorp",
-    role: "Ajudante Geral",
+    role: "Suporte Técnico",
     period: "jul 2023 - jan 2024",
     description: "Execução de testes completos em produtos e elaboração de relatórios técnicos, suporte a clientes e treinamento sobre uso de sistemas e tecnologias.",
     href: "https://www.tbsmart.com.br/",
   },
   {
-    title: "Freelancer",
-    role: "Desenvolvedor backend",
+    title: "ZinwellCorp - TB Smart",
+    role: "Suporte Técnico | Autônomo",
     period: "jan 2024 - jan 2025",
-    description: "Desenvolvi sistemas backend em Golang com foco em clean architecture e alta performance. Implementei microserviços e automações de deploy com Docker e Kubernetes, garantindo segurança e escalabilidade. Otimizei integrações com PostgreSQL e gRPC, reduzindo tempo de resposta e aumentando a eficiência.",
+    description: "Durante minha atuação na Zinwell, desenvolvi e mantive sistemas backend, aplicando princípios de Clean Architecture e microserviços para garantir alto desempenho e escalabilidade. Atuei fortemente em Cloud Computing, com foco em Terraform, EKS e pipelines CI/CD voltadas a ambientes de missão crítica e com grande volume de chamados. Além disso, implementei automações de deploy utilizando Docker e Kubernetes, assegurando eficiência operacional, segurança e alta disponibilidade das aplicações.",
     href: "https://www.tbsmart.com.br/",
   },
   {
@@ -35,12 +35,9 @@ function page() {
         <ScrambleText text="sobre" />
       </h1>
       <p className="leading-relaxed animate-fade-in-up">
-        Mais do que escrever código, gosto de resolver problemas de verdade.
-        Construir sistemas que aguentam o crescimento, que são rápidos, estáveis e bem pensados.
-        Trabalho com Golang e me encontrei no universo dos microserviços e das aplicações cloud-native.
-        Mas o que mais me motiva é ensinar. Ver alguém entender um conceito complicado e soltar aquele “ah, agora entendi” é uma das melhores sensações que existem.
-        Hoje, além de desenvolver, também ensino backend e boas práticas de desenvolvimento.
-        Acredito que tecnologia boa é aquela que simplifica a vida das pessoas e que compartilhar conhecimento é o que move a comunidade.
+        Possuo experiência sólida em Cloud Computing, com foco em Terraform, EKS, clusters e esteiras CI/CD voltadas para ambientes de missão crítica e alto volume de operações. Atuo no desenvolvimento backend em Golang, aplicando Clean Architecture e microserviços, além de criar automações de deploy com Docker e Kubernetes, garantindo segurança, escalabilidade e alta disponibilidade.
+        Otimizei integrações com PostgreSQL e gRPC, reduzindo significativamente os tempos de resposta e aumentando a eficiência operacional dos sistemas. Também realizo testes completos, relatórios técnicos, suporte a clientes e treinamentos sobre o uso de tecnologias aplicadas no dia a dia da engenharia de software.
+        Atuo ainda como educador e mentor técnico, formando novos profissionais em programação backend, arquitetura de software e boas práticas de desenvolvimento. Lidero projetos práticos com Golang e tecnologias web modernas, conectando teoria a desafios reais do mercado. Sou responsável pela criação de materiais técnicos e pela manutenção de ambientes de simulação, sempre com foco em qualidade, escalabilidade e performance.
       </p>
       <div className="mt-8">
         <SectionList title="work" items={workItems} />
