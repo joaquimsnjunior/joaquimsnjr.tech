@@ -23,7 +23,7 @@ export function Header() {
         </div>
         <div className="flex items-center gap-2">
           <CodeXml className="w-4 h-4" />
-          Sou dev, professor e entusiasta de tecnologia.
+          SRE | DevOps Engineer | Backend Developer
         </div>
       </div>
     </header>
