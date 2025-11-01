@@ -1,0 +1,123 @@
+---
+title: "Por Que o Apache Cassandra é o Banco de Dados Escolhido para Escalabilidade e Alta Disponibilidade"
+description: "Entenda por que o Apache Cassandra é um dos bancos de dados NoSQL mais usados para escalabilidade, desempenho e alta disponibilidade."
+date: "october 31, 2025"
+---
+
+O Cassandra costuma se destacar quando o assunto é lidar com [cargas pesadas]((https://www.ibm.com/br-pt/think/topics/workload)) de escrita, e isso não é à toa. 
+Ele foi feito para aguentar grandes volumes de dados sem perder o ritmo. Claro, muita gente comenta sobre a dificuldade na hora de modelar os dados, 
+e é verdade que essa parte pode dar trabalho. Mas, no fim das contas, o Apache Cassandra é um banco de dados NoSQL distribuído pensado para entregar desempenho e escalabilidade de forma consistente, mesmo nos cenários mais exigentes.
+
+![apache cassandra](https://res.cloudinary.com/dy5xyare1/image/upload/v1761955594/apache_cassandra_capa_f6whqb.png)
+Eu o vejo como uma potência para aplicações modernas, particularmente aquelas em ambientes de nuvem onde a escalabilidade horizontal é fundamental.
+
+**Principais Forças**: A arquitetura do Cassandra elimina pontos únicos de falha, permitindo a adição contínua de nós(node) para escalar horizontalmente. 
+Isso o torna ideal para cenários de [big data](https://www.oracle.com/br/big-data/what-is-big-data/), como redes sociais ou análises em tempo real.
+
+**Quando Usá-lo**: Opte pelo Cassandra em sistemas com alto [throughput](https://pt.wikipedia.org/wiki/Throughput) de escrita e onde a consistência eventual é aceitável, como ingestão de dados de IoT ou gerenciamento de conteúdo.
+
+**Possíveis Desvantagens**: Evite-o para sistemas transacionais que precisam de joins ou consistência forte, pois seu modelo prioriza disponibilidade sobre estrutura rígida.
+
+### Cassandra em Palavras Simples
+
+Imagina que você precisa explicar o Cassandra para alguém que acabou de aprender o que é um banco de dados. 
+O pessoal que criou o Cassandra, engenheiros que enfrentaram desafios em empresas como o Facebook, AWS e Instaclustr — percebeu que os bancos de dados tradicionais não estavam mais dando conta do recado.
+
+![sql meme](https://res.cloudinary.com/dy5xyare1/image/upload/v1761957634/712634a6-0d1e-4010-b5d8-62b59f17ba63.png) 
+
+> Era como tentar colocar o conteúdo de uma biblioteca inteira dentro de uma única gaveta, por mais organizada que fosse, ela simplesmente travava.
+
+O Cassandra surgiu com uma ideia mais esperta, em vez de um “armário gigante”, ele funciona como um grupo de amigos trocando bilhetes. 
+Cada um tem o mesmo papel, ninguém manda em ninguém, e quando mais amigos(node) entram na roda, a conversa flui ainda melhor. 
+Cada “amigo” guarda parte das mensagens (os dados), e todos se ajudam, se um faltar, os outros têm cópias guardadas.
+
+![nodes image](https://res.cloudinary.com/dy5xyare1/image/upload/v1761957895/b02bd9c7-3709-4426-bf71-6222c99679d8.png)
+
+É um sistema feito para ser distribuído e rápido, como um time bem entrosado que trabalha em várias frentes ao mesmo tempo. 
+Quando o Cassandra precisa gravar informações, ele anota tudo rapidinho em uma folha de rascunho (a memória, chamada memtable) antes de guardar no arquivo definitivo (as SSTables). 
+E ele não exige que todo mundo confirme cada anotação na hora os dados se alinham depois, naturalmente. 
+É o que chamamos de consistência eventual, como uma fofoca que começa pequena e, em pouco tempo, todo mundo já sabe.
+
+Claro, ele tem seu estilo. Se você precisa de algo super rigoroso, como uma conta bancária que precisa saber cada centavo em tempo real, o Cassandra talvez não seja o ideal. 
+Mas **se o desafio é lidar com muitos dados chegando rápido, ele brilha**. 
+Ele foi feito para ambientes vivos, cheios de movimento e troca mais como um festival de dados do que uma biblioteca silenciosa.
+
+---
+
+Tenho visto o Apache Cassandra transformar a forma como lidamos com dados em escala, 
+inspirando-se em suas origens no Facebook para superar as limitações dos bancos de dados relacionais tradicionais. 
+**No reino do big data**, onde os volumes explodem e as demandas por velocidade se intensificam, o Cassandra surge como um banco de dados NoSQL do tipo colunar que prioriza escalabilidade e disponibilidade. 
+"O Cassandra é um banco de dados NoSQL do tipo colunar, projetado para oferecer alta escalabilidade, desempenho e disponibilidade", como uma introdução descreve apropriadamente, 
+destacando seu papel no armazenamento, processamento e extração de insights de dados distribuídos em nosso mundo conectado. 
+Essa arquitetura descentralizada opera em clusters de nós(node), 
+distribuindo dados de forma uniforme para permitir escalabilidade horizontal — basta adicionar mais nós(node) para aumentar a capacidade sem tempo de inatividade.
+
+Mergulhando mais fundo, o modelo [peer-to-peer do Cassandra](https://stackoverflow.com/questions/71276247/how-does-peer-to-peer-architecture-work-in-cassandra) garante a ausência de ponto único de falha, com cada nó capaz de todas as operações. 
+
+![peer-to-peer](https://res.cloudinary.com/dy5xyare1/image/upload/v1761958668/b762cee2-d609-4c7a-b14c-159201c4d544.png)
+
+> O Cassandra trabalha com arquitetura peer-to-peer, com cada nó conectado a todos os outros nós. 
+
+Os dados são organizados em keyspaces — contêineres lógicos para tabelas com estratégias de replicação como [NetworkTopologyStrategy](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/architecture/archDataDistributeReplication.html) permitindo configurações multi-data-center para recuperação de desastres e acesso de baixa latência. 
+O [protocolo de gossip](https://highscalability.com/gossip-protocol-explained/) facilita isso, permitindo que os nós(node) troquem informações de estado a cada segundo, mantendo a conscientização do cluster de forma eficiente.
+
+![protocolo de gossip](https://res.cloudinary.com/dy5xyare1/image/upload/v1761959387/1nu8hxn-__squarespace_cacheversion-1689515298461_daj0eo.gif)
+
+No coração da eficiência do Cassandra está sua particionamento e replicação. As chaves de partição ``hash`` os dados para tokens, distribuindo-os em um anel de nós(node), 
+frequentemente usando nós virtuais (vnodes) para simplificar o gerenciamento — padrão de 256 por nó físico para carga uniforme. 
+_"O número padrão de Vnodes possuídos por um nó no Cassandra é 256, que é definido pela propriedade ``num_tokens``"_, nota uma análise de arquitetura, 
+enfatizando como isso evita hotspots e facilita adições ou remoções de nós. 
+Fatores de replicação, tipicamente um número ímpar como três, garantem cópias de dados em racks e data centers, 
+equilibrados por snitches que inferem topologia para posicionamento otimizado.
+
+Comparando tipos de escalabilidade, a escalabilidade horizontal no NoSQL como o Cassandra supera as abordagens verticais em bancos de dados relacionais. 
+
+![meme nosql vs sql](https://res.cloudinary.com/dy5xyare1/image/upload/v1761960002/a87b35aa-dc8c-41a3-8536-02011fc73aac.png)
+
+
+A modelagem de dados no Cassandra exige design orientado a consultas, pois a modelagem de dados no Cassandra não é simples. 
+Na verdade, essa característica é compartilhada por muitos outros bancos de dados que foram inspirados pelo famoso paper Dynamo, alertando que as consultas dependem do modelo, restringindo flexibilidade em comparação com [RDBMS](https://cloud.google.com/learn/what-is-a-relational-database?hl=pt-BR). 
+Estratégias de compactação como [SizeTieredCompactionStrategy](https://cassandra.apache.org/doc/4.1/cassandra/operating/compaction/stcs.html) mesclam SSTables para otimizar armazenamento, com tombstones marcando exclusões. 
+_"Compactação no Cassandra é o processo de consolidar múltiplos SSTables para gerar novos SSTables mais compactos"_, garantindo eficiência a longo prazo.
+
+De uma **perspectiva DevOps**, o Cassandra se integra com ferramentas de monitoramento para saúde do cluster, usando [nodetool](https://cassandra.apache.org/doc/4.0/cassandra/tools/nodetool/nodetool.html) para verificações de status. 
+É implantado em Kubernetes para orquestração, com **AWS Keyspaces** oferecendo serviços gerenciados. 
+
+Quando implantar o Cassandra é geralmente descrito como um sistema AP, e é usado em parte devido à sua alta disponibilidade, para apps pesadas em escrita como as da Netflix com milhões de escritas por segundo. 
+Evite para necessidades [ACID](https://www.datacamp.com/pt/blog/acid-transactions), pois o Cassandra, por outro lado, adota um sistema com suporte fraco a [ACID](https://www.datacamp.com/pt/blog/acid-transactions), faltando rollbacks. Em termos de SRE, 
+suas propriedades BASE (Basically Available, Soft state, Eventual consistency) contrastam com [ACID](https://www.datacamp.com/pt/blog/acid-transactions), adequando-se a cenários de sincronização eventual.
+
+### Comparação de Escalabilidade
+
+Para ilustrar as diferenças entre os tipos de escalabilidade, observe os seguintes aspectos:
+
+* **Método de Crescimento:** a escalabilidade vertical, típica de bancos de dados relacionais (RDBMS), baseia-se em **atualizar o hardware de um único servidor**, enquanto a escalabilidade horizontal, adotada por sistemas como o **Cassandra (NoSQL)**, consiste em **adicionar mais nós ou servidores** à infraestrutura.
+* **Limites:** a escalabilidade vertical é limitada pelas **restrições físicas do hardware**, já a horizontal possui **limites praticamente ilimitados**.
+* **Complexidade:** a vertical tem **baixa complexidade de implementação**, enquanto a horizontal envolve **alta complexidade**, especialmente no **gerenciamento de consistência** entre os nós.
+* **Tolerância a Falhas:** a vertical apresenta **menor tolerância**, pois há risco de **ponto único de falha**, enquanto a horizontal oferece **maior resiliência** por meio de **réplicas distribuídas**.
+* **Custo:** a vertical tende a ser **mais cara**, devido ao hardware mais potente necessário; já a horizontal é **mais econômica**, pois utiliza **hardware comum (commodity)**.
+
+### Comparação: Cassandra vs. MongoDB
+
+Para entender melhor as diferenças entre esses dois bancos de dados NoSQL, observe os seguintes aspectos:
+
+* **Modelo de Dados:** o **Cassandra** utiliza um **armazenamento baseado em colunas largas**, ideal para grandes volumes de dados estruturados e consultas previsíveis. Já o **MongoDB** adota um **modelo baseado em documentos**, mais flexível e voltado para dados dinâmicos.
+* **Consistência:** o **Cassandra** oferece **consistência ajustável**, sendo **eventual por padrão**, o que permite equilibrar desempenho e precisão. Em contrapartida, o **MongoDB** possui **consistência mais forte**, utilizando o **MVCC (Controle de Concorrência Multiversão)**.
+* **Linguagem de Consulta:** o **Cassandra** utiliza **CQL (Cassandra Query Language)**, com sintaxe semelhante ao SQL tradicional, enquanto o **MongoDB** usa **MQL (Mongo Query Language)**, que se baseia em **estruturas JSON**.
+* **Disponibilidade:** o **Cassandra** é um sistema **multi-master**, sem ponto único de falha, o que garante **alta disponibilidade**. Já o **MongoDB** opera em um modelo **primário-secundário com failover**, em que há um nó principal e réplicas de backup.
+* **Melhor Para:** o **Cassandra** é mais indicado para **dados com formato fixo e altas taxas de escrita**, enquanto o **MongoDB** se destaca em **cenários com dados dinâmicos e não estruturados**.
+
+Em conclusão, O Cassandra é uma escolha poderosa quando se trata de escalabilidade, alta disponibilidade e desempenho. 
+
+### Leituras recomendadas
+- [Introdução ao Cassandra](https://medium.com/@habbema/introdu%C3%A7%C3%A3o-ao-cassandra-bb3af92dbc80)
+- [Escalabilidade Horizontal e Vertical em Bancos de Dados Relacionais e NoSQL](https://blog.grancursosonline.com.br/escalabilidade-horizontal-e-vertical-em-bancos-de-dados-relacionais-e-nosql/)
+- [Cassandra x MongoDB — Diferença entre bancos de dados NoSQL — AWS](https://aws.amazon.com/pt/compare/the-difference-between-cassandra-and-mongodb/)
+- [System Design Solutions: When to use Cassandra and when not to](https://medium.com/geekculture/system-design-solutions-when-to-use-cassandra-and-when-not-to-496ba51ef07a)
+- [A Comprehensive Guide to Apache Cassandra Architecture](https://www.instaclustr.com/blog/cassandra-architecture/)
+- [Deep Dive into Cassandra](https://mohitdtumce.medium.com/deep-dive-into-cassandra-fdbbaf20dcff)
+- [O trabalho programador - Cassandra NoSQL banco de dados](https://learn.microsoft.com/pt-br/archive/msdn-magazine/2012/august/the-working-programmer-cassandra-nosql-database-getting-started)
+- [Como usar o Apache Cassandra em aplicações Java EE - Parte 1](https://www.devmedia.com.br/como-usar-o-apache-cassandra-em-aplicacoes-java-ee-parte-1/34409)
+- [O que é o Apache Cassandra e quando usar?](https://dev.to/nfo94/o-que-e-o-apache-cassandra-e-quando-usar-gkf)
+- [Apache Cassandra – Wikipédia, a enciclopédia livre](https://pt.wikipedia.org/wiki/Apache_Cassandra)
+- [Conheça o Apache Cassandra](https://yadax.com.br/cassandra/conheca-o-apache-cassandra/)
