@@ -20,6 +20,17 @@ async function loadGoogleFont(font: string, text: string) {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const title = searchParams.get("title") ?? "Joaquim Silva | Blog"
+  const platform = (searchParams.get("platform") || "").toLowerCase()
+
+  // default size (já existente)
+  let width = 1200
+  let height = 600
+
+  // LinkedIn recommended size
+  if (platform === "linkedin") {
+    width = 1200
+    height = 627
+  }
 
   return new ImageResponse(
     (
@@ -83,8 +94,8 @@ export async function GET(request: Request) {
       </div>
     ),
     {
-      width: 1200,
-      height: 600,
+      width,
+      height,
       fonts: [
         {
           name: "Geist Mono",
@@ -95,3 +106,4 @@ export async function GET(request: Request) {
     }
   )
 }
+// ...existing code...

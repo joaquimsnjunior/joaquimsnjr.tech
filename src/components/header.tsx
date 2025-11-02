@@ -2,6 +2,7 @@ import { ScrambleText } from "@/components/scramble-text"
 import { MapPin, CodeXml } from "lucide-react"
 import Profile  from "../../public/joaquimsnjr.jpg"
 import Image from "next/image"
+import Link from "next/link"
 
 export function Header() {
   return (
@@ -13,7 +14,7 @@ export function Header() {
             alt="Profile"
             className="w-12 h-12 rounded-full"
           />
-          <ScrambleText text="joaquim silva" />
+          <ScrambleText className="font-semibold" text="Joaquim Silva" />
         </span>
       </h1>
       <div className="flex flex-col gap-2 text-gray-400">
@@ -24,6 +25,11 @@ export function Header() {
         <div className="flex items-center gap-2">
           <CodeXml className="w-4 h-4" />
           SRE | DevOps Engineer | Backend Developer
+        </div>
+        <div>
+          <Link href="/talks">
+            <span className="text-white/85 hover:text-blue-400 transition-colors duration-200 text-sm">[t] palestras & apresentações</span>
+          </Link>
         </div>
       </div>
     </header>

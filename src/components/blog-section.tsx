@@ -23,7 +23,8 @@ export function BlogSection() {
               href={`/blog/${post.slug}`}
               className="text-gray-200 hover:text-blue-400 transition-colors duration-200"
             >
-              {formatDate(post.metadata.date && post.metadata.date)} -{" "}
+              <span className="block text-sm text-gray-400">{formatDate(post.metadata.date && post.metadata.date)}
+              </span>
               {post.metadata.title.toLowerCase()}
               {post.metadata.description && (
                 <span className="block text-sm text-gray-400">

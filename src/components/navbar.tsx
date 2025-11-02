@@ -30,6 +30,9 @@ export function Navbar() {
         case "p":
           router.push("/projects")
           break
+        case "t":
+          router.push("/talks")
+          break
       }
     }
 

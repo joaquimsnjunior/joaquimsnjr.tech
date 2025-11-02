@@ -13,7 +13,7 @@ export default async function BlogPage() {
     <main className="animate-fade-in-up relative">
       <h1 className="text-4xl font-bold mb-8 text-white">
         <span className="text-blue-400 mr-2">*</span>
-        <ScrambleText text="blog" />
+        <ScrambleText className="font-semibold" text="Blog" />
       </h1>
 
       <p className="hidden sm:block text-sm text-gray-400 mb-8">

@@ -21,7 +21,7 @@ export function PostItem({ post, isSelected }: PostItemProps) {
         className="text-gray-200 hover:text-blue-400 transition-colors duration-200"
       >
         {post.metadata.date && (
-          <span className="mr-2 text-sm text-gray-600">
+          <span className="block text-sm text-gray-400">
             {new Date(post.metadata.date)
               .toLocaleDateString("pt-BR", {
                 month: "short",

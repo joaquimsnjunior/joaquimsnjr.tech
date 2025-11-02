@@ -32,7 +32,7 @@ function page() {
     <div>
       <h1 className="text-4xl font-bold mb-8 text-white">
         <span className="text-blue-400 mr-2">*</span>
-        <ScrambleText text="sobre" />
+        <ScrambleText className="font-semibold" text="Sobre" />
       </h1>
       <p className="leading-relaxed animate-fade-in-up">
         Possuo experiência sólida em Cloud Computing, com foco em Terraform, EKS, clusters e esteiras CI/CD voltadas para ambientes de missão crítica e alto volume de operações. Atuo no desenvolvimento backend em Golang, aplicando Clean Architecture e microserviços, além de criar automações de deploy com Docker e Kubernetes, garantindo segurança, escalabilidade e alta disponibilidade.
