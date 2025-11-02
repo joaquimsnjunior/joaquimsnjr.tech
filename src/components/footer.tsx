@@ -13,8 +13,8 @@ export function Footer() {
     <footer className="mt-16 mb-8">
       <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
         <span className="text-blue-400 mr-2">*</span>
-         <Image
-          src="/Assinatura.png"
+         <img
+          src="https://res.cloudinary.com/dy5xyare1/image/upload/v1762122747/Assinatura_ogxlh8.png"
           alt="Assinatura Joaquim Silva"
           width={200}
           height={200}
