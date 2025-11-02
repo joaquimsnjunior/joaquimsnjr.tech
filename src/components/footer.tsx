@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const links = [
@@ -12,6 +13,13 @@ export function Footer() {
     <footer className="mt-16 mb-8">
       <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
         <span className="text-blue-400 mr-2">*</span>
+         <Image
+          src="/Assinatura.png"
+          alt="Assinatura Joaquim Silva"
+          width={200}
+          height={200}
+          className="mb-4"
+        />
       </h2>
       <div className="flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (

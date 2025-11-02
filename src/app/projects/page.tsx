@@ -30,7 +30,7 @@ export default function ProjectsPage() {
     <main className="animate-fade-in-up">
       <h1 className="text-4xl font-bold mb-8 text-white">
         <span className="text-blue-400 mr-2">*</span>
-        <ScrambleText text="projetos" />
+        <ScrambleText className="font-semibold" text="Projetos" />
       </h1>
 
       <p className="text-gray-400 mb-12 leading-relaxed">
