@@ -50,7 +50,7 @@ function CustomLink({
 }
 
 function CustomImage(props: React.ImgHTMLAttributes<HTMLImageElement>) {
-  return <img alt={props.alt} className="rounded-lg" {...props} />
+  return <img alt={props.alt} className="rounded-sm" {...props} />
 }
 
 async function Pre({

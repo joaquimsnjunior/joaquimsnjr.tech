@@ -1,7 +1,6 @@
 import { ScrambleText } from "@/components/scramble-text"
 import { MapPin, CodeXml } from "lucide-react"
 // import Profile  from "../../public/joaquimsnjr.jpg"
-import Image from "next/image"
 import Link from "next/link"
 
 export function Header() {
@@ -10,11 +9,13 @@ export function Header() {
       <h1 className="text-4xl font-bold mb-4 animate-fade-in text-white">
         <span className="flex items-center gap-4">
           <img
+            width={65}
+            height={65}
             src="https://res.cloudinary.com/dy5xyare1/image/upload/v1762122802/Profile_Joaquim_akpq89.jpg"
             alt="Profile"
-            className="w-12 h-12 rounded-full"
+            className="rounded-sm object-cover"
           />
-          <ScrambleText className="font-semibold" text="Joaquim Silva" />
+          <ScrambleText className="font-semibold flex-auto" text="Joaquim Silva" />
         </span>
       </h1>
       <div className="flex flex-col gap-2 text-gray-400">

@@ -1,5 +1,7 @@
 import { ScrambleText } from '@/components/scramble-text'
-import { Item, SectionList } from '@/components/section-list'
+import { Item } from '@/components/section-list'
+import { SectionListNotGrouped } from '@/components/section-list-not-grouped'
+import { Metadata } from 'next'
 import React from 'react'
 
 const workItems: Item[] = [
@@ -31,7 +33,6 @@ function page() {
   return (
     <div>
       <h1 className="text-4xl font-bold mb-8 text-white">
-        <span className="text-blue-400 mr-2">*</span>
         <ScrambleText className="font-semibold" text="Sobre" />
       </h1>
       <p className="leading-relaxed animate-fade-in-up">
@@ -40,10 +41,22 @@ function page() {
         Atuo ainda como educador e mentor técnico, formando novos profissionais em programação backend, arquitetura de software e boas práticas de desenvolvimento. Lidero projetos práticos com Golang e tecnologias web modernas, conectando teoria a desafios reais do mercado. Sou responsável pela criação de materiais técnicos e pela manutenção de ambientes de simulação, sempre com foco em qualidade, escalabilidade e performance.
       </p>
       <div className="mt-8">
-        <SectionList title="work" items={workItems} />
+        <SectionListNotGrouped title="Work" items={workItems} />
       </div>
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: "Sobre mim",
+  description: "Alguns dos projetos em que trabalhei.",
+  openGraph: {
+    images: [
+      {
+        url: "https://www.joaquimsnjr.tech/og/home?title=projects",
+      },
+    ],
+  },
 }
 
 export default page

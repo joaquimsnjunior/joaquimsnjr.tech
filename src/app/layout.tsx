@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.joaquimsnjr.tech"),
   title: {
-    default: "Joaquim Silva — Software Engineer",
+    default: "Joaquim Silva | Em constante deploy desde 1998",
     template: "%s | Joaquim Silva",
   },
   description: "Meu cantinho na internet.",
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistMono.variable} antialiased min-h-screen font-mono`}
+        className={`${geistMono.variable} antialiased min-h-screen`}
       >
         <div className="max-w-4xl mx-auto px-4 py-8">
           <Navbar />

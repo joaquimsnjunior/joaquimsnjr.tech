@@ -1,5 +1,5 @@
 import { Header } from "@/components/header"
-import { Item, SectionList } from "@/components/section-list"
+import { SectionList } from "@/components/section-list"
 import { BlogSection } from "@/components/blog-section"
 
 
@@ -18,10 +18,9 @@ export default function HomePage() {
   return (
     <>
       <Header />
-
       <BlogSection />
       <SectionList
-        title="projetos"
+        title="Projetos"
         items={projectItems}
         viewAllHref="/projects"
         viewAllText="todos os projetos"
