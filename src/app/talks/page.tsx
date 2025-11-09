@@ -4,8 +4,7 @@ import React from 'react'
 function Talks() {
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8 text-white">
-        <span className="text-blue-400 mr-2">*</span>
+      <h1 className="text-4xl mb-8 text-white">
         <ScrambleText className="font-semibold" text="Palestras & Apresentações" />
       </h1>
       <p className="leading-relaxed animate-fade-in-up">
