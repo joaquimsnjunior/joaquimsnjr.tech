@@ -16,7 +16,7 @@ type SectionListProps = {
   viewAllText?: string
 }
 
-export function SectionList({
+export function SectionListNotGrouped({
   title,
   items,
   viewAllHref,
@@ -27,7 +27,7 @@ export function SectionList({
       <h2 className="text-2xl font-semibold mb-6 flex items-center">
          {title}
       </h2>
-      <div className="space-y-8 group border border-gray-800 p-6 transition-colors hover:border-blue-400/50">
+      <div className="space-y-8">
         {items.map((item, index) => (
           <div key={item.title} className="group">
             <Link href={item.href} target="_blank">

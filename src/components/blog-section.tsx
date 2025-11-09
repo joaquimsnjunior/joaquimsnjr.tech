@@ -12,9 +12,8 @@ const posts = getPosts()
 export function BlogSection() {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-        <span className="text-blue-400 mr-2">*</span>
-        blog
+      <h2 className="text-2xl font-semibold mb-6 items-center text-white">
+        Blog
       </h2>
       <div className="space-y-4">
         {posts.map((post, index) => (
