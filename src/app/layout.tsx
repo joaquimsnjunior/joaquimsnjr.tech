@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.joaquimsnjr.tech"),
   title: {
-    default: "Joaquim Silva | Em constante deploy desde 1998",
+    default: "Joaquim Silva — Em constante deploy desde 1998",
     template: "%s | Joaquim Silva",
   },
   description: "Meu cantinho na internet.",

@@ -24,7 +24,7 @@ export function SectionListNotGrouped({
 }: SectionListProps) {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-semibold mb-6 flex items-center">
+      <h2 className="text-2xl font-semibold mb-6 flex items-center text-white">
          {title}
       </h2>
       <div className="space-y-8">
