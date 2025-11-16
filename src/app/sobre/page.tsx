@@ -50,13 +50,6 @@ function page() {
 export const metadata: Metadata = {
   title: "Sobre mim",
   description: "Alguns dos projetos em que trabalhei.",
-  openGraph: {
-    images: [
-      {
-        url: "https://www.joaquimsnjr.tech/og/home?title=projects",
-      },
-    ],
-  },
 }
 
 export default page

@@ -38,7 +38,6 @@ export default async function BlogPage() {
         </kbd>{" "}
         para navegar
       </p>
-
       <PostsList posts={posts} />
     </main>
   )
