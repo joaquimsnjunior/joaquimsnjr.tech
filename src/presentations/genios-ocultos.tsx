@@ -322,8 +322,8 @@ export const slides: React.ReactNode[] = [
     <section>
       <div className="flex md:flex-row items-center gap-8 justify-between">
         <div className="max-w-lg">
-          <h1 className="text-lg font-semibold text-red-600">Sam Altman</h1>
-          <p className="text-2xl">Não</p>
+          <h1 className="text-lg font-semibold">Sam Altman</h1>
+          <p className="text-2xl">Ops...</p>
         </div>
         <div>
           <img src="https://res.cloudinary.com/dy5xyare1/image/upload/v1763264405/43b4f8ff-62b0-4cbd-90c5-8e688b76c286.png" alt="Sam Altman" width={290} height={290} />
