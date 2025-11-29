@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 const links = [
@@ -8,7 +7,7 @@ const links = [
   { title: "linkedin", href: "https://www.linkedin.com/in/joaquimsnjr/" },
   { title: "medium", href: "https://medium.com/@joaquimsilvanetojunior" },
 ]
-
+// Footer component
 export function Footer() {
   return (
     <footer className="mt-16 mb-8">

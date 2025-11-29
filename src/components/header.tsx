@@ -11,7 +11,7 @@ export function Header() {
           <img
             width={65}
             height={65}
-            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1762122802/Profile_Joaquim_akpq89.jpg"
+            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
             alt="Profile"
             className="rounded-sm object-cover"
           />
