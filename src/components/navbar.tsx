@@ -47,27 +47,21 @@ export function Navbar() {
           href="/"
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          [h] home
-        </Link>
-        <Link
-          href="/sobre"
-          prefetch={true}
-          className="hover:text-blue-400 transition-colors duration-200"
-        >
-          [s] sobre
+          [h]/home
         </Link>
         <Link
           href="/blog"
           prefetch={true}
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          [b] blog
+          [b]/blog
         </Link>
         <Link
-          href="/projects"
+          href="/sobre"
+          prefetch={true}
           className="hover:text-blue-400 transition-colors duration-200"
         >
-          [p] projetos
+          [s]/sobre
         </Link>
       </div>
     </nav>

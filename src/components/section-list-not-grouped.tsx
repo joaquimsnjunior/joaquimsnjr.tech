@@ -24,14 +24,14 @@ export function SectionListNotGrouped({
 }: SectionListProps) {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-semibold mb-6 flex items-center text-white">
+      <h2 className="text-2xl font-semibold leading-none mb-6 flex items-center text-white underline decoration-blue-400 decoration-4">
          {title}
       </h2>
       <div className="space-y-8">
         {items.map((item, index) => (
-          <div key={item.title} className="group">
+          <div key={item.title} className="group underline decoration-transparent hover:decoration-blue-400 decoration-1 transition-all duration-200">
             <Link href={item.href} target="_blank">
-              <h3 className="text-xl font-semibold mb-1 text-white group-hover:text-blue-400 transition-colors duration-200">
+              <h3 className="text-xl font-semibold leading-none mb-1 text-white ">
                 {item.title}
               </h3>
               <p className="text-sm text-gray-400 mb-2">

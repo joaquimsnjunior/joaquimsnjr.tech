@@ -12,15 +12,7 @@ const links = [
 export function Footer() {
   return (
     <footer className="mt-16 mb-8">
-      <h2 className="mb-6 flex items-center text-white">
-         <img
-          src="https://res.cloudinary.com/dy5xyare1/image/upload/v1762122747/Assinatura_ogxlh8.png"
-          alt="Assinatura Joaquim Silva"
-          width={250}
-          height={250}
-          className="mb-8"
-        />
-      </h2>
+      
       <div className="flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
           <Link
@@ -31,13 +23,10 @@ export function Footer() {
             {link.title}
           </Link>
         ))}
-        <div>
-          <span className="text-gray-500">|</span>
-        </div>
-        <div>
-          <span className="text-gray-400">{new Date().getFullYear()} &copy; joaquim silva</span>
-        </div>
       </div>
+      <h5 className="dark:text-[#161616] text-[#F4F4F3] text-[500px] leading-none text-center pointer-events-none">
+        root
+      </h5>
     </footer>
   )
 }

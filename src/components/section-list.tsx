@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
 
 export type Item = {
   title: string
@@ -23,8 +22,8 @@ export function SectionList({
   viewAllText,
 }: SectionListProps) {
   return (
-    <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-semibold mb-6 flex items-center text-white">
+    <section className="mb-16">
+      <h2 className="text-3xl leading-none font-semibold mb-6 flex items-center text-white underline decoration-blue-400 decoration-4">
          {title}
       </h2>
       <div className="space-y-8 group border border-gray-800 p-6 transition-colors hover:border-blue-400/50">
@@ -45,10 +44,9 @@ export function SectionList({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline group"
+          className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline"
         >
           {viewAllText}{" "}
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </Link>
       )}
     </section>
