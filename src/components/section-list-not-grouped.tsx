@@ -34,10 +34,10 @@ export function SectionListNotGrouped({
               <h3 className="text-xl font-semibold leading-none mb-1 text-white ">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-400 mb-2">
+              <p className="text-sm text-zinc-500 mb-2">
                 {item.role} {item.period && `(${item.period})`}
               </p>
-              <p className="text-gray-300">{item.description}</p>
+              <p className="text-zinc-400">{item.description}</p>
             </Link>
           </div>
         ))}
