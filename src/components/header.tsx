@@ -19,7 +19,7 @@ export function Header() {
             priority
           />
           <div className="flex justify-end flex-col sm:flex-row sm:items-center sm:gap-4 w-full">
-            <ScrambleText className="font-semibold sm:text-[1.5rem] md:text-[2.5rem] leading-none flex-auto" text="Joaquim Silva" />
+            <ScrambleText className="font-semibold sm:text-[1.7rem] md:text-[2.5rem] leading-none flex-auto" text="Joaquim Silva" />
             <h3 className="text-[0.80rem] text-gray-400 leading-none sm:flex-wrap mt-2">~/Development/joaquimsnjr.tech</h3>
           </div>
         </span>
