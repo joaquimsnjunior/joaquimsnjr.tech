@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ArrowRight } from 'lucide-react';
 
 export type Item = {
   title: string
@@ -33,7 +34,7 @@ export function SectionList({
               <h3 className="text-xl font-semibold mb-1 text-white">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-400 mb-2">
+              <p className="text-xs text-zinc-500 mb-2">
                 {item.role} {item.period && `(${item.period})`}
               </p>
               <p className="text-gray-300">{item.description}</p>
@@ -44,9 +45,10 @@ export function SectionList({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline"
+          className="mt-6 inline-flex items-center gap-1 text-blue-400 transition-all duration-200 hover:gap-2 hover:underline"
         >
           {viewAllText}{" "}
+          <ArrowRight className="w-4 h-4"/>
         </Link>
       )}
     </section>

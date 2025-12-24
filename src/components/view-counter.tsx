@@ -31,7 +31,7 @@ function ViewCounter({
 export function ViewCounterSkeleton() {
   return (
     <div className="animate-pulse">
-      <div className="h-[17px] w-[70px] bg-gray-800/50 rounded-sm" />
+      <div className="h-[17px] w-[70px] bg-gray-800/50" />
     </div>
   )
 }
