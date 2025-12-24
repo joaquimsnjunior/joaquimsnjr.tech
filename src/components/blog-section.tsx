@@ -92,7 +92,7 @@ function FeaturedPostCard({ post }: FeaturedPostCardProps) {
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block md:flex overflow-hidden border border-blue-500/30  transition-all duration-300 hover:border-blue-400/60 hover:bg-zinc-900/60"
+      className="group block md:flex overflow-hidden border border-blue-500/30 transition-all duration-300 hover:border-blue-400/60 hover:bg-zinc-900/60"
       aria-label={`Ler artigo: ${metadata.title}`}
     >
       {/* Container da imagem de capa */}
@@ -170,12 +170,12 @@ function CompactPostItem({ post }: CompactPostItemProps) {
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group flex items-start gap-4 p-4 transition-all duration-200 hover:bg-zinc-800/30"
+      className="group flex items-start gap-4 p-2 transition-all duration-200 hover:bg-zinc-800/30"
       aria-label={`Ler artigo: ${metadata.title}`}
     >
       {/* Thumbnail pequena (opcional) */}
       {metadata.coverImage && (
-        <div className="relative h-16 w-24 flex-shrink-0 overflow-hidden bg-gray-800">
+        <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden bg-gray-800">
           <Image
             src={metadata.coverImage}
             alt=""

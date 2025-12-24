@@ -58,7 +58,7 @@ export function PostItem({ post, isSelected }: PostItemProps) {
     >
       {/* Thumbnail pequena (opcional) */}
       {post.metadata.coverImage && (
-        <div className="relative h-16 w-24 flex-shrink-0 overflow-hidden bg-gray-800">
+        <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden bg-gray-800">
           <Image
             src={post.metadata.coverImage}
             alt=""
