@@ -116,7 +116,7 @@ export default function Deck({ slides, title, initial = 0, notes }: DeckProps) {
         </div>
 
         <div className="flex-1 px-4">
-          <div className="w-full h-0.5 bg-gray-800 rounded overflow-hidden">
+          <div className="w-full h-0.5 bg-gray-800 overflow-hidden">
             <div className="h-0.5 bg-blue-400" style={{ width: `${progress}%` }} />
           </div>
         </div>

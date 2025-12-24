@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
 import { getPosts } from "@/lib/blog"
 
 const posts = getPosts()
@@ -12,21 +11,21 @@ const posts = getPosts()
 export function BlogSection() {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-semibold mb-6 items-center text-white">
+      <h2 className="text-3xl font-semibold leading-none mb-6 items-center text-white underline decoration-blue-400 decoration-4">
         Blog
       </h2>
       <div className="space-y-4">
         {posts.map((post, index) => (
-          <div key={index} className="flex justify-between items-center group">
+          <div key={index} className="flex justify-between items-center underline decoration-transparent hover:decoration-blue-400 decoration-1 transition-all duration-200">
             <Link
               href={`/blog/${post.slug}`}
-              className="text-gray-200 hover:text-blue-400 transition-colors duration-200"
+              className="text-gray-200"
             >
-              <span className="block text-sm text-gray-400">{formatDate(post.metadata.date && post.metadata.date)}
+              <span className="block text-[0.875rem] text-gray-400">{formatDate(post.metadata.date && post.metadata.date)}
               </span>
               {post.metadata.title.toLowerCase()}
               {post.metadata.description && (
-                <span className="block text-sm text-gray-400">
+                <span className="block text-[0.80rem] text-gray-400">
                   {post.metadata.description}
                 </span>
               )}
@@ -39,7 +38,6 @@ export function BlogSection() {
         className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline group"
       >
         todos os posts{" "}
-        <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
       </Link>
     </section>
   )

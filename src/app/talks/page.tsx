@@ -1,5 +1,5 @@
 import { ScrambleText } from '@/components/scramble-text'
-import { Item, SectionList } from '@/components/section-list'
+import { Item } from '@/components/section-list'
 import { SectionListNotGrouped } from '@/components/section-list-not-grouped'
 import { Metadata } from 'next'
 import React from 'react'
@@ -17,7 +17,7 @@ const talksItems: Item[] = [
 function Talks() {
   return (
     <div>
-      <h1 className="text-4xl mb-8 text-white">
+      <h1 className="text-4xl mb-8 text-white underline decoration-blue-400 decoration-4">
         <ScrambleText className="font-semibold" text="Palestras & Apresentações" />
       </h1>
       {/* Lista de palestras */}

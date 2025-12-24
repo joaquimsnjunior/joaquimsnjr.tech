@@ -12,6 +12,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@upstash/redis": "^1.34.3",
     "babel-plugin-react-compiler": "^19.0.0-beta-a7bf2bd-20241110",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.456.0",
     "next": "^15.5.4",
     "next-mdx-remote": "^5.0.0",

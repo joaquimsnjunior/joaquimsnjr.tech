@@ -11,8 +11,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.joaquimsnjr.tech"),
   title: {
-    default: "Joaquim Silva — Hello, world!",
-    template: "%s | Joaquim Silva",
+    default: "~/Joaquim_Silva",
+    template: "cd ~/%s",
   },
   description: "Meu cantinho na internet.",
   openGraph: {
@@ -46,9 +46,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistMono.variable} antialiased min-h-screen`}
+        className={`${geistMono.variable} antialiased min-h-screen font-mono overflow-x-hidden`}
       >
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto px-4 py-8 overflow-hidden md:overflow-visible">
           {children}
         </div>
       </body>

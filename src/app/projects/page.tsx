@@ -28,7 +28,7 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <main className="animate-fade-in-up">
-      <h1 className="text-4xl font-semibold mb-8 text-white">
+      <h1 className="text-4xl font-semibold mb-8 text-white underline decoration-blue-400 decoration-4">
         <ScrambleText className="font-semibold" text="Projetos" />
       </h1>
 
