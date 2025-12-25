@@ -13,7 +13,6 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const title = searchParams.get("title") ?? "Joaquim Silva | Blog"
 
-  // LinkedIn e maioria das redes preferem 1200x630
   const width = 1200
   const height = 630
 
@@ -33,7 +32,35 @@ export async function GET(request: Request) {
           position: "relative",
         }}
       >
-        {/* ...existing code... */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          <h1
+            style={{
+              fontSize: "48px",
+              fontWeight: "bold",
+              color: "#fff",
+              marginBottom: "20px",
+              lineHeight: 1.2,
+            }}
+          >
+            {title}
+          </h1>
+          <p
+            style={{
+              fontSize: "24px",
+              color: "#888",
+            }}
+          >
+            joaquimsnjr.tech
+          </p>
+        </div>
       </div>
     ),
     {
