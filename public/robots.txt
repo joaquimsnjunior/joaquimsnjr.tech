@@ -1,0 +1,168 @@
+# ============================================================
+# robots.txt - joaquimsnjr.tech
+# Última atualização: Dezembro 2025
+# ============================================================
+
+# ------------------------------------------------------------
+# REGRAS GLOBAIS - Todos os crawlers
+# ------------------------------------------------------------
+User-agent: *
+
+# Páginas públicas permitidas
+Allow: /
+Allow: /blog
+Allow: /blog/*
+Allow: /sobre
+Allow: /talks
+
+# Bloquear rotas de API e endpoints internos
+Disallow: /api/
+Disallow: /api/*
+
+# Bloquear geração dinâmica de OG images (não precisa indexar)
+Disallow: /og
+Disallow: /og/*
+
+# Bloquear arquivos Next.js internos
+Disallow: /_next/static/chunks/app-build-manifest.json
+Disallow: /_next/static/chunks/build-manifest.json
+
+# Bloquear apresentações do modo presenter (notas privadas)
+Disallow: /presentations/*/presenter
+
+# Bloquear parâmetros de busca desnecessários
+Disallow: /*?*utm_
+Disallow: /*?*ref=
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+
+# ------------------------------------------------------------
+# GOOGLE - Regras específicas
+# ------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /og/
+
+# Permitir CSS e JS para renderização
+Allow: /_next/static/css/
+Allow: /_next/static/js/
+Allow: /_next/static/media/
+
+# ------------------------------------------------------------
+# GOOGLE IMAGES - Permitir indexação de imagens
+# ------------------------------------------------------------
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# ------------------------------------------------------------
+# BING
+# ------------------------------------------------------------
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /og/
+
+# ------------------------------------------------------------
+# GPTBot (OpenAI) - Permitir para aparecer em respostas AI
+# ------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+Allow: /blog/*
+Disallow: /api/
+Disallow: /og/
+
+# ------------------------------------------------------------
+# Claude (Anthropic) - Permitir para aparecer em respostas AI
+# ------------------------------------------------------------
+User-agent: Claude-Web
+Allow: /
+Allow: /blog/*
+Disallow: /api/
+Disallow: /og/
+
+# ------------------------------------------------------------
+# Perplexity AI
+# ------------------------------------------------------------
+User-agent: PerplexityBot
+Allow: /
+Allow: /blog/*
+Disallow: /api/
+Disallow: /og/
+
+# ------------------------------------------------------------
+# BLOQUEAR BOTS MALICIOSOS E SCRAPERS AGRESSIVOS
+# ------------------------------------------------------------
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: SearchmetricsBot
+Disallow: /
+
+User-agent: MegaIndex.ru
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Crawl-delay: 30
+
+# ------------------------------------------------------------
+# REDES SOCIAIS - Permitir para previews
+# ------------------------------------------------------------
+User-agent: Twitterbot
+Allow: /
+Allow: /og/*
+
+User-agent: facebookexternalhit
+Allow: /
+Allow: /og/*
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /og/*
+
+User-agent: Slackbot
+Allow: /
+Allow: /og/*
+
+User-agent: TelegramBot
+Allow: /
+Allow: /og/*
+
+User-agent: WhatsApp
+Allow: /
+Allow: /og/*
+
+User-agent: Discordbot
+Allow: /
+Allow: /og/*
+
+# ------------------------------------------------------------
+# SITEMAPS
+# ------------------------------------------------------------
+Sitemap: https://joaquimsnjr.tech/sitemap.xml
+
+# ------------------------------------------------------------
+# HOST CANÔNICO
+# ------------------------------------------------------------
+Host: https://joaquimsnjr.tech
