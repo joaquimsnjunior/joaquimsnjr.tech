@@ -12,7 +12,7 @@ export function Header() {
             width={80}
             height={80}
             src="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
-            alt="Profile"
+            alt="Homem jovem com cabelo escuro e barba fina, pensativo, segurando o queixo com a mão, com fundo branco, usando camiseta preta."
             placeholder="blur"
             blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
             priority
