@@ -1,4 +1,3 @@
-import { ScrambleText } from "@/components/scramble-text"
 import { MapPin, FolderGit2 } from "lucide-react"
 import Image from "next/image"
 // import Profile  from "../../public/joaquimsnjr.jpg"
