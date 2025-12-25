@@ -14,8 +14,11 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   const publishedTime = formatDate(post.metadata.date)
-  const encodedTitle = encodeURIComponent(post.metadata.title)
-  const ogImageUrl = `https://www.joaquimsnjr.tech/og/blog?title=${encodedTitle}`
+  
+  // Usa coverImage do post se existir, senão gera dinamicamente
+  const ogImageUrl = post.metadata.coverImage 
+    ? post.metadata.coverImage 
+    : `https://www.joaquimsnjr.tech/og/blog?title=${encodeURIComponent(post.metadata.title)}`
 
   return {
     title: post.metadata.title,
@@ -34,7 +37,6 @@ export async function generateMetadata({ params }: PageProps) {
           width: 1200,
           height: 630,
           alt: post.metadata.title,
-          type: "image/png",
         },
       ],
     },
