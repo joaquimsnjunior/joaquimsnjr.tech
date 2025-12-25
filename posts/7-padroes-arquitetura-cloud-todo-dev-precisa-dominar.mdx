@@ -1,0 +1,256 @@
+---
+title: "7 Padrões de Arquitetura em Cloud que Todo Dev Precisa Dominar (e Quando Usar Cada Um)"
+description: "Descubra os 7 padrões de arquitetura em cloud mais usados pelas big techs e quando aplicar cada um na prática."
+date: "december 25, 2025"
+coverImage: "https://res.cloudinary.com/dy5xyare1/image/upload/v1766672976/7_Padr%C3%B5es_de_Arquitetura_em_Cloud_que_Todo_Dev_Precisa_Dominar_e_Quando_Usar_Cada_Um_hs7lwx.png"
+---
+
+Ei, dev! Tá construindo sistemas na nuvem e quer escalar de júnior pra sênior rapidinho?
+
+Esses 7 padrões de arquitetura são o segredo das big techs – do Nubank ao Netflix – pra criar apps escaláveis, resilientes e que **aguentam Black Friday sem cair**.
+
+Não é teoria: são estratégias testadas em produção pra resolver problemas reais, tipo lidar com milhões de usuários Pix, evitar downtime em fintechs ou modernizar aquele legado horroroso do banco sem quebrar tudo.
+
+Vou quebrar cada padrão com o que é, exemplo real, quando usar e dicas práticas pra implementar hoje. No final, tem tabela comparativa pra você consultar rápido.
+
+
+## Tabela Rápida: Padrões x Cenários Reais
+
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse overflow-hidden">
+    <thead>
+      <tr className="text-white">
+        <th className="px-6 py-4 text-left font-semibold">Padrão</th>
+        <th className="px-6 py-4 text-left font-semibold">Problema que Resolve</th>
+        <th className="px-6 py-4 text-left font-semibold">Exemplo</th>
+        <th className="px-6 py-4 text-left font-semibold">Dificuldade</th>
+        <th className="px-6 py-4 text-center font-semibold">Custo Inicial</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y">
+      <tr>
+        <td className="px-6 py-4 font-medium">Microservices</td>
+        <td className="px-6 py-4">Apps monolíticos lentos</td>
+        <td className="px-6 py-4">Nubank backend</td>
+        <td className="px-6 py-4 text-left">⭐⭐⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 text-sm">Médio</span></td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 font-medium">Event-Driven</td>
+        <td className="px-6 py-4">Processos síncronos engasgados</td>
+        <td className="px-6 py-4">iFood pedidos</td>
+        <td className="px-6 py-4 text-left">⭐⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 text-sm">Baixo</span></td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 font-medium">Sidecar</td>
+        <td className="px-6 py-4">Containers bagunçados</td>
+        <td className="px-6 py-4">Kubernetes no C6</td>
+        <td className="px-6 py-4 text-left">⭐⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 text-sm">Baixo</span></td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 font-medium">Strangler Fig</td>
+        <td className="px-6 py-4">Legados imortais</td>
+        <td className="px-6 py-4">Migração Itaú</td>
+        <td className="px-6 py-4 text-left">⭐⭐⭐⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 text-sm">Alto</span></td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 font-medium">Sharding</td>
+        <td className="px-6 py-4">DBs sobrecarregados</td>
+        <td className="px-6 py-4">Magazine Luiza</td>
+        <td className="px-6 py-4 text-left">⭐⭐⭐⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 rounded-full bg-red-100 text-red-800 text-sm">Alto</span></td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 font-medium">Serverless</td>
+        <td className="px-6 py-4">Infra cara e imprevisível</td>
+        <td className="px-6 py-4">Startups SP</td>
+        <td className="px-6 py-4 text-left">⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 text-sm">Baixo</span></td>
+      </tr>
+      <tr>
+        <td className="px-6 py-4 font-medium">API Gateway</td>
+        <td className="px-6 py-4">APIs expostas e inseguras</td>
+        <td className="px-6 py-4">E-commerces</td>
+        <td className="px-6 py-4 text-left">⭐⭐</td>
+        <td className="px-6 py-4 text-center"><span className="px-3 py-1 text-sm">Médio</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+## 1. Microservices Architecture: Divida pra Conquistar
+
+**O que é:** Quebra apps gigantes em serviços pequenos e independentes que se falam por APIs (REST/gRPC).
+
+Exemplo: Nubank tem +200 microservices – cartões, Pix e investimentos rodam separado, cada time escala o seu pedaço.
+
+**Quando usar:**
+
+- Deploy independente por equipe
+
+- Escala diferente por serviço (auth escala mais que relatórios)
+
+- Times grandes (10+ devs)
+
+**Dica prática:** Comece com AWS ECS ou Kubernetes. Exemplo Terraform básico:
+
+```hcl
+resource "aws_ecs_service" "pagamentos" {
+  name = "pagamentos-service"
+  # cada microservice tem seu container separado
+}
+```
+
+---
+
+## 2. Event-Driven Architecture: Reaja, Não Espere
+
+**O que é:** Componentes reagem a eventos assíncronos (SNS, Kafka, SQS). Usuário fez Pix? Evento dispara workflow automaticamente.
+
+Exemplo: iFood – pedido criado → evento → cozinha notificada → entregador alocado → tudo sem polling louco.
+
+**Quando usar:**
+
+- Fluxos real-time (notificações, IoT)
+
+- Sistemas loosely coupled
+
+- Alta resiliência (um serviço cai, outros continuam)
+
+**Dica prática:** AWS EventBridge grátis pra começar:
+
+```json
+{
+  "source": ["pix.recebido"],
+  "detail-type": "PixProcessado"
+}
+```
+
+---
+
+## 3. Sidecar Pattern: Seu Assistente Invisível
+
+**O que é:** Container "ajudante" junto ao app principal – faz logging, metrics, service discovery sem poluir seu código.
+
+Exemplo: C6 Bank usa Istio + sidecars pra monitoring automático em K8s.
+
+**Quando usar:**
+
+- Kubernetes/microservices
+
+- Logging/monitoring padronizado
+
+- Networking complexo (mTLS)
+
+**Dica prática:** [Istio](https://istio.io/) injeta automaticamente:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    sidecar.istio.io/inject: "true"  # magia acontece
+```
+
+---
+
+## 4. Strangler Fig Pattern: Mate o Legado aos Poucos
+
+**O que é:** Substitui sistemas legados gradualmente – nova funcionalidade vai pro microservice, antiga ainda no monolito até morrer de inanição.
+
+Exemplo: Itaú modernizando COBOL – cadastro de cliente já tá na nuvem, extratos ainda no mainframe.
+
+**Quando usar:**
+
+- Migração sem Big Bang
+
+- Sistemas críticos 24/7
+
+- ROI gradual
+
+**Dica prática:** AWS App Runner + API Gateway faz o roteamento:
+
+```text
+legacy.com/cliente → gateway → novo-service.com/cliente
+```
+
+---
+
+## 5. Database Sharding: Divida pra Escalar
+
+**O que é:** Espalha dados por múltiplos DBs – shard por CPF, região, etc. Cada nó cuida de um pedaço.
+
+Exemplo: Magazine Luiza sharda por estado – SP em um cluster, Nordeste em outro.
+
+**Quando usar:** 
+
+- 1M usuários ativos
+
+- Global/multi-região
+
+- Read/Write heavy
+
+**Dica prática:** DynamoDB partition key por ``user_id`` ou Vitess pro MySQL.
+
+---
+
+## 6. Serverless Architecture: Sem Servidor, Só Código
+
+**O que é:** Lambda/Fargate rodam só quando necessário – pague por uso, esqueça patching/EC2.
+
+Exemplo: Startups SP processando webhook Stripe só quando tem pagamento.
+
+**Quando usar:**
+
+- Workloads imprevisíveis
+
+- Prototipagem rápida
+
+- Custos baixos (R$0,20 por milhão requests)
+
+**Dica prática:** Lambda simples:
+
+```go
+  package main
+
+  import (
+      "github.com/aws/aws-lambda-go/lambda"
+  )
+
+  type Response struct {
+      Status string `json:"status"`
+  }
+
+  func handler() (Response, error) {
+      // roda só quando chamado
+      return Response{Status: "pix processado"}, nil
+  }
+
+  func main() {
+      lambda.Start(handler)
+  }
+```
+---
+
+## 7. API Gateway Pattern: Sua Portaria Blindada
+
+**O que é:** Única entrada pros clientes – roteia, autentica (Cognito), limita rate, cacheia.
+
+Exemplo: E-commerces usam pra esconder 50 microservices atrás de /api/v1.
+
+**Quando usar:**
+
+- Múltiplos clientes (web/mobile)
+
+- Segurança centralizada
+
+- Analytics de tráfego
+
+**Dica prática:** AWS API Gateway + Cognito = 10min setup.
+
+### Domine esses padrões e seu próximo deploy não vai ser só mais um 🚀
