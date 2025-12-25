@@ -5,6 +5,7 @@ export type Metadata = {
   title: string
   description: string
   date: string
+  coverImage?: string // Imagem de capa opcional para o post
 }
 
 export type FrontmatterParseResult = {

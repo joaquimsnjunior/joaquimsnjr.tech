@@ -1,7 +1,6 @@
-import { ScrambleText } from "@/components/scramble-text"
-import { MapPin, CodeXml } from "lucide-react"
-import Profile  from "../../public/joaquimsnjr.jpg"
+import { MapPin, FolderGit2 } from "lucide-react"
 import Image from "next/image"
+// import Profile  from "../../public/joaquimsnjr.jpg"
 import Link from "next/link"
 
 export function Header() {
@@ -10,25 +9,34 @@ export function Header() {
       <h1 className="text-4xl font-bold mb-4 animate-fade-in text-white">
         <span className="flex items-center gap-4">
           <Image
-            src={Profile}
-            alt="Profile"
-            className="w-12 h-12 rounded-full"
+            width={80}
+            height={80}
+            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
+            alt="Homem jovem com cabelo escuro e barba fina, pensativo, segurando o queixo com a mão, com fundo branco, usando camiseta preta."
+            placeholder="blur"
+            blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
+            priority
           />
-          <ScrambleText className="font-semibold" text="Joaquim Silva" />
+          <div className="flex justify-end flex-col sm:flex-row sm:items-center sm:gap-4 w-full">
+            <h1 className="font-semibold sm:text-[1.7rem] md:text-[2.5rem] leading-none flex-auto underline decoration-blue-400 decoration-4 underline-offset-4">Joaquim Silva</h1>
+            <h3 className="text-[0.80rem] text-gray-400 leading-none sm:flex-wrap mt-2">~/Development/joaquimsnjr.tech</h3>
+          </div>
         </span>
       </h1>
-      <div className="flex flex-col gap-2 text-gray-400">
-        <div className="flex items-center gap-2">
-          <MapPin className="w-4 h-4" />
+      <div className="flex flex-col gap-2 text-gray-350 group border p-4 border-gray-800/40 bg-[#161616]">
+        <div className="flex items-center gap-2 text-[0.95rem]">
+          <MapPin className="w-4 h-4"/>
           São Paulo, Brasil
         </div>
-        <div className="flex items-center gap-2">
-          <CodeXml className="w-4 h-4" />
-          SRE | DevOps Engineer | Backend Developer
+        <div className="flex items-center gap-2 text-[0.95rem]">
+            SRE & Software Engineer | Mission Critical Systems
         </div>
-        <div>
+        <div className="mt-2 group border p-2 border-gray-800/50">
           <Link href="/talks">
-            <span className="text-white/85 hover:text-blue-400 transition-colors duration-200 text-sm">[t] palestras & apresentações</span>
+            <span className="text-white/85 hover:text-blue-400 transition-colors duration-200 text-[0.80rem]">[t] talks</span>
+          </Link>
+          <Link href="/projects" className="ml-4 group border p-2 border-gray-800 transition-colors hover:border-blue-400/50">
+            <span className="text-white/85 hover:text-blue-400 transition-colors duration-200 text-[0.80rem]"><FolderGit2 className="w-4 h-4 inline-block" /> projetos</span>
           </Link>
         </div>
       </div>

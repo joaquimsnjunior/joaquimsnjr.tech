@@ -1,6 +1,8 @@
 import { Header } from "@/components/header"
-import { Item, SectionList } from "@/components/section-list"
+import { SectionList } from "@/components/section-list"
 import { BlogSection } from "@/components/blog-section"
+import { Navbar } from '../components/navbar';
+import { Footer } from "@/components/footer";
 
 
 
@@ -17,15 +19,16 @@ const projectItems = [
 export default function HomePage() {
   return (
     <>
+      <Navbar />
       <Header />
-
       <BlogSection />
       <SectionList
-        title="projetos"
+        title="Projetos"
         items={projectItems}
         viewAllHref="/projects"
         viewAllText="todos os projetos"
       />
+      <Footer />
     </>
   )
 }

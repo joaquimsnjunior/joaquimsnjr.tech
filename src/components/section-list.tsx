@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowRight } from 'lucide-react';
 
 export type Item = {
   title: string
@@ -23,18 +23,18 @@ export function SectionList({
   viewAllText,
 }: SectionListProps) {
   return (
-    <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-        <span className="text-blue-400 mr-2">*</span> {title}
+    <section className="mb-16">
+      <h2 className="text-3xl leading-none font-semibold mb-6 flex items-center text-white underline decoration-blue-400 decoration-4">
+         {title}
       </h2>
-      <div className="space-y-8">
+      <div className="space-y-8 group border border-gray-800 p-6 transition-colors hover:border-blue-400/50">
         {items.map((item, index) => (
           <div key={item.title} className="group">
             <Link href={item.href} target="_blank">
-              <h3 className="text-xl font-semibold mb-1 text-white group-hover:text-blue-400 transition-colors duration-200">
+              <h3 className="text-xl font-semibold mb-1 text-white">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-400 mb-2">
+              <p className="text-xs text-zinc-500 mb-2">
                 {item.role} {item.period && `(${item.period})`}
               </p>
               <p className="text-gray-300">{item.description}</p>
@@ -45,10 +45,10 @@ export function SectionList({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline group"
+          className="mt-6 inline-flex items-center gap-1 text-blue-400 transition-all duration-200 hover:gap-2 hover:underline"
         >
           {viewAllText}{" "}
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          <ArrowRight className="w-4 h-4"/>
         </Link>
       )}
     </section>

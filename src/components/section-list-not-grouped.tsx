@@ -1,0 +1,56 @@
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
+
+export type Item = {
+  title: string
+  href: string
+  role: string
+  period?: string
+  description: string
+}
+
+type SectionListProps = {
+  title: string
+  items: Item[]
+  viewAllHref?: string
+  viewAllText?: string
+}
+
+export function SectionListNotGrouped({
+  title,
+  items,
+  viewAllHref,
+  viewAllText,
+}: SectionListProps) {
+  return (
+    <section className="mb-16 animate-fade-in-up">
+      <h2 className="text-2xl font-semibold leading-none mb-6 flex items-center text-white underline decoration-blue-400 decoration-4">
+         {title}
+      </h2>
+      <div className="space-y-8">
+        {items.map((item, index) => (
+          <div key={item.title} className="group underline decoration-transparent hover:decoration-blue-400 decoration-1 transition-all duration-200">
+            <Link href={item.href} target="_blank">
+              <h3 className="text-xl font-semibold leading-none mb-1 text-white ">
+                {item.title}
+              </h3>
+              <p className="text-sm text-zinc-500 mb-2">
+                {item.role} {item.period && `(${item.period})`}
+              </p>
+              <p className="text-zinc-400">{item.description}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
+      {viewAllHref && (
+        <Link
+          href={viewAllHref}
+          className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline group"
+        >
+          {viewAllText}{" "}
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </Link>
+      )}
+    </section>
+  )
+}

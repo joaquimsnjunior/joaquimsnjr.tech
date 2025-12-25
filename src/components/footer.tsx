@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 const links = [
@@ -6,21 +5,13 @@ const links = [
   { title: "x.com", href: "https://x.com/joaquimsnjunior" },
   { title: "github", href: "https://github.com/joaquimsnjunior" },
   { title: "linkedin", href: "https://www.linkedin.com/in/joaquimsnjr/" },
+  { title: "medium", href: "https://medium.com/@joaquimsilvanetojunior" },
 ]
-
+// Footer component
 export function Footer() {
   return (
     <footer className="mt-16 mb-8">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-        <span className="text-blue-400 mr-2">*</span>
-         <Image
-          src="/Assinatura.png"
-          alt="Assinatura Joaquim Silva"
-          width={200}
-          height={200}
-          className="mb-4"
-        />
-      </h2>
+      
       <div className="flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
           <Link
@@ -31,13 +22,10 @@ export function Footer() {
             {link.title}
           </Link>
         ))}
-        <div>
-          <span className="text-gray-500">|</span>
-        </div>
-        <div>
-          <span className="text-gray-400">{new Date().getFullYear()} &copy; joaquim silva</span>
-        </div>
       </div>
+      <h5 className="dark:text-[#161616] text-[#F4F4F3] text-[500px] leading-none text-center pointer-events-none">
+        root
+      </h5>
     </footer>
   )
 }

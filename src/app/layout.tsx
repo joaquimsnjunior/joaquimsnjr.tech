@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import { Geist_Mono } from "next/font/google"
 import "./globals.css"
-import { Navbar } from "../components/navbar"
-import { Footer } from "@/components/footer"
+import Transition from "@/components/transition"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -13,8 +12,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.joaquimsnjr.tech"),
   title: {
-    default: "Joaquim Silva — Software Engineer",
-    template: "%s | Joaquim Silva",
+    default: "~/Joaquim_Silva",
+    template: "cd ~/%s",
   },
   description: "Meu cantinho na internet.",
   openGraph: {
@@ -48,12 +47,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistMono.variable} antialiased min-h-screen font-mono`}
+        className={`${geistMono.variable} antialiased min-h-screen font-mono overflow-x-hidden`}
       >
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <Navbar />
-          {children}
-          <Footer />
+        <div className="max-w-7xl mx-auto px-4 py-8 overflow-hidden md:overflow-visible">
+          <Transition>{children}</Transition>
         </div>
       </body>
     </html>
