@@ -230,7 +230,31 @@ function TalksPage() {
 
 export const metadata: Metadata = {
   title: "Palestras & Apresentações",
-  description: "Veja as palestras e apresentações que já fiz ao longo do tempo.",
+  description: "Palestras sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.",
+  keywords: ["palestras", "talks", "apresentações", "Go", "Cloud Native", "SRE", "Open Source"],
+  openGraph: {
+    title: "Palestras & Apresentações | Joaquim Silva",
+    description: "Palestras sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.",
+    url: "https://www.joaquimsnjr.tech/talks",
+    siteName: "Joaquim Silva",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://www.joaquimsnjr.tech/og/home?title=talks",
+        width: 1200,
+        height: 630,
+        alt: "Palestras & Apresentações - Joaquim Silva",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Palestras & Apresentações | Joaquim Silva",
+    description: "Palestras sobre Cloud Native, Go, SRE e Open Source.",
+    creator: "@joaquimsnjunior",
+    images: ["https://www.joaquimsnjr.tech/og/home?title=talks"],
+  },
 }
 
 export default TalksPage

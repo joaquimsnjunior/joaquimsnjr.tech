@@ -387,12 +387,29 @@ export default function ProjectsPage() {
 
 export const metadata: Metadata = {
   title: "Projetos",
-  description: "Alguns dos projetos em que trabalhei.",
+  description: "Projetos de código aberto e ferramentas que desenvolvo. Construindo soluções com Go, TypeScript, Kubernetes e muito mais.",
+  keywords: ["projetos", "projects", "open source", "Go", "TypeScript", "Kubernetes", "portfolio"],
   openGraph: {
+    title: "Projetos | Joaquim Silva",
+    description: "Projetos de código aberto e ferramentas que desenvolvo. Construindo soluções com Go, TypeScript, Kubernetes e muito mais.",
+    url: "https://www.joaquimsnjr.tech/projects",
+    siteName: "Joaquim Silva",
+    locale: "pt_BR",
+    type: "website",
     images: [
       {
         url: "https://www.joaquimsnjr.tech/og/home?title=projects",
+        width: 1200,
+        height: 630,
+        alt: "Projetos - Joaquim Silva",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projetos | Joaquim Silva",
+    description: "Projetos de código aberto e ferramentas que desenvolvo.",
+    creator: "@joaquimsnjunior",
+    images: ["https://www.joaquimsnjr.tech/og/home?title=projects"],
   },
 }

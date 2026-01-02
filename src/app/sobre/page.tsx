@@ -219,7 +219,31 @@ function SobrePage() {
 
 export const metadata: Metadata = {
   title: "Sobre mim",
-  description: "Conheça mais sobre minha trajetória como Engenheiro de Software & SRE.",
+  description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Conheça minha trajetória e experiência profissional.",
+  keywords: ["sobre", "about", "Joaquim Silva", "SRE", "Software Engineer", "experiência", "carreira"],
+  openGraph: {
+    title: "Sobre mim | Joaquim Silva",
+    description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Conheça minha trajetória e experiência profissional.",
+    url: "https://www.joaquimsnjr.tech/sobre",
+    siteName: "Joaquim Silva",
+    locale: "pt_BR",
+    type: "profile",
+    images: [
+      {
+        url: "https://www.joaquimsnjr.tech/og/home?title=sobre",
+        width: 1200,
+        height: 630,
+        alt: "Sobre mim - Joaquim Silva",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre mim | Joaquim Silva",
+    description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes.",
+    creator: "@joaquimsnjunior",
+    images: ["https://www.joaquimsnjr.tech/og/home?title=sobre"],
+  },
 }
 
 export default SobrePage
