@@ -90,14 +90,14 @@ export function Posts({ posts }: PostsProps) {
                   <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <span className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <span className="ml-3 text-xs text-gray-500 font-mono">search</span>
+                <span className="ml-3 text-xs text-gray-400 font-mono">search</span>
               </div>
               <button
                 onClick={() => {
                   setIsSearching(false)
                   setSearchQuery("")
                 }}
-                className="text-gray-500 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -106,12 +106,12 @@ export function Posts({ posts }: PostsProps) {
             {/* Search Input */}
             <div className="flex items-center gap-3 px-4 py-4 border-b border-gray-800/60">
               <span className="text-emerald-400 font-mono">❯</span>
-              <span className="text-gray-500 font-mono text-sm">grep</span>
+              <span className="text-gray-400 font-mono text-sm">grep</span>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 bg-transparent outline-none text-white font-mono placeholder:text-gray-600"
+                className="flex-1 bg-transparent outline-none text-white font-mono placeholder:text-gray-500"
                 autoFocus
                 placeholder="buscar artigos..."
                 aria-label="Search posts"
@@ -127,7 +127,7 @@ export function Posts({ posts }: PostsProps) {
             </div>
 
             {/* Results Count */}
-            <div className="px-4 py-2 text-xs text-gray-600 font-mono border-b border-gray-800/40">
+            <div className="px-4 py-2 text-xs text-gray-500 font-mono border-b border-gray-800/40">
               {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} encontrado{filteredPosts.length !== 1 ? 's' : ''}
             </div>
 
@@ -139,8 +139,8 @@ export function Posts({ posts }: PostsProps) {
                     key={item.slug}
                     onClick={() => router.push(`/blog/${item.slug}`)}
                     className={`w-full text-left px-4 py-3 flex items-center gap-3 transition-colors ${index === selectedIndex
-                        ? 'bg-blue-400/10 border-l-2 border-blue-400'
-                        : 'hover:bg-gray-800/30 border-l-2 border-transparent'
+                      ? 'bg-blue-400/10 border-l-2 border-blue-400'
+                      : 'hover:bg-gray-800/30 border-l-2 border-transparent'
                       }`}
                   >
                     <div className="flex-1 min-w-0">
@@ -148,12 +148,12 @@ export function Posts({ posts }: PostsProps) {
                         }`}>
                         {item.metadata.title}
                       </p>
-                      <p className="text-xs text-gray-600 truncate mt-0.5">
+                      <p className="text-xs text-gray-500 truncate mt-0.5">
                         {item.metadata.description}
                       </p>
                     </div>
                     {index === selectedIndex && (
-                      <div className="flex items-center gap-1 text-gray-600">
+                      <div className="flex items-center gap-1 text-gray-500">
                         <CornerDownLeft className="w-3 h-3" />
                         <span className="text-[10px]">enter</span>
                       </div>
@@ -162,14 +162,14 @@ export function Posts({ posts }: PostsProps) {
                 ))
               ) : (
                 <div className="px-4 py-8 text-center">
-                  <p className="text-gray-600 font-mono text-sm">Nenhum artigo encontrado</p>
-                  <p className="text-gray-700 text-xs mt-1">Tente outro termo de busca</p>
+                  <p className="text-gray-500 font-mono text-sm">Nenhum artigo encontrado</p>
+                  <p className="text-gray-500 text-xs mt-1">Tente outro termo de busca</p>
                 </div>
               )}
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between px-4 py-2 border-t border-gray-800/60 bg-[#1a1a1a] text-xs text-gray-600">
+            <div className="flex items-center justify-between px-4 py-2 border-t border-gray-800/60 bg-[#1a1a1a] text-xs text-gray-500">
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1">
                   <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 text-[10px]">↑↓</kbd>

@@ -51,8 +51,8 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
     <Link
       href={`/blog/${post.slug}`}
       className={`group block border transition-all duration-300 ${isSelected
-          ? 'border-blue-400/50 bg-blue-400/5'
-          : 'border-gray-800/60 bg-[#161616] hover:border-blue-400/50 hover:bg-[#1a1a1a]'
+        ? 'border-blue-400/50 bg-blue-400/5'
+        : 'border-gray-800/60 bg-[#161616] hover:border-blue-400/50 hover:bg-[#1a1a1a]'
         }`}
       aria-label={`Ler artigo: ${post.metadata.title}`}
     >
@@ -60,13 +60,13 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
       <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800/40 bg-[#1a1a1a]">
         <div className="flex items-center gap-2">
           <div className="flex gap-1">
-            <span className="w-2 h-2 rounded-full bg-gray-600" />
-            <span className="w-2 h-2 rounded-full bg-gray-600" />
-            <span className="w-2 h-2 rounded-full bg-gray-600" />
+            <span className="w-2 h-2 rounded-full bg-gray-500" />
+            <span className="w-2 h-2 rounded-full bg-gray-500" />
+            <span className="w-2 h-2 rounded-full bg-gray-500" />
           </div>
-          <span className="text-[10px] text-gray-600 font-mono ml-2">posts/{post.slug.slice(0, 20)}...</span>
+          <span className="text-[10px] text-gray-500 font-mono ml-2">posts/{post.slug.slice(0, 20)}...</span>
         </div>
-        <span className="text-[10px] text-gray-600 font-mono">[{category}]</span>
+        <span className="text-[10px] text-gray-500 font-mono">[{category}]</span>
       </div>
 
       {/* Content */}
@@ -88,7 +88,7 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
         {/* Text Content */}
         <div className="flex-1 min-w-0">
           {/* Meta info */}
-          <div className="flex items-center gap-3 text-xs text-gray-500 mb-2">
+          <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
             <div className="flex items-center gap-1">
               <Calendar className="w-3 h-3" />
               <time dateTime={new Date(post.metadata.date).toISOString()}>
@@ -109,7 +109,7 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
 
           {/* Description */}
           {post.metadata.description && (
-            <p className="mt-2 text-sm text-gray-500 line-clamp-1">
+            <p className="mt-2 text-sm text-gray-400 line-clamp-1">
               {post.metadata.description}
             </p>
           )}
@@ -118,8 +118,8 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
         {/* Arrow indicator */}
         <div className="flex-shrink-0 self-center">
           <ArrowUpRight className={`w-5 h-5 transition-all duration-200 ${isSelected
-              ? 'text-blue-400'
-              : 'text-gray-700 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+            ? 'text-blue-400'
+            : 'text-gray-500 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
             }`} />
         </div>
       </div>
