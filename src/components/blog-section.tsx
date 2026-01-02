@@ -1,49 +1,35 @@
 /**
  * BlogSection - Componente de listagem de posts do blog para a homepage.
  *
- * @description Inspirado no layout do 404media.co, exibe o post mais recente
- * em destaque com imagem de capa grande, seguido por uma lista compacta
- * dos posts anteriores. Design focado em hierarquia visual e escaneabilidade.
+ * @description Design elegante estilo Bento Grid harmonizado com a
+ * estética minimalista e técnica do site. Cards com bordas sutis,
+ * acentos em azul e transições suaves.
  *
  * @features
- * - Post em destaque (featured) com imagem de capa em aspect-ratio 16:9
- * - Lista secundária com posts compactos
- * - Fallback visual para posts sem imagem de capa
- * - Hover states com transições suaves
+ * - Bento Grid Layout responsivo
+ * - Card principal em destaque com overlay elegante
+ * - Cards secundários com hover effects refinados
+ * - Estética consistente com o restante do site
  * - Totalmente responsivo (mobile-first)
- *
- * @example
- * // Uso na página principal
- * <BlogSection />
  */
 
 import Link from "next/link"
 import Image from "next/image"
 import { getPosts, type MDXFileData } from "@/lib/blog"
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react"
 
 /* ============================================================================
-   CONSTANTS - Configurações do componente
+   CONSTANTS
    ============================================================================ */
 
-/** Número máximo de posts exibidos na seção */
 const MAX_POSTS_DISPLAY = 5
 
-/** Número de posts em destaque (featured) com imagem grande */
-const FEATURED_POSTS_COUNT = 1
-
 /* ============================================================================
-   UTILITY FUNCTIONS - Funções auxiliares puras
+   UTILITY FUNCTIONS
    ============================================================================ */
 
 /**
- * Formata uma data para exibição em português brasileiro.
- *
- * @param dateString - String de data no formato "month day, year"
- * @returns Data formatada em lowercase (ex: "24 dez 2025")
- *
- * @example
- * formatDate("december 24, 2025") // "24 dez 2025"
+ * Formata uma data para exibição em português.
  */
 function formatDate(dateString: string): string {
   return new Date(dateString)
@@ -56,211 +42,202 @@ function formatDate(dateString: string): string {
 }
 
 /**
- * Calcula o tempo estimado de leitura baseado no conteúdo.
- *
- * @param content - Conteúdo do post em texto
- * @returns Tempo estimado em minutos
- *
- * @description Usa média de 200 palavras por minuto (leitura técnica).
+ * Extrai uma categoria do título/descrição do post.
  */
-function calculateReadingTime(content: string): number {
-  const WORDS_PER_MINUTE = 200
-  const wordCount = content.trim().split(/\s+/).length
+function extractCategory(post: MDXFileData): string {
+  const title = post.metadata.title.toLowerCase()
+  const description = post.metadata.description.toLowerCase()
+  const content = title + " " + description
 
-  return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE))
+  if (content.includes("cloud") || content.includes("aws") || content.includes("arquitetura")) {
+    return "cloud"
+  }
+  if (content.includes("go") || content.includes("golang") || content.includes("goroutine")) {
+    return "golang"
+  }
+  if (content.includes("api") || content.includes("rest") || content.includes("graphql") || content.includes("grpc")) {
+    return "apis"
+  }
+  if (content.includes("cassandra") || content.includes("banco") || content.includes("database") || content.includes("nosql")) {
+    return "database"
+  }
+  return "tech"
 }
 
 /* ============================================================================
-   SUB-COMPONENTS - Componentes internos reutilizáveis
+   SUB-COMPONENTS
    ============================================================================ */
 
 /**
- * FeaturedPostCard - Card de destaque para o post principal.
- *
- * @description Exibe o post mais recente com imagem de capa grande,
- * título proeminente e descrição completa. Usa layout vertical
- * com imagem em aspect-ratio 16:9.
+ * PostCard - Card elegante para post do blog.
  */
-interface FeaturedPostCardProps {
+interface PostCardProps {
   post: MDXFileData
+  className?: string
 }
 
-function FeaturedPostCard({ post }: FeaturedPostCardProps) {
-  const { metadata, slug, content } = post
-  const readingTime = calculateReadingTime(content)
+function PostCard({ post, className = "" }: PostCardProps) {
+  const { metadata, slug } = post
+  const category = extractCategory(post)
+  const formattedDate = formatDate(metadata.date)
 
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block md:flex overflow-hidden border border-blue-500/30 transition-all duration-300 hover:border-blue-400/60 hover:bg-zinc-900/60"
+      className={`group relative flex flex-col overflow-hidden border border-gray-800/60 bg-[#161616] transition-all duration-300 hover:border-blue-400/50 hover:bg-[#1a1a1a] ${className}`}
       aria-label={`Ler artigo: ${metadata.title}`}
     >
-      {/* Container da imagem de capa */}
-      <div className="relative aspect-video w-full overflow-hidden bg-gray-800/50">
+      {/* Container da imagem */}
+      <div className="relative h-[160px] w-full overflow-hidden sm:h-[180px]">
         {metadata.coverImage ? (
-          <Image
-            src={metadata.coverImage}
-            alt={`Capa do artigo: ${metadata.title}`}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 672px"
-            priority // Prioridade para LCP (Largest Contentful Paint)
-          />
+          <>
+            <Image
+              src={metadata.coverImage}
+              alt={`Capa: ${metadata.title}`}
+              fill
+              className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            {/* Overlay sutil */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-transparent to-transparent opacity-60" />
+          </>
         ) : (
-          /* Fallback: Placeholder visual quando não há imagem */
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-            <div className="text-center">
-              <span className="text-5xl opacity-50">Error</span>
-              <p className="mt-2 text-sm text-zinc-500">sem imagem</p>
-            </div>
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-800/50 to-gray-900/50">
+            <span className="text-3xl opacity-30">📝</span>
           </div>
         )}
 
-        {/* Badge de tempo de leitura */}
-        <div className="absolute bottom-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs text-zinc-300 backdrop-blur-sm">
-          {readingTime} min de leitura
+        {/* Badge de categoria no estilo terminal */}
+        <div className="absolute right-3 top-3">
+          <span className="border border-blue-400/40 bg-[#111]/80 px-2 py-0.5 text-[10px] font-medium text-blue-400 backdrop-blur-sm">
+            [{category}]
+          </span>
         </div>
       </div>
 
       {/* Conteúdo textual */}
-      <div className="p-5">
-        {/* Meta: data */}
-        <time
-          dateTime={new Date(metadata.date).toISOString()}
-          className="text-xs font-medium uppercase tracking-wider text-blue-400"
-        >
-          {formatDate(metadata.date)}
+      <div className="flex flex-1 flex-col p-4">
+        {/* Data */}
+        <time className="mb-2 text-[11px] text-gray-500">
+          {formattedDate}
         </time>
 
         {/* Título */}
-        <h3 className="mt-2 text-xl font-semibold text-zinc-100 transition-colors duration-200 group-hover:text-white">
+        <h3 className="text-sm font-medium leading-snug text-gray-200 transition-colors duration-200 group-hover:text-white sm:text-base">
+          {metadata.title}
+        </h3>
+
+        {/* Indicador de leitura */}
+        <div className="mt-auto flex items-center gap-1 pt-3 text-xs text-gray-500 transition-colors duration-200 group-hover:text-blue-400">
+          <span>ler artigo</span>
+          <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
+        </div>
+      </div>
+    </Link>
+  )
+}
+
+/**
+ * FeaturedCard - Card especial para o post em destaque.
+ */
+interface FeaturedCardProps {
+  post: MDXFileData
+  className?: string
+}
+
+function FeaturedCard({ post, className = "" }: FeaturedCardProps) {
+  const { metadata, slug } = post
+  const category = extractCategory(post)
+  const formattedDate = formatDate(metadata.date)
+
+  return (
+    <Link
+      href={`/blog/${slug}`}
+      className={`group relative flex h-full min-h-[380px] flex-col justify-end overflow-hidden border border-gray-800/60 transition-all duration-300 hover:border-blue-400/50 sm:min-h-[420px] lg:min-h-[100%] ${className}`}
+      aria-label={`Ler artigo em destaque: ${metadata.title}`}
+    >
+      {/* Imagem de fundo */}
+      {metadata.coverImage ? (
+        <Image
+          src={metadata.coverImage}
+          alt={`Capa: ${metadata.title}`}
+          fill
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900" />
+      )}
+
+      {/* Overlay gradiente elegante */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/70 to-transparent" />
+
+      {/* Badge de categoria */}
+      <div className="absolute right-4 top-4 sm:right-5 sm:top-5">
+        <span className="border border-blue-400/50 bg-[#111]/70 px-3 py-1 text-xs font-medium text-blue-400 backdrop-blur-sm">
+          [{category}]
+        </span>
+      </div>
+
+      {/* Conteúdo na parte inferior */}
+      <div className="relative z-10 p-5 sm:p-6">
+        {/* Data */}
+        <time className="mb-3 block text-xs text-gray-400">
+          {formattedDate}
+        </time>
+
+        {/* Título */}
+        <h3 className="text-xl font-semibold leading-tight text-white transition-colors duration-200 group-hover:text-blue-400 sm:text-2xl lg:text-2xl">
           {metadata.title}
         </h3>
 
         {/* Descrição */}
         {metadata.description && (
-          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-400">
+          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-gray-400">
             {metadata.description}
           </p>
         )}
 
         {/* Call-to-action */}
-        <span className="mt-4 inline-flex items-center gap-1 text-sm text-blue-400 transition-all duration-200 group-hover:gap-2">
-          ler artigo
-          <ArrowRight className="w-4 h-4"/>
-        </span>
-      </div>
-    </Link>
-  )
-}
-
-/**
- * CompactPostItem - Item compacto para lista secundária de posts.
- *
- * @description Design minimalista com thumbnail pequena opcional,
- * título e data. Otimizado para escaneabilidade rápida.
- */
-interface CompactPostItemProps {
-  post: MDXFileData
-}
-
-function CompactPostItem({ post }: CompactPostItemProps) {
-  const { metadata, slug } = post
-
-  return (
-    <Link
-      href={`/blog/${slug}`}
-      className="group flex items-start gap-4 p-2 transition-all duration-200 hover:bg-zinc-800/30"
-      aria-label={`Ler artigo: ${metadata.title}`}
-    >
-      {/* Thumbnail pequena (opcional) */}
-      {metadata.coverImage && (
-        <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden bg-gray-800">
-          <Image
-            src={metadata.coverImage}
-            alt=""
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
-            sizes="96px"
-          />
+        <div className="mt-4 flex items-center gap-2 text-sm text-blue-400 transition-all duration-200 group-hover:gap-3">
+          <span>ler artigo completo</span>
+          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
         </div>
-      )}
-
-      {/* Conteúdo */}
-      <div className="flex-1 min-w-0">
-        {/* Data */}
-        <time
-          dateTime={new Date(metadata.date).toISOString()}
-          className="text-xs text-zinc-500"
-        >
-          {formatDate(metadata.date)}
-        </time>
-
-        {/* Título */}
-        <h4 className="mt-1 text-sm font-medium text-zinc-200 transition-colors duration-200 group-hover:text-white line-clamp-2">
-          {metadata.title.toLowerCase()}
-        </h4>
-
-        {/* Descrição truncada */}
-        {metadata.description && (
-          <p className="mt-1 text-xs text-zinc-500 line-clamp-1">
-            {metadata.description}
-          </p>
-        )}
-      </div>
-
-      {/* Indicador de hover */}
-      <div className="flex-shrink-0 self-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        <ChevronRight className="text-blue-400 w-4 h-4"/>
       </div>
     </Link>
   )
 }
 
 /* ============================================================================
-   MAIN COMPONENT - Componente principal exportado
+   MAIN COMPONENT
    ============================================================================ */
 
-/**
- * BlogSection - Seção de blog para a homepage.
- *
- * @returns JSX.Element com a seção completa do blog
- */
 export function BlogSection() {
-  /* --------------------------------------------------------------------------
-     DATA FETCHING - Busca e ordenação dos posts
-     -------------------------------------------------------------------------- */
-
   const allPosts = getPosts()
 
-  // Ordena por data decrescente (mais recente primeiro)
+  // Ordena por data decrescente
   const sortedPosts = allPosts.sort(
     (a, b) =>
       new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
   )
 
-  // Separa posts em destaque e lista secundária
-  const featuredPosts = sortedPosts.slice(0, FEATURED_POSTS_COUNT)
-  const remainingPosts = sortedPosts.slice(
-    FEATURED_POSTS_COUNT,
-    MAX_POSTS_DISPLAY
-  )
+  const posts = sortedPosts.slice(0, MAX_POSTS_DISPLAY)
 
-  // Early return se não houver posts
-  if (sortedPosts.length === 0) {
+  if (posts.length === 0) {
     return null
   }
 
-  /* --------------------------------------------------------------------------
-     RENDER
-     -------------------------------------------------------------------------- */
+  // Distribui posts no grid
+  const [featured, ...rest] = posts
+  const [second, third, fourth, fifth] = rest
 
   return (
     <section
       className="mb-16 animate-fade-in-up"
       aria-labelledby="blog-section-title"
     >
-      {/* Cabeçalho da seção */}
+      {/* Cabeçalho da seção - harmonizado com SectionList */}
       <h2
         id="blog-section-title"
         className="mb-6 text-3xl font-semibold leading-none text-white underline decoration-blue-400 decoration-4"
@@ -268,29 +245,51 @@ export function BlogSection() {
         Blog
       </h2>
 
-      {/* Post em destaque */}
-      <div className="mb-6">
-        {featuredPosts.map((post) => (
-          <FeaturedPostCard key={post.slug} post={post} />
-        ))}
+      {/* Bento Grid Layout */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 lg:auto-rows-fr">
+        {/* Card Featured central (ocupa mais espaço) */}
+        {featured && (
+          <div className="order-1 md:col-span-2 lg:col-span-6 lg:row-span-2">
+            <FeaturedCard post={featured} className="h-full" />
+          </div>
+        )}
+
+        {/* Card superior direito 1 */}
+        {second && (
+          <div className="order-2 lg:col-span-3">
+            <PostCard post={second} className="h-full" />
+          </div>
+        )}
+
+        {/* Card superior direito 2 */}
+        {third && (
+          <div className="order-3 lg:col-span-3">
+            <PostCard post={third} className="h-full" />
+          </div>
+        )}
+
+        {/* Card inferior direito 1 */}
+        {fourth && (
+          <div className="order-4 lg:col-span-3">
+            <PostCard post={fourth} className="h-full" />
+          </div>
+        )}
+
+        {/* Card inferior direito 2 */}
+        {fifth && (
+          <div className="order-5 lg:col-span-3">
+            <PostCard post={fifth} className="h-full" />
+          </div>
+        )}
       </div>
 
-      {/* Lista de posts secundários */}
-      {remainingPosts.length > 0 && (
-        <div className="divide-y divide-zinc-800/50">
-          {remainingPosts.map((post) => (
-            <CompactPostItem key={post.slug} post={post} />
-          ))}
-        </div>
-      )}
-
-      {/* Link para ver todos os posts */}
+      {/* Link para ver todos os posts - harmonizado */}
       <Link
         href="/blog"
         className="mt-6 inline-flex items-center gap-1 text-blue-400 transition-all duration-200 hover:gap-2 hover:underline"
       >
         todos os posts
-        <ArrowRight className="w-4 h-4"/>
+        <ArrowRight className="h-4 w-4" />
       </Link>
     </section>
   )
