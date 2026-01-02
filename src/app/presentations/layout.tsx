@@ -7,16 +7,14 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <main>
-      <div>
-        {children}
-      </div>
+    <main className="min-h-screen bg-[#111]">
+      {children}
     </main>
   )
 }
 
 export const metadata: Metadata = {
-  title: "Hora de Apresentar",
+  title: "Apresentação",
   description: "Veja as palestras e apresentações que já fiz ao longo do tempo.",
 }
 

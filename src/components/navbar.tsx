@@ -93,7 +93,7 @@ export function Navbar() {
                   font-mono text-[10px] px-1.5 py-0.5 border
                   ${isActive(item.href)
                     ? "border-blue-400/30 text-blue-400 bg-blue-400/10"
-                    : "border-gray-700 text-gray-600 group-hover:border-gray-600 group-hover:text-gray-400"
+                    : "border-gray-700 text-gray-500 group-hover:border-gray-600 group-hover:text-gray-400"
                   }
                 `}>
                   {item.shortcut}
@@ -114,7 +114,7 @@ export function Navbar() {
           <div className="sm:hidden flex-1 px-4 py-3">
             <div className="flex items-center gap-2 text-gray-400 font-mono text-sm">
               <span className="text-emerald-400">❯</span>
-              <span className="text-gray-500">cd</span>
+              <span className="text-gray-400">cd</span>
               <span className="text-white">{pathname === "/" ? "~" : pathname}</span>
             </div>
           </div>
@@ -123,7 +123,7 @@ export function Navbar() {
         {/* Keyboard Shortcuts Toggle */}
         <button
           onClick={() => setShowShortcuts(!showShortcuts)}
-          className="hidden md:flex items-center gap-2 px-4 py-3 border-l border-gray-800/60 text-gray-500 hover:text-gray-300 hover:bg-[#1a1a1a] transition-all duration-200"
+          className="hidden md:flex items-center gap-2 px-4 py-3 border-l border-gray-800/60 text-gray-400 hover:text-gray-300 hover:bg-[#1a1a1a] transition-all duration-200"
           title="Keyboard shortcuts"
         >
           <Command className="w-4 h-4" />
@@ -135,7 +135,7 @@ export function Navbar() {
       {/* Keyboard Shortcuts Panel */}
       {showShortcuts && (
         <div className="mt-2 border border-gray-800/60 bg-[#161616] p-4 animate-fade-in-up">
-          <div className="flex items-center gap-2 mb-3 text-xs text-gray-500">
+          <div className="flex items-center gap-2 mb-3 text-xs text-gray-400">
             <Command className="w-3 h-3" />
             <span>Keyboard shortcuts</span>
           </div>
@@ -145,14 +145,14 @@ export function Navbar() {
                 <kbd className="px-2 py-1 bg-gray-800/50 border border-gray-700 text-gray-400 font-mono text-xs">
                   {item.shortcut}
                 </kbd>
-                <span className="text-gray-500 text-xs">{item.label}</span>
+                <span className="text-gray-400 text-xs">{item.label}</span>
               </div>
             ))}
             <div className="flex items-center gap-2">
               <kbd className="px-2 py-1 bg-gray-800/50 border border-gray-700 text-gray-400 font-mono text-xs">
                 t
               </kbd>
-              <span className="text-gray-500 text-xs">talks</span>
+              <span className="text-gray-400 text-xs">talks</span>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ export function Navbar() {
               transition-all duration-200
               ${isActive(item.href)
                 ? "bg-blue-400/10 border-blue-400/30 text-blue-400"
-                : "bg-[#161616] text-gray-500 hover:text-white hover:border-gray-700"
+                : "bg-[#161616] text-gray-400 hover:text-white hover:border-gray-700"
               }
             `}
           >

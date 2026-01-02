@@ -61,9 +61,9 @@ function SobrePage() {
               <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <span className="w-3 h-3 rounded-full bg-green-500/80" />
             </div>
-            <span className="ml-3 text-xs text-gray-500 font-mono">~/sobre</span>
+            <span className="ml-3 text-xs text-gray-400 font-mono">~/sobre</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-gray-600 font-mono">
+          <div className="flex items-center gap-2 text-xs text-gray-500 font-mono">
             <MapPin className="w-3 h-3" />
             São Paulo, BR
           </div>
@@ -79,7 +79,7 @@ function SobrePage() {
           <div className="font-mono text-sm space-y-3 text-gray-400 mb-6">
             <div className="flex items-start gap-2">
               <span className="text-emerald-400 select-none">❯</span>
-              <span className="text-gray-500">whoami</span>
+              <span className="text-gray-400">whoami</span>
             </div>
             <div className="pl-5 text-gray-300 leading-relaxed">
               Engenheiro de Software & SRE
@@ -87,7 +87,7 @@ function SobrePage() {
 
             <div className="flex items-start gap-2 mt-4">
               <span className="text-emerald-400 select-none">❯</span>
-              <span className="text-gray-500">cat</span>
+              <span className="text-gray-400">cat</span>
               <span className="text-white">bio.md</span>
             </div>
             <div className="pl-5 text-gray-300 leading-relaxed border-l-2 border-gray-800">
@@ -104,8 +104,8 @@ function SobrePage() {
       {/* Skills Grid - JSON Style */}
       <div className="border border-gray-800/60 bg-[#161616] mb-8">
         <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-800/60 bg-[#1a1a1a]">
-          <Code2 className="w-4 h-4 text-gray-500" />
-          <span className="text-xs text-gray-500 font-mono">skills.json</span>
+          <Code2 className="w-4 h-4 text-gray-400" />
+          <span className="text-xs text-gray-400 font-mono">skills.json</span>
         </div>
 
         <div className="p-5 font-mono text-sm">
@@ -149,11 +149,11 @@ function SobrePage() {
               <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800/40 bg-[#1a1a1a]">
                 <div className="flex items-center gap-2">
                   <div className="flex gap-1">
-                    <span className="w-2 h-2 rounded-full bg-gray-600" />
-                    <span className="w-2 h-2 rounded-full bg-gray-600" />
-                    <span className="w-2 h-2 rounded-full bg-gray-600" />
+                    <span className="w-2 h-2 rounded-full bg-gray-500" />
+                    <span className="w-2 h-2 rounded-full bg-gray-500" />
+                    <span className="w-2 h-2 rounded-full bg-gray-500" />
                   </div>
-                  <span className="text-[10px] text-gray-600 font-mono ml-2">work/{index + 1}</span>
+                  <span className="text-[10px] text-gray-500 font-mono ml-2">work/{index + 1}</span>
                 </div>
 
                 {item.current && (
@@ -171,15 +171,15 @@ function SobrePage() {
                     <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-400 mt-1">
                       {item.role}
                     </p>
-                    <div className="flex items-center gap-1.5 text-xs text-gray-600 mt-1">
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 mt-1">
                       <Calendar className="w-3 h-3" />
                       {item.period}
                     </div>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <ArrowUpRight className="w-5 h-5 text-gray-500 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
 
                 <p className="text-gray-400 text-sm mt-4 leading-relaxed">
@@ -191,7 +191,7 @@ function SobrePage() {
                     {item.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 text-[11px] border border-gray-700/50 text-gray-500 bg-gray-800/20"
+                        className="px-2 py-0.5 text-[11px] border border-gray-700/50 text-gray-400 bg-gray-800/20"
                       >
                         {tech}
                       </span>
@@ -206,9 +206,9 @@ function SobrePage() {
 
       {/* Footer Terminal */}
       <div className="border border-gray-800/60 bg-[#161616] p-4">
-        <div className="flex items-center gap-2 font-mono text-xs text-gray-500">
+        <div className="flex items-center gap-2 font-mono text-xs text-gray-400">
           <span className="text-emerald-400">❯</span>
-          <span className="text-gray-600">echo</span>
+          <span className="text-gray-500">echo</span>
           <span className="text-gray-400">"Obrigado por visitar!"</span>
           <span className="animate-pulse">_</span>
         </div>

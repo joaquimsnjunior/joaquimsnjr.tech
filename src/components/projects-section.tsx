@@ -90,7 +90,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Título no estilo path */}
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-gray-400">
             ~/projects/{project.slug}
           </span>
         </div>
@@ -113,14 +113,14 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             <h3 className="text-lg font-semibold text-white transition-colors duration-200 group-hover:text-blue-400">
               {project.title}
             </h3>
-            <p className="text-xs text-gray-500">{project.role}</p>
+            <p className="text-xs text-gray-400">{project.role}</p>
           </div>
         </div>
 
         {/* Descrição estilo código */}
         <div className="mb-5 border-l-2 border-gray-700/50 pl-3">
           <p className="text-sm leading-relaxed text-gray-400">
-            <span className="text-gray-600">// </span>
+            <span className="text-gray-500">// </span>
             {project.description}
           </p>
         </div>
@@ -137,7 +137,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </span>
             ))}
             {project.technologies.length > 5 && (
-              <span className="px-2 py-0.5 text-[11px] text-gray-600">
+              <span className="px-2 py-0.5 text-[11px] text-gray-500">
                 +{project.technologies.length - 5}
               </span>
             )}
@@ -200,7 +200,7 @@ function FeaturedProject({ project }: FeaturedProjectProps) {
             <span className="h-3 w-3 rounded-full bg-yellow-500/70" />
             <span className="h-3 w-3 rounded-full bg-green-500/70" />
           </div>
-          <span className="font-mono text-xs text-gray-500">
+          <span className="font-mono text-xs text-gray-400">
             ~/projects/{project.slug} — zsh
           </span>
         </div>
@@ -223,7 +223,7 @@ function FeaturedProject({ project }: FeaturedProjectProps) {
               <h3 className="text-xl font-semibold text-white transition-colors duration-200 group-hover:text-blue-400">
                 {project.title}
               </h3>
-              <p className="text-sm text-gray-500">{project.role}</p>
+              <p className="text-sm text-gray-400">{project.role}</p>
             </div>
           </div>
 
@@ -261,7 +261,7 @@ function FeaturedProject({ project }: FeaturedProjectProps) {
 
         {/* Coluna direita: Techs estilo código */}
         <div className="border border-gray-800/40 bg-[#111] p-4">
-          <div className="mb-3 flex items-center gap-2 text-xs text-gray-500">
+          <div className="mb-3 flex items-center gap-2 text-xs text-gray-400">
             <Terminal className="h-3.5 w-3.5" />
             <span>stack.config</span>
           </div>
