@@ -32,22 +32,18 @@ export function Header() {
 
             {/* Avatar with Status */}
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-0 group-hover:opacity-75 blur transition duration-500" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-75 blur transition duration-500" />
               <div className="relative">
                 <Image
                   width={100}
                   height={100}
                   src="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
                   alt="Joaquim Silva - SRE & Software Engineer"
-                  className="rounded-full border-2 border-gray-800 group-hover:border-blue-400/50 transition-colors duration-300"
+                  className="border-2 border-gray-800 group-hover:border-blue-400/50 transition-colors duration-300"
                   placeholder="blur"
                   blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
                   priority
                 />
-                {/* Online Status */}
-                <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-[#161616]">
-                  <span className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75" />
-                </span>
               </div>
             </div>
 
