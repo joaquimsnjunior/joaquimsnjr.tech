@@ -3,6 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc"
 import Link from "next/link"
 import { Children, createElement, isValidElement } from "react"
 import { codeToHtml } from "shiki"
+import { CopyButton } from "@/components/copy-button"
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   let headers = data.headers.map((header, index) => (
@@ -73,7 +74,9 @@ async function Pre({
       return <code {...props}>{children}</code>
     }
 
-    const html = await codeToHtml(String(codeElement?.props.children), {
+    const codeContent = String(codeElement?.props.children).trim()
+
+    const html = await codeToHtml(codeContent, {
       lang,
       themes: {
         dark: "vesper",
@@ -81,7 +84,31 @@ async function Pre({
       },
     })
 
-    return <div dangerouslySetInnerHTML={{ __html: html }} />
+    return (
+      <div className="my-8 rounded-lg overflow-hidden border border-neutral-800/80 bg-[#0d0d0d]">
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-2.5 bg-[#141414] border-b border-neutral-800/60">
+          <div className="flex items-center gap-2">
+            <div className="flex gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-[#ff5f57]/80" />
+              <span className="w-3 h-3 rounded-full bg-[#febc2e]/80" />
+              <span className="w-3 h-3 rounded-full bg-[#28c840]/80" />
+            </div>
+            <span className="ml-2 text-[11px] font-medium text-neutral-500 uppercase tracking-wider">
+              {lang}
+            </span>
+          </div>
+          <CopyButton code={codeContent} />
+        </div>
+
+        {/* Code */}
+        <div
+          className="[&>pre]:!bg-transparent [&>pre]:!p-4 [&>pre]:!m-0 
+                     [&>pre]:overflow-x-auto [&>pre]:text-[13px] [&>pre]:leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </div>
+    )
   }
 
   // If not, return the component as is
