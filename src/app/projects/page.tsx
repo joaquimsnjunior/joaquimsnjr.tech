@@ -298,8 +298,43 @@ export default function ProjectsPage() {
   const featuredProjects = projects.filter(p => p.featured)
   const otherProjects = projects.filter(p => !p.featured)
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Projetos",
+    description: "Projetos de código aberto e ferramentas desenvolvidas por Joaquim Silva.",
+    url: "https://www.joaquimsnjr.tech/projects",
+    author: {
+      "@type": "Person",
+      name: "Joaquim Silva",
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareSourceCode",
+          name: project.title,
+          description: project.description,
+          url: project.href,
+          codeRepository: project.github,
+          programmingLanguage: project.technologies,
+          author: {
+            "@type": "Person",
+            name: "Joaquim Silva",
+          },
+        },
+      })),
+    },
+  }
+
   return (
     <main className="animate-fade-in-up">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Terminal Window Header */}
       <div className="border border-gray-800/60 bg-[#161616] mb-8">
         {/* Terminal Bar */}
