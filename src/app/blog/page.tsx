@@ -10,8 +10,36 @@ const posts = getPosts().sort(
 )
 
 export default async function BlogPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Blog | Joaquim Silva",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
+    url: "https://www.joaquimsnjr.tech/blog",
+    author: {
+      "@type": "Person",
+      name: "Joaquim Silva",
+      url: "https://www.joaquimsnjr.tech",
+    },
+    blogPost: posts.slice(0, 10).map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.metadata.title,
+      description: post.metadata.description,
+      datePublished: post.metadata.date,
+      url: `https://www.joaquimsnjr.tech/blog/${post.slug}`,
+      author: {
+        "@type": "Person",
+        name: "Joaquim Silva",
+      },
+    })),
+  }
+
   return (
     <main className="animate-fade-in-up relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Terminal Window Header */}
       <div className="border border-gray-800/60 bg-[#161616] mb-8">
         {/* Terminal Bar */}

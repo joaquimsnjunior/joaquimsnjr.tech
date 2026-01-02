@@ -139,8 +139,52 @@ function TalksPage() {
   const upcomingTalks = talks.filter(t => t.status === 'upcoming')
   const pastTalks = talks.filter(t => t.status === 'past')
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Palestras & Apresentações",
+    description: "Palestras sobre Cloud Native, Go, SRE e Open Source.",
+    url: "https://www.joaquimsnjr.tech/talks",
+    author: {
+      "@type": "Person",
+      name: "Joaquim Silva",
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: talks.map((talk, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Event",
+          name: talk.title,
+          description: talk.description,
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: talk.status === 'upcoming'
+            ? "https://schema.org/EventScheduled"
+            : "https://schema.org/EventCompleted",
+          location: {
+            "@type": "Place",
+            name: talk.location,
+          },
+          organizer: {
+            "@type": "Organization",
+            name: talk.event,
+          },
+          performer: {
+            "@type": "Person",
+            name: "Joaquim Silva",
+          },
+        },
+      })),
+    },
+  }
+
   return (
     <div className="animate-fade-in-up">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Terminal Window Header */}
       <div className="border border-gray-800/60 bg-[#161616] mb-8">
         {/* Terminal Bar */}

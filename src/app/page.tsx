@@ -54,8 +54,31 @@ const projects: Project[] = [
 ]
 
 export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Joaquim Silva",
+      alternateName: "joaquimsnjunior",
+      description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes.",
+      image: "https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png",
+      url: "https://www.joaquimsnjr.tech",
+      sameAs: [
+        "https://github.com/joaquimsnjunior",
+        "https://twitter.com/joaquimsnjunior",
+      ],
+      jobTitle: "SRE & Software Engineer",
+      knowsAbout: ["Go", "Kubernetes", "Cloud Native", "AWS", "Terraform", "Docker"],
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <Header />
       <BlogSection />

@@ -49,8 +49,45 @@ const skills = [
 ]
 
 function SobrePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Joaquim Silva",
+      jobTitle: "SRE & Software Engineer",
+      description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis.",
+      image: "https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png",
+      url: "https://www.joaquimsnjr.tech",
+      sameAs: [
+        "https://github.com/joaquimsnjunior",
+        "https://twitter.com/joaquimsnjunior",
+      ],
+      knowsAbout: ["Go", "TypeScript", "Python", "AWS", "Kubernetes", "Docker", "Terraform", "PostgreSQL", "Redis"],
+      worksFor: {
+        "@type": "Organization",
+        name: "All Net Educação",
+        url: "https://allneteducacao.com.br/",
+      },
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Educador & Mentor Técnico",
+          occupationLocation: {
+            "@type": "City",
+            name: "São Paulo",
+          },
+        },
+      ],
+    },
+  }
+
   return (
     <div className="animate-fade-in-up">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Terminal Window - About Header */}
       <div className="border border-gray-800/60 bg-[#161616] mb-8">
         {/* Terminal Bar */}
