@@ -1,8 +1,7 @@
-
 import Link from "next/link"
 import Image from "next/image"
-import { getPosts, type MDXFileData } from "@/lib/blog"
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { type MDXFileData } from "@/lib/blog"
+import { ArrowUpRight, Calendar, Clock } from 'lucide-react'
 
 function formatDate(dateString: string): string {
   return new Date(dateString)
@@ -16,85 +15,113 @@ function formatDate(dateString: string): string {
 
 /**
  * Calcula o tempo estimado de leitura baseado no conteúdo.
- *
- * @param content - Conteúdo do post em texto
- * @returns Tempo estimado em minutos
- *
- * @description Usa média de 200 palavras por minuto (leitura técnica).
  */
 function calculateReadingTime(content: string): number {
   const WORDS_PER_MINUTE = 200
   const wordCount = content.trim().split(/\s+/).length
-
   return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE))
 }
 
-/* ============================================================================
-   SUB-COMPONENTS - Componentes internos reutilizáveis
-   ============================================================================ */
-
 /**
- * FeaturedPostCard - Card de destaque para o post principal.
- *
- * @description Exibe o post mais recente com imagem de capa grande,
- * título proeminente e descrição completa. Usa layout vertical
- * com imagem em aspect-ratio 16:9.
+ * Extrai categoria do post.
  */
-interface FeaturedPostCardProps {
-  post: MDXFileData
+function extractCategory(post: MDXFileData): string {
+  const title = post.metadata.title.toLowerCase()
+  const description = post.metadata.description?.toLowerCase() || ""
+  const content = title + " " + description
+
+  if (content.includes("cloud") || content.includes("aws") || content.includes("arquitetura")) return "cloud"
+  if (content.includes("go") || content.includes("golang") || content.includes("goroutine")) return "golang"
+  if (content.includes("api") || content.includes("rest") || content.includes("graphql") || content.includes("grpc")) return "apis"
+  if (content.includes("cassandra") || content.includes("banco") || content.includes("database")) return "database"
+  return "tech"
 }
 
 type PostItemProps = {
   post: MDXFileData
   isSelected?: boolean
+  index?: number
 }
 
-export function PostItem({ post, isSelected }: PostItemProps) {
+export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
+  const readingTime = calculateReadingTime(post.content)
+  const category = extractCategory(post)
+
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex items-start gap-4 p-4 transition-all duration-200 hover:bg-zinc-800/30"
+      className={`group block border transition-all duration-300 ${isSelected
+          ? 'border-blue-400/50 bg-blue-400/5'
+          : 'border-gray-800/60 bg-[#161616] hover:border-blue-400/50 hover:bg-[#1a1a1a]'
+        }`}
       aria-label={`Ler artigo: ${post.metadata.title}`}
     >
-      {/* Thumbnail pequena (opcional) */}
-      {post.metadata.coverImage && (
-        <div className="relative h-20 w-28 flex-shrink-0 overflow-hidden bg-gray-800">
-          <Image
-            src={post.metadata.coverImage}
-            alt=""
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
-            sizes="96px"
-          />
+      {/* Terminal-style header */}
+      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800/40 bg-[#1a1a1a]">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-1">
+            <span className="w-2 h-2 rounded-full bg-gray-600" />
+            <span className="w-2 h-2 rounded-full bg-gray-600" />
+            <span className="w-2 h-2 rounded-full bg-gray-600" />
+          </div>
+          <span className="text-[10px] text-gray-600 font-mono ml-2">posts/{post.slug.slice(0, 20)}...</span>
         </div>
-      )}
-
-      {/* Conteúdo */}
-      <div className="flex-1 min-w-0">
-        {/* Data */}
-        <time
-          dateTime={new Date(post.metadata.date).toISOString()}
-          className="text-xs text-zinc-500"
-        >
-          {formatDate(post.metadata.date)}
-        </time>
-
-        {/* Título */}
-        <h4 className="mt-1 text-sm font-medium text-zinc-200 transition-colors duration-200 group-hover:text-white line-clamp-2">
-          {post.metadata.title.toLowerCase()}
-        </h4>
-
-        {/* Descrição truncada */}
-        {post.metadata.description && (
-          <p className="mt-1 text-xs text-zinc-500 line-clamp-1">
-            {post.metadata.description}
-          </p>
-        )}
+        <span className="text-[10px] text-gray-600 font-mono">[{category}]</span>
       </div>
 
-      {/* Indicador de hover */}
-      <div className="flex-shrink-0 self-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        <ChevronRight className="text-blue-400 w-4 h-4"/>
+      {/* Content */}
+      <div className="flex gap-4 p-4">
+        {/* Thumbnail */}
+        {post.metadata.coverImage && (
+          <div className="relative h-24 w-36 flex-shrink-0 overflow-hidden bg-gray-800/50 hidden sm:block">
+            <Image
+              src={post.metadata.coverImage}
+              alt=""
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="144px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#161616]/50" />
+          </div>
+        )}
+
+        {/* Text Content */}
+        <div className="flex-1 min-w-0">
+          {/* Meta info */}
+          <div className="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <div className="flex items-center gap-1">
+              <Calendar className="w-3 h-3" />
+              <time dateTime={new Date(post.metadata.date).toISOString()}>
+                {formatDate(post.metadata.date)}
+              </time>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              <span>{readingTime} min</span>
+            </div>
+          </div>
+
+          {/* Title */}
+          <h4 className={`text-base font-medium leading-snug transition-colors duration-200 line-clamp-2 ${isSelected ? 'text-blue-400' : 'text-gray-200 group-hover:text-white'
+            }`}>
+            {post.metadata.title}
+          </h4>
+
+          {/* Description */}
+          {post.metadata.description && (
+            <p className="mt-2 text-sm text-gray-500 line-clamp-1">
+              {post.metadata.description}
+            </p>
+          )}
+        </div>
+
+        {/* Arrow indicator */}
+        <div className="flex-shrink-0 self-center">
+          <ArrowUpRight className={`w-5 h-5 transition-all duration-200 ${isSelected
+              ? 'text-blue-400'
+              : 'text-gray-700 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+            }`} />
+        </div>
       </div>
     </Link>
   )
