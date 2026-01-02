@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Transition from "@/components/transition"
+import { SkipLink } from "@/components/skip-link"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -109,9 +110,10 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} antialiased min-h-screen font-mono overflow-x-hidden`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-8 overflow-hidden md:overflow-visible">
+        <SkipLink />
+        <main id="main-content" className="max-w-7xl mx-auto px-4 py-8 overflow-hidden md:overflow-visible">
           <Transition>{children}</Transition>
-        </div>
+        </main>
       </body>
     </html>
   )
