@@ -89,12 +89,29 @@ export default async function BlogPage() {
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Conteúdos sobre programação, engenharia de software e assuntos relacionados.",
+  description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos. Compartilhando conhecimento e experiências.",
+  keywords: ["blog", "artigos", "Go", "Golang", "Cloud Native", "Kubernetes", "engenharia de software", "SRE"],
   openGraph: {
+    title: "Blog | Joaquim Silva",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
+    url: "https://www.joaquimsnjr.tech/blog",
+    siteName: "Joaquim Silva",
+    locale: "pt_BR",
+    type: "website",
     images: [
       {
         url: "https://www.joaquimsnjr.tech/og/home?title=blog",
+        width: 1200,
+        height: 630,
+        alt: "Blog - Joaquim Silva",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Joaquim Silva",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
+    creator: "@joaquimsnjunior",
+    images: ["https://www.joaquimsnjr.tech/og/home?title=blog"],
   },
 }
