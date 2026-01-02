@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og"
 
+export const runtime = "edge"
+
 async function loadGoogleFont(fontName: string, text: string) {
   const url = `https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, "+")}&text=${encodeURIComponent(text)}`
   const css = await (await fetch(url)).text()

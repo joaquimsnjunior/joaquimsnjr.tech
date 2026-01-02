@@ -1,37 +1,66 @@
-import { redis } from "@/lib/redis"
+"use client"
 
-export async function Views({ slug }: { slug: string }) {
-  const allViews = (await redis.get("views")) as {
-    slug: string
-    views: number
-  }[]
+import { useEffect, useState, useTransition } from "react"
+import { Eye } from "lucide-react"
 
-  return <ViewCounter slug={slug} allViews={allViews} />
+interface ViewCounterProps {
+  slug: string
+  track?: boolean
 }
 
-function ViewCounter({
-  slug,
-  allViews,
-}: {
-  slug: string
-  allViews: {
-    slug: string
-    views: number
-  }[]
-}) {
-  const views = allViews.find((view) => view.slug === slug)?.views ?? 0
+export function ViewCounter({ slug, track = true }: ViewCounterProps) {
+  const [views, setViews] = useState<number | null>(null)
+  const [isPending, startTransition] = useTransition()
+
+  useEffect(() => {
+    // Fetch current views
+    fetch(`/api/views/${slug}`)
+      .then((res) => res.json())
+      .then((data) => setViews(data.views))
+      .catch(() => setViews(0))
+
+    // Track view (only once per session)
+    if (!track) return
+
+    const viewed = sessionStorage.getItem(`viewed:${slug}`)
+    if (viewed) return
+
+    startTransition(async () => {
+      try {
+        const res = await fetch(`/api/views/${slug}`, { method: "POST" })
+        const data = await res.json()
+        setViews(data.views)
+        sessionStorage.setItem(`viewed:${slug}`, "true")
+      } catch {
+        // Silently fail
+      }
+    })
+  }, [slug, track])
+
+  if (views === null) {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-sm text-neutral-500">
+        <Eye className="w-4 h-4" />
+        <span className="w-12 h-4 bg-neutral-800 animate-pulse rounded" />
+      </span>
+    )
+  }
 
   return (
-    <span className="text-sm text-gray-400">
-      {views.toLocaleString()} views
+    <span className="inline-flex items-center gap-1.5 text-sm text-neutral-500">
+      <Eye className="w-4 h-4" />
+      <span className={isPending ? "opacity-50" : ""}>
+        {views.toLocaleString("pt-BR")} views
+      </span>
     </span>
   )
 }
 
 export function ViewCounterSkeleton() {
   return (
-    <div className="animate-pulse">
-      <div className="h-[17px] w-[70px] bg-gray-800/50" />
-    </div>
+    <span className="inline-flex items-center gap-1.5 text-sm text-neutral-500">
+      <Eye className="w-4 h-4" />
+      <span className="w-12 h-4 bg-neutral-800 animate-pulse rounded" />
+    </span>
   )
 }
