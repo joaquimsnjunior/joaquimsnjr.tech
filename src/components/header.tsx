@@ -37,11 +37,11 @@ export function Header() {
                 <Image
                   width={100}
                   height={100}
-                  src="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
+                  src="https://res.cloudinary.com/dy5xyare1/image/upload/v1767414405/Profile_01_t8clcl.jpg"
                   alt="Joaquim Silva - SRE & Software Engineer"
                   className="border-2 border-gray-800 group-hover:border-blue-400/50 transition-colors duration-300"
                   placeholder="blur"
-                  blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png"
+                  blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1767414405/Profile_01_t8clcl.jpg"
                   priority
                 />
               </div>
