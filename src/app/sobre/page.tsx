@@ -43,7 +43,7 @@ const workItems: WorkItem[] = [
 
 const skills = [
   { category: "Languages", items: ["Go", "TypeScript", "Python", "Bash"] },
-  { category: "Cloud & Infra", items: ["AWS", "Kubernetes", "Docker", "Terraform"] },
+  { category: "Cloud & Infra", items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform"] },
   { category: "Databases", items: ["PostgreSQL", "Redis", "Cassandra", "MongoDB"] },
   { category: "Practices", items: ["Clean Architecture", "CI/CD", "Observability", "SRE"] },
 ]
@@ -56,8 +56,8 @@ function SobrePage() {
       "@type": "Person",
       name: "Joaquim Silva",
       jobTitle: "SRE & Software Engineer",
-      description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis.",
-      image: "https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png",
+      description: "Engenheiro de Software & SRE. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis.",
+      image: "https://res.cloudinary.com/dy5xyare1/image/upload/v1767414405/Profile_01_t8clcl.jpg",
       url: "https://www.joaquimsnjr.tech",
       sameAs: [
         "https://github.com/joaquimsnjunior",
@@ -128,9 +128,6 @@ function SobrePage() {
               <span className="text-white">bio.md</span>
             </div>
             <div className="pl-5 text-gray-300 leading-relaxed border-l-2 border-gray-800">
-              Foco em <span className="text-blue-400">Cloud Native</span>,
-              <span className="text-blue-400"> Go</span> e
-              <span className="text-blue-400"> Kubernetes</span>.
               Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis.
               Unindo arquitetura limpa à automação de infraestrutura, entrego soluções que escalam e mentoro times que buscam excelência técnica.
             </div>
