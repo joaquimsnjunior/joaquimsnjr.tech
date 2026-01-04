@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://res.cloudinary.com/dy5xyare1/image/upload/v1764384343/ProfileBW_jddt02.png" alt="Joaquim Silva" width="120" style="border-radius: 10%;" />
+  <img src="https://res.cloudinary.com/dy5xyare1/image/upload/v1767414405/Profile_01_t8clcl.jpg" alt="Joaquim Silva" width="120" style="border-radius: 10%;" />
   
   # joaquimsnjr.tech
   

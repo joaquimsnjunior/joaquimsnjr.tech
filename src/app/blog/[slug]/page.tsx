@@ -14,6 +14,11 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   const publishedTime = formatDate(post.metadata.date)
+  
+  // Usa coverImage do post se existir, senão gera dinamicamente
+  const ogImageUrl = post.metadata.coverImage 
+    ? post.metadata.coverImage 
+    : `https://www.joaquimsnjr.tech/og/blog?title=${encodeURIComponent(post.metadata.title)}`
 
   return {
     title: post.metadata.title,
@@ -24,9 +29,14 @@ export async function generateMetadata({ params }: PageProps) {
       publishedTime,
       type: "article",
       url: `https://www.joaquimsnjr.tech/blog/${post.slug}`,
+      siteName: "Joaquim Silva",
+      locale: "pt_BR",
       images: [
         {
-          url: `https://www.joaquimsnjr.tech/og/blog?title=${post.metadata.title}`,
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.metadata.title,
         },
       ],
     },
@@ -35,9 +45,7 @@ export async function generateMetadata({ params }: PageProps) {
       description: post.metadata.description,
       card: "summary_large_image",
       creator: "@joaquimsnjunior",
-      images: [
-        `https://www.joaquimsnjr.tech/og/blog?title=${post.metadata.title}&top=${publishedTime}`,
-      ],
+      images: [ogImageUrl],
     },
   }
 }
