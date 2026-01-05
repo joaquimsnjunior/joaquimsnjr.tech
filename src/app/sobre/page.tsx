@@ -43,7 +43,7 @@ const workItems: WorkItem[] = [
 
 const skills = [
   { category: "Languages", items: ["Go", "TypeScript", "Python", "Bash"] },
-  { category: "Cloud & Infra", items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform"] },
+  { category: "Cloud & Infra", items: ["AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform"] },
   { category: "Databases", items: ["PostgreSQL", "Redis", "Cassandra", "MongoDB"] },
   { category: "Practices", items: ["Clean Architecture", "CI/CD", "Observability", "SRE"] },
 ]
