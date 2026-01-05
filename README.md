@@ -12,6 +12,9 @@
 
   [🌐 Acessar Site](https://joaquimsnjr.tech) • [📝 Blog](https://joaquimsnjr.tech/blog) • [🎤 Talks](https://joaquimsnjr.tech/talks)
 </div>
+<p align="center">
+  <a href="https://github.com/joaquimsnjunior/joaquimsnjr.tech/issues">Reportar Bug</a>
+</p>
 
 ---
 
@@ -19,10 +22,12 @@
 
 - **Blog com MDX** — Posts técnicos com syntax highlighting (Shiki), suporte a código Go, TypeScript e mais
 - **Sistema de Apresentações** — Deck de slides integrado com navegação por teclado, swipe mobile e modo apresentador
-- **SEO Otimizado** — Open Graph dinâmico, meta tags e sitemap automático
+- **SEO Completo** - Meta tags, Open Graph, Twitter Cards e sitemap dinâmico
 - **Performance** — Imagens otimizadas via Cloudinary, lazy loading e prefetch inteligente
-- **Design System** — Interface minimalista com animações suaves e tema dark
+- **Design Terminal-Style** - Interface única inspirada em terminais Unix
+- **Dark Mode** - Tema escuro nativo
 - **Navegação por Atalhos** — `[h]` home, `[b]` blog, `[s]` sobre, `[t]` talks
+- **Animações Suaves** - Efeitos de scramble text e fade-in
 
 ---
 
@@ -31,14 +36,15 @@
 | Categoria | Tecnologia |
 |-----------|------------|
 | **Framework** | [Next.js 15](https://nextjs.org/) (App Router) |
-| **Linguagem** | [TypeScript 5](https://www.typescriptlang.org/) |
-| **Estilização** | [TailwindCSS 4](https://tailwindcss.com/) |
+| **Linguagem** | [TypeScript](https://www.typescriptlang.org/) |
+| **Estilização** | [TailwindCSS](https://tailwindcss.com/) |
 | **Conteúdo** | [MDX](https://mdxjs.com/) + [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) |
 | **Syntax Highlight** | [Shiki](https://shiki.style/) |
 | **Imagens** | [Cloudinary](https://cloudinary.com/) |
 | **Cache** | [Upstash Redis](https://upstash.com/) (view counter) |
 | **Deploy** | [Vercel](https://vercel.com/) |
 | **Fonte** | [Geist Mono](https://vercel.com/font) |
+| **Outros** | [Framer Motion](https://motion.dev/), [Lucide Icons](https://lucide.dev/) |
 
 ---
 
