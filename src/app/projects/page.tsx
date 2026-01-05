@@ -37,6 +37,23 @@ const projects: Project[] = [
     github: "https://github.com/joaquimsnjunior/joaquimsnjr.tech",
     icon: "terminal",
   },
+   {
+    title: "Awesome SRE",
+    slug: "awesome-sre",
+    description: "Uma lista curada de recursos incríveis sobre Site Reliability Engineering (SRE), incluindo livros, artigos, ferramentas, cursos e comunidades.",
+    role: "Curadoria Open Source",
+    status: "live",
+    featured: false,
+    technologies: ["Markdown", "SRE", "DevOps", "Observability", "Kubernetes"],
+    achievements: [
+      "Recursos curados sobre SRE",
+      "Contribuição para a comunidade",
+      "Referência para engenheiros",
+    ],
+    href: "https://github.com/joaquimsnjunior/awesome-sre",
+    github: "https://github.com/joaquimsnjunior/awesome-sre",
+    icon: "server",
+  },
 ]
 
 const STATUS_CONFIG = {
