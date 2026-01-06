@@ -163,6 +163,7 @@ function FeaturedProject({ project }: { project: Project }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Ver projeto ${project.title} no GitHub`}
                 className="flex items-center gap-2 text-sm text-gray-400 hover:gap-3 hover:text-white transition-all duration-200"
               >
                 <Github className="h-4 w-4" />
