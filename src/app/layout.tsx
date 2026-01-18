@@ -108,7 +108,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistMono.variable} antialiased min-h-screen font-mono overflow-x-hidden`}
+        className={`${geistMono.variable} antialiased min-h-screen font-sans overflow-x-hidden`}
       >
         <SkipLink />
         <main id="main-content" className="max-w-7xl mx-auto px-4 py-8 overflow-hidden md:overflow-visible">

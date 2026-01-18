@@ -11,6 +11,7 @@ export default {
     extend: {
       fontFamily: {
         mono: ["var(--font-geist-mono)"],
+        sans: ["var(--font-alliance)", "system-ui", "sans-serif"],
         serif: ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       },
       colors: {
