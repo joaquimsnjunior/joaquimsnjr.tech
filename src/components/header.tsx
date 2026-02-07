@@ -1,4 +1,4 @@
-import { MapPin, Terminal, Zap, Coffee, ArrowUpRight } from "lucide-react"
+import { MapPin, Terminal, Zap, Brain, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -68,11 +68,11 @@ export function Header() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Zap className="w-4 h-4 text-yellow-400" />
-                  <span>Mission Critical Systems</span>
+                  <span>Confiabilidade</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Coffee className="w-4 h-4 text-orange-400" />
-                  <span className="text-gray-400">Powered by coffee</span>
+                  <Brain className="w-4 h-4 text-white-400" />
+                  <span className="text-gray-400">Empreendendo</span>
                 </div>
               </div>
 
