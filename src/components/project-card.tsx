@@ -21,7 +21,7 @@ export function ProjectCard({
   href,
 }: ProjectCardProps) {
   return (
-    <div className="surface surface-hover p-6">
+    <div className="surface surface-hover">
       <Link href={href} target="_blank" className="block">
         <div className="flex items-start justify-between gap-3">
           <h2 className="text-xl font-semibold text-[color:var(--foreground)]">
