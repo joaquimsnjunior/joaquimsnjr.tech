@@ -24,20 +24,20 @@ export function SectionListNotGrouped({
 }: SectionListProps) {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-semibold leading-none mb-6 flex items-center text-white underline decoration-blue-400 decoration-4">
-         {title}
-      </h2>
-      <div className="space-y-8">
-        {items.map((item, index) => (
-          <div key={item.title} className="group underline decoration-transparent hover:decoration-blue-400 decoration-1 transition-all duration-200">
-            <Link href={item.href} target="_blank">
-              <h3 className="text-xl font-semibold leading-none mb-1 text-white ">
+      <h2 className="section-title mb-6">{title}</h2>
+      <div className="divide-y divide-[color:var(--border)]">
+        {items.map((item) => (
+          <div key={item.title} className="py-4">
+            <Link href={item.href} target="_blank" className="block">
+              <h3 className="text-lg font-semibold text-[color:var(--foreground)]">
                 {item.title}
               </h3>
-              <p className="text-sm text-zinc-500 mb-2">
-                {item.role} {item.period && `(${item.period})`}
+              <p className="mt-2 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                {item.role}{item.period ? ` · ${item.period}` : ""}
               </p>
-              <p className="text-zinc-400">{item.description}</p>
+              <p className="mt-3 text-sm text-[color:var(--muted)]">
+                {item.description}
+              </p>
             </Link>
           </div>
         ))}
@@ -45,10 +45,10 @@ export function SectionListNotGrouped({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="inline-flex items-center gap-1 mt-6 text-blue-400 hover:underline group"
+          className="mt-6 inline-flex items-center gap-2 text-sm text-[color:var(--muted)] hover:text-[color:var(--accent)] transition-colors"
         >
-          {viewAllText}{" "}
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          {viewAllText}
+          <ArrowUpRight className="w-4 h-4" />
         </Link>
       )}
     </section>

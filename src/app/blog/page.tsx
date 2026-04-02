@@ -2,7 +2,6 @@ import { ScrambleText } from "@/components/scramble-text"
 import { PostsList } from "@/components/posts-list"
 import { getPosts } from "@/lib/blog"
 import { Metadata } from "next"
-import { Search, Command, ArrowUp, ArrowDown } from "lucide-react"
 
 const posts = getPosts().sort(
   (a, b) =>
@@ -14,7 +13,7 @@ export default async function BlogPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Blog | Joaquim Silva",
-    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuidos.",
     url: "https://www.joaquimsnjr.tech/blog",
     author: {
       "@type": "Person",
@@ -40,73 +39,33 @@ export default async function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Terminal Window Header */}
-      <div className="border border-gray-800/60 bg-[#161616] mb-8">
-        {/* Terminal Bar */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-800/60 bg-[#1a1a1a]">
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-red-500/80" />
-              <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <span className="w-3 h-3 rounded-full bg-green-500/80" />
-            </div>
-            <span className="ml-3 text-xs text-gray-500 font-mono">~/blog</span>
-          </div>
-          <div className="text-xs text-gray-600 font-mono">
-            {posts.length} artigos
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            <ScrambleText className="font-bold leading-none" text="Blog" />
-          </h1>
-
-          <p className="text-gray-400 font-mono text-sm mb-6">
-            <span className="text-emerald-400">❯</span>
-            <span className="text-gray-500 ml-2">cat</span>
-            <span className="text-white ml-2">description.md</span>
-          </p>
-
-          <p className="text-gray-300 leading-relaxed pl-5 border-l-2 border-gray-800">
-            Artigos sobre <span className="text-blue-400">engenharia de software</span>,
-            <span className="text-blue-400"> cloud native</span>,
-            <span className="text-blue-400"> Go</span> e
-            <span className="text-blue-400"> sistemas distribuídos</span>.
-          </p>
-        </div>
+      <div className="mb-10">
+        <p className="kicker">Arquivo</p>
+        <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
+          <ScrambleText className="font-semibold leading-none" text="Blog" />
+        </h1>
+        <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
+          Artigos sobre engenharia de software, cloud native, Go e sistemas distribuidos.
+        </p>
+        <p className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+          {posts.length} artigos
+        </p>
       </div>
 
-      {/* Keyboard Shortcuts Info */}
-      <div className="hidden sm:flex items-center gap-6 mb-8 p-4 border border-gray-800/60 bg-[#161616]">
-        <div className="flex items-center gap-2 text-gray-500 text-xs">
-          <Command className="w-3 h-3" />
-          <span>Atalhos:</span>
-        </div>
-
+      <div className="mb-8 flex flex-wrap items-center gap-4 text-[11px] text-[color:var(--muted)]">
+        <span className="uppercase tracking-[0.28em]">atalhos</span>
         <div className="flex items-center gap-2">
-          <kbd className="px-2 py-1 bg-gray-800/50 border border-gray-700 text-gray-400 font-mono text-xs">
-            /
-          </kbd>
-          <span className="text-gray-500 text-xs">buscar</span>
+          <kbd className="px-2 py-1 border border-[color:var(--border)]">/</kbd>
+          <span>buscar</span>
         </div>
-
         <div className="flex items-center gap-2">
-          <kbd className="px-2 py-1 bg-gray-800/50 border border-gray-700 text-gray-400 font-mono text-xs">
-            ↑
-          </kbd>
-          <kbd className="px-2 py-1 bg-gray-800/50 border border-gray-700 text-gray-400 font-mono text-xs">
-            ↓
-          </kbd>
-          <span className="text-gray-500 text-xs">navegar</span>
+          <kbd className="px-2 py-1 border border-[color:var(--border)]">up</kbd>
+          <kbd className="px-2 py-1 border border-[color:var(--border)]">down</kbd>
+          <span>navegar</span>
         </div>
-
         <div className="flex items-center gap-2">
-          <kbd className="px-2 py-1 bg-gray-800/50 border border-gray-700 text-gray-400 font-mono text-xs">
-            enter
-          </kbd>
-          <span className="text-gray-500 text-xs">abrir</span>
+          <kbd className="px-2 py-1 border border-[color:var(--border)]">enter</kbd>
+          <span>abrir</span>
         </div>
       </div>
 
@@ -117,11 +76,11 @@ export default async function BlogPage() {
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos. Compartilhando conhecimento e experiências.",
+  description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuidos. Compartilhando conhecimento e experiencias.",
   keywords: ["blog", "artigos", "Go", "Golang", "Cloud Native", "Kubernetes", "engenharia de software", "SRE"],
   openGraph: {
     title: "Blog | Joaquim Silva",
-    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuidos.",
     url: "https://www.joaquimsnjr.tech/blog",
     siteName: "Joaquim Silva",
     locale: "pt_BR",
@@ -138,7 +97,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog | Joaquim Silva",
-    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuidos.",
     creator: "@joaquimsnjunior",
     images: ["https://www.joaquimsnjr.tech/og/home?title=blog"],
   },

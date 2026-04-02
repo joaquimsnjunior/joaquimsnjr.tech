@@ -1,6 +1,6 @@
 "use client"
 import React, { useCallback, useEffect, useRef, useState } from "react"
-import { ArrowRight, ArrowLeft, Maximize2, Minimize2, BookOpen, Home, Monitor } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Maximize2, Minimize2, BookOpen, Home } from "lucide-react"
 
 /**
  * Deck
@@ -102,70 +102,77 @@ export default function Deck({ slides, title, initial = 0, notes }: DeckProps) {
 
   // progress percentage
   const progress = Math.round(((index + 1) / Math.max(1, slides.length)) * 100)
+  const controlClass = "inline-flex items-center gap-2 border border-[color:var(--border)] px-2 py-1 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--foreground)]"
 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full flex flex-col bg-[#111] ${isFullscreen ? 'h-screen' : 'min-h-[85vh]'}`}
+      className={`relative w-full bg-background text-foreground ${isFullscreen ? "h-screen" : "min-h-screen"}`}
     >
-      {/* Terminal Window Container */}
-      <div className="flex-1 flex flex-col border border-gray-800/60 bg-[#161616] m-2 sm:m-4 overflow-hidden">
-
-        {/* Terminal Header Bar */}
-        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800/60 bg-[#1a1a1a] flex-shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="flex gap-1.5">
-              <button
-                onClick={() => window.location.href = "/"}
-                className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors"
-                title="Voltar ao início [h]"
-              />
-              <button
-                onClick={() => setPresenter(v => !v)}
-                className="w-3 h-3 rounded-full bg-yellow-500/80 hover:bg-yellow-500 transition-colors"
-                title="Notas do apresentador [p]"
-              />
-              <button
-                onClick={toggleFullscreen}
-                className="w-3 h-3 rounded-full bg-green-500/80 hover:bg-green-500 transition-colors"
-                title="Fullscreen [f]"
-              />
-            </div>
-            <span className="text-xs text-gray-400 font-mono hidden sm:inline">
-              ~/presentations/{title?.toLowerCase().replace(/\s+/g, '-').slice(0, 30) || 'deck'}
-            </span>
+      <div
+        className={`mx-auto flex h-full ${isFullscreen ? "h-full" : "min-h-screen"} flex-col px-4 py-4 sm:px-6 sm:py-6 w-full max-w-6xl`}
+      >
+        <div className="surface flex items-center justify-between px-4 py-3">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+              apresentacao
+            </p>
+            <p className="text-sm font-medium text-[color:var(--foreground)]">
+              {title ?? "deck"}
+            </p>
           </div>
 
-          <div className="flex items-center gap-4">
-            {/* Slide Counter */}
-            <div className="flex items-center gap-2 text-xs text-gray-400 font-mono">
-              <Monitor className="w-3 h-3" />
-              <span>{index + 1}<span className="text-gray-600">/</span>{slides.length}</span>
-            </div>
+          <div className="hidden sm:flex items-center gap-4 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+            <span>{index + 1}/{slides.length}</span>
+            <span>{progress}%</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.location.href = "/"}
+              className={controlClass}
+              title="Voltar ao inicio [h]"
+            >
+              <Home className="w-3 h-3" />
+              <span className="hidden sm:inline">home</span>
+            </button>
+            <button
+              onClick={() => setPresenter(v => !v)}
+              className={`${controlClass} ${presenter ? "bg-[color:var(--accent-soft)] text-[color:var(--accent)] border-[color:var(--accent)]" : ""}`}
+              title="Notas do apresentador [p]"
+            >
+              <BookOpen className="w-3 h-3" />
+              <span className="hidden sm:inline">notas</span>
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              className={controlClass}
+              title="Fullscreen [f]"
+            >
+              {isFullscreen ? <Minimize2 className="w-3 h-3" /> : <Maximize2 className="w-3 h-3" />}
+              <span className="hidden sm:inline">tela</span>
+            </button>
           </div>
         </div>
 
-        {/* Slide Area */}
-        <div className="flex-1 flex items-center justify-center p-4 sm:p-8 overflow-auto">
-          <div className="w-full max-w-6xl">
-            <div className="prose prose-invert prose-lg max-w-none">
+        <div className="surface mt-4 flex-1 overflow-auto px-6 py-8 sm:px-10 sm:py-12">
+          <div className="mx-auto max-w-5xl">
+            <div className="prose prose-lg max-w-none prose-headings:text-[color:var(--foreground)] prose-p:text-[color:var(--muted)] prose-a:text-[color:var(--accent)]">
               {slides[index]}
             </div>
           </div>
         </div>
 
-        {/* Controls Bar */}
-        <div className="flex items-center justify-between px-4 py-3 border-t border-gray-800/60 bg-[#1a1a1a] flex-shrink-0">
-          {/* Navigation Buttons */}
+        <div className="surface mt-4 flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <button
               onClick={prev}
               disabled={index === 0}
               aria-label="Slide anterior"
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono border transition-all duration-200 ${index === 0
-                  ? 'border-gray-800 text-gray-600 cursor-not-allowed'
-                  : 'border-gray-700 text-gray-400 hover:border-blue-400/50 hover:text-blue-400'
-                }`}
+              className={`inline-flex items-center gap-2 border px-3 py-1 text-[11px] uppercase tracking-[0.28em] transition-colors ${index === 0
+                ? "border-[color:var(--border)] text-[color:var(--muted)] opacity-40 cursor-not-allowed"
+                : "border-[color:var(--border)] text-[color:var(--muted)] hover:border-[color:var(--accent)] hover:text-[color:var(--foreground)]"
+              }`}
             >
               <ArrowLeft className="w-3 h-3" />
               <span className="hidden sm:inline">prev</span>
@@ -173,104 +180,51 @@ export default function Deck({ slides, title, initial = 0, notes }: DeckProps) {
             <button
               onClick={next}
               disabled={index === slides.length - 1}
-              aria-label="Próximo slide"
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono border transition-all duration-200 ${index === slides.length - 1
-                  ? 'border-gray-800 text-gray-600 cursor-not-allowed'
-                  : 'border-gray-700 text-gray-400 hover:border-blue-400/50 hover:text-blue-400'
-                }`}
+              aria-label="Proximo slide"
+              className={`inline-flex items-center gap-2 border px-3 py-1 text-[11px] uppercase tracking-[0.28em] transition-colors ${index === slides.length - 1
+                ? "border-[color:var(--border)] text-[color:var(--muted)] opacity-40 cursor-not-allowed"
+                : "border-[color:var(--border)] text-[color:var(--muted)] hover:border-[color:var(--accent)] hover:text-[color:var(--foreground)]"
+              }`}
             >
               <span className="hidden sm:inline">next</span>
               <ArrowRight className="w-3 h-3" />
             </button>
           </div>
 
-          {/* Progress Bar */}
-          <div className="flex-1 mx-4 max-w-md hidden sm:block">
-            <div className="relative w-full h-1 bg-gray-800 overflow-hidden">
+          <div className="flex-1 mx-4 hidden sm:block">
+            <div className="h-1 w-full bg-[color:var(--border)]">
               <div
-                className="absolute left-0 top-0 h-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-300"
+                className="h-full bg-[color:var(--accent)] transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <div className="flex justify-between mt-1 text-[10px] text-gray-600 font-mono">
-              <span>0%</span>
-              <span>{progress}%</span>
-              <span>100%</span>
-            </div>
           </div>
 
-          {/* Keyboard Shortcuts */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => window.location.href = "/"}
-              className="flex items-center gap-1 px-2 py-1 text-[10px] font-mono border border-gray-700/50 text-gray-500 hover:border-gray-600 hover:text-gray-400 transition-colors"
-              title="Voltar ao início"
-            >
-              <Home className="w-3 h-3" />
-              <span className="hidden sm:inline">h</span>
-            </button>
-            <button
-              onClick={() => setPresenter(v => !v)}
-              className={`flex items-center gap-1 px-2 py-1 text-[10px] font-mono border transition-colors ${presenter
-                  ? 'border-blue-400/50 text-blue-400 bg-blue-400/10'
-                  : 'border-gray-700/50 text-gray-500 hover:border-gray-600 hover:text-gray-400'
-                }`}
-              title="Notas do apresentador"
-            >
-              <BookOpen className="w-3 h-3" />
-              <span className="hidden sm:inline">p</span>
-            </button>
-            <button
-              onClick={toggleFullscreen}
-              className="flex items-center gap-1 px-2 py-1 text-[10px] font-mono border border-gray-700/50 text-gray-500 hover:border-gray-600 hover:text-gray-400 transition-colors"
-              title="Fullscreen"
-            >
-              {isFullscreen ? <Minimize2 className="w-3 h-3" /> : <Maximize2 className="w-3 h-3" />}
-              <span className="hidden sm:inline">f</span>
-            </button>
+          <div className="text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+            slide {index + 1} de {slides.length}
           </div>
         </div>
+
+        {presenter && (
+          <div className="surface mt-4 px-4 py-4">
+            <div className="flex items-center justify-between border-b border-[color:var(--border)] pb-3">
+              <p className="kicker">Notas</p>
+              <button
+                onClick={() => setPresenter(false)}
+                className="text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)] hover:text-[color:var(--foreground)]"
+              >
+                fechar
+              </button>
+            </div>
+            <p className="mt-4 text-sm text-[color:var(--muted)] leading-relaxed">
+              {notes?.[index] || "sem notas para este slide"}
+            </p>
+            <div className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+              slide {index + 1} de {slides.length} · {progress}%
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* Presenter Notes Panel */}
-      {presenter && (
-        <div className="mx-2 sm:mx-4 mb-2 sm:mb-4 border border-gray-800/60 bg-[#161616] animate-fade-in-up">
-          {/* Notes Header */}
-          <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800/60 bg-[#1a1a1a]">
-            <div className="flex items-center gap-2">
-              <BookOpen className="w-3.5 h-3.5 text-blue-400" />
-              <span className="text-xs text-gray-400 font-mono">presenter-notes.md</span>
-            </div>
-            <button
-              onClick={() => setPresenter(false)}
-              className="text-xs text-gray-500 hover:text-white transition-colors"
-            >
-              [esc]
-            </button>
-          </div>
-
-          {/* Notes Content */}
-          <div className="p-4">
-            <div className="flex items-start gap-2 mb-3">
-              <span className="text-emerald-400 font-mono text-sm">❯</span>
-              <span className="text-gray-400 font-mono text-sm">cat</span>
-              <span className="text-white font-mono text-sm">slide-{index + 1}.md</span>
-            </div>
-            <div className="pl-5 border-l-2 border-gray-800 text-gray-300 text-sm leading-relaxed">
-              {notes?.[index] || (
-                <span className="text-gray-600 italic">— sem notas para este slide —</span>
-              )}
-            </div>
-
-            {/* Quick Stats */}
-            <div className="mt-4 pt-4 border-t border-gray-800/40 flex items-center gap-6 text-xs text-gray-500 font-mono">
-              <span>slide: {index + 1}/{slides.length}</span>
-              <span>progress: {progress}%</span>
-              <span>remaining: {slides.length - index - 1}</span>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

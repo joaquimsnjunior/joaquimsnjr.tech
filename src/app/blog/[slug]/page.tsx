@@ -58,7 +58,7 @@ export default async function Post({ params }: PageProps) {
   }
   // console.log(post) joaquimsnjr.tech
   return (
-    <section className="animate-fade-in-up">
+    <section className="animate-fade-in-up max-w-3xl mx-auto">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -82,15 +82,22 @@ export default async function Post({ params }: PageProps) {
         }}
       />
 
-      <h1 className="text-4xl font-semibold mb-4 text-white">
-        {post.metadata.title}
-      </h1>
+      <header className="mb-10">
+        <p className="kicker">Post</p>
+        <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
+          {post.metadata.title}
+        </h1>
+        {post.metadata.description && (
+          <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
+            {post.metadata.description}
+          </p>
+        )}
+        <div className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+          {formatDate(post.metadata.date)}
+        </div>
+      </header>
 
-      <div className="mb-8 flex items-center justify-between text-sm text-gray-400">
-        <span>{formatDate(post.metadata.date)}</span>
-      </div>
-
-      <article className="prose prose-invert max-w-none prose-headings:text-white prose-a:text-white hover:prose-a:underline">
+      <article className="prose max-w-none prose-headings:text-[color:var(--foreground)] prose-p:text-[color:var(--muted)] prose-strong:text-[color:var(--foreground)] prose-a:text-[color:var(--accent)]">
         <MDX source={post.content} />
       </article>
     </section>

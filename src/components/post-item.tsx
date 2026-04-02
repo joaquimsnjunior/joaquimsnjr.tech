@@ -1,7 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
 import { type MDXFileData } from "@/lib/blog"
-import { ArrowUpRight, Calendar, Clock } from 'lucide-react'
 
 function formatDate(dateString: string): string {
   return new Date(dateString)
@@ -50,79 +48,34 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className={`group block border transition-all duration-300 ${isSelected
-        ? 'border-blue-400/50 bg-blue-400/5'
-        : 'border-gray-800/60 bg-[#161616] hover:border-blue-400/50 hover:bg-[#1a1a1a]'
-        }`}
+      className={`group block border-b border-[color:var(--border)] py-4 transition-colors ${
+        isSelected ? "bg-[color:var(--accent-soft)]" : ""
+      }`}
       aria-label={`Ler artigo: ${post.metadata.title}`}
     >
-      {/* Terminal-style header */}
-      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800/40 bg-[#1a1a1a]">
-        <div className="flex items-center gap-2">
-          <div className="flex gap-1">
-            <span className="w-2 h-2 rounded-full bg-gray-500" />
-            <span className="w-2 h-2 rounded-full bg-gray-500" />
-            <span className="w-2 h-2 rounded-full bg-gray-500" />
-          </div>
-          <span className="text-[10px] text-gray-500 font-mono ml-2">posts/{post.slug.slice(0, 20)}...</span>
-        </div>
-        <span className="text-[10px] text-gray-500 font-mono">[{category}]</span>
+      <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
+        <time dateTime={new Date(post.metadata.date).toISOString()}>
+          {formatDate(post.metadata.date)}
+        </time>
+        <span className="text-[color:var(--border)]">•</span>
+        <span>{readingTime} min</span>
+        <span className="text-[color:var(--border)]">•</span>
+        <span>[{category}]</span>
       </div>
 
-      {/* Content */}
-      <div className="flex gap-4 p-4">
-        {/* Thumbnail */}
-        {post.metadata.coverImage && (
-          <div className="relative h-24 w-36 flex-shrink-0 overflow-hidden bg-gray-800/50 hidden sm:block">
-            <Image
-              src={post.metadata.coverImage}
-              alt=""
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="144px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#161616]/50" />
-          </div>
-        )}
+      <h4
+        className={`mt-2 text-base sm:text-lg font-medium leading-snug transition-colors duration-200 line-clamp-2 ${
+          isSelected ? "text-[color:var(--accent)]" : "text-[color:var(--foreground)]"
+        } group-hover:text-[color:var(--accent)]`}
+      >
+        {post.metadata.title}
+      </h4>
 
-        {/* Text Content */}
-        <div className="flex-1 min-w-0">
-          {/* Meta info */}
-          <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-3 h-3" />
-              <time dateTime={new Date(post.metadata.date).toISOString()}>
-                {formatDate(post.metadata.date)}
-              </time>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-3 h-3" />
-              <span>{readingTime} min</span>
-            </div>
-          </div>
-
-          {/* Title */}
-          <h4 className={`text-base font-medium leading-snug transition-colors duration-200 line-clamp-2 ${isSelected ? 'text-blue-400' : 'text-gray-200 group-hover:text-white'
-            }`}>
-            {post.metadata.title}
-          </h4>
-
-          {/* Description */}
-          {post.metadata.description && (
-            <p className="mt-2 text-sm text-gray-400 line-clamp-1">
-              {post.metadata.description}
-            </p>
-          )}
-        </div>
-
-        {/* Arrow indicator */}
-        <div className="flex-shrink-0 self-center">
-          <ArrowUpRight className={`w-5 h-5 transition-all duration-200 ${isSelected
-            ? 'text-blue-400'
-            : 'text-gray-500 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
-            }`} />
-        </div>
-      </div>
+      {post.metadata.description && (
+        <p className="mt-2 text-sm text-[color:var(--muted)] line-clamp-1">
+          {post.metadata.description}
+        </p>
+      )}
     </Link>
   )
 }

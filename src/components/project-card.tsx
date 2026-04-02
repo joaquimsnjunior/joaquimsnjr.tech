@@ -21,26 +21,30 @@ export function ProjectCard({
   href,
 }: ProjectCardProps) {
   return (
-    <div className="group border border-gray-800 p-6 transition-colors hover:border-blue-400/50">
-      <Link href={href} target="_blank">
-        <div className="flex justify-between items-start mb-4">
-          <h2 className="text-2xl font-bold text-white leading-none">
+    <div className="surface surface-hover p-6">
+      <Link href={href} target="_blank" className="block">
+        <div className="flex items-start justify-between gap-3">
+          <h2 className="text-xl font-semibold text-[color:var(--foreground)]">
             {title}
           </h2>
-          <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+          <ArrowUpRight className="w-5 h-5 text-[color:var(--muted)]" />
         </div>
       </Link>
 
-      <p className="text-sm text-gray-400 mb-4">
-        {role} {period && `(${period})`}
+      <p className="mt-2 text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+        {role}{period ? ` · ${period}` : ""}
       </p>
 
-      <p className="text-gray-300 mb-6">{description}</p>
+      <p className="mt-3 text-sm text-[color:var(--muted)] leading-relaxed">
+        {description}
+      </p>
 
-      <div className="space-y-6">
+      <div className="mt-5 space-y-4">
         <div>
-          <h3 className="text-white font-semibold mb-2">Resultados</h3>
-          <ul className="list-disc list-inside space-y-1 text-gray-400">
+          <h3 className="text-xs uppercase tracking-[0.28em] text-[color:var(--muted)] mb-2">
+            Resultados
+          </h3>
+          <ul className="list-disc list-inside space-y-1 text-sm text-[color:var(--muted)]">
             {achievements.map((achievement, index) => (
               <li key={index}>{achievement}</li>
             ))}
@@ -48,13 +52,12 @@ export function ProjectCard({
         </div>
 
         <div>
-          <h3 className="text-white font-semibold mb-2">tecnologias</h3>
-          <div className="flex flex-wrap gap-2">
+          <h3 className="text-xs uppercase tracking-[0.28em] text-[color:var(--muted)] mb-2">
+            tecnologias
+          </h3>
+          <div className="flex flex-wrap gap-2 text-[11px] text-[color:var(--muted)]">
             {technologies.map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-1 text-sm text-gray-300 bg-gray-800/50 rounded"
-              >
+              <span key={tech} className="border border-[color:var(--border)] px-2 py-0.5">
                 {tech.toLowerCase()}
               </span>
             ))}

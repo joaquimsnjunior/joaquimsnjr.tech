@@ -7,7 +7,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: {
-    absolute: "~/Joaquim_Silva | SRE & Software Engineer",
+    absolute: "~/Joaquim/",
   },
   description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Construindo infraestrutura que não dorme.",
   keywords: ["SRE", "Software Engineer", "Go", "Golang", "Kubernetes", "Cloud Native", "DevOps", "AWS"],
