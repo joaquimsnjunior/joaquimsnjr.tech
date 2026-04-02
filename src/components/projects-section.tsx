@@ -140,7 +140,6 @@ export function ProjectsSection({ projects, showFeatured = true }: ProjectsSecti
   return (
     <section className="mb-16 animate-fade-in-up" aria-labelledby="projects-section-title">
       <div className="mb-6">
-        <p className="kicker">Trabalhos selecionados</p>
         <h2 id="projects-section-title" className="section-title">
           Projetos
         </h2>

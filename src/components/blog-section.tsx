@@ -119,7 +119,6 @@ export function BlogSection() {
   return (
     <section className="mb-16 animate-fade-in-up" aria-labelledby="blog-section-title">
       <div className="mb-6">
-        <p className="kicker">Escrita recente</p>
         <h2 id="blog-section-title" className="section-title">
           Blog
         </h2>
