@@ -230,7 +230,6 @@ export default function ProjectsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mb-10">
-        <p className="kicker">Portfolio</p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
           <ScrambleText className="font-semibold leading-none" text="Projetos" />
         </h1>

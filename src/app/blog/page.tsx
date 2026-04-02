@@ -40,13 +40,9 @@ export default async function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mb-10">
-        <p className="kicker">Arquivo</p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
           <ScrambleText className="font-semibold leading-none" text="Blog" />
         </h1>
-        <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
-          Artigos sobre engenharia de software, cloud native, Go e sistemas distribuidos.
-        </p>
         <p className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
           {posts.length} artigos
         </p>
