@@ -40,31 +40,7 @@ function formatDate(dateString: string): string {
     .toLowerCase()
 }
 
-/**
- * Extrai uma categoria do título/descrição do post.
- */
-function extractCategory(post: MDXFileData): string {
-  const title = post.metadata.title.toLowerCase()
-  const description = post.metadata.description.toLowerCase()
-  const content = title + " " + description
 
-  if (content.includes("cloud") || content.includes("aws") || content.includes("arquitetura")) {
-    return "cloud"
-  }
-  if (content.includes("go") || content.includes("golang") || content.includes("goroutine")) {
-    return "golang"
-  }
-  if (content.includes("api") || content.includes("rest") || content.includes("graphql") || content.includes("grpc")) {
-    return "apis"
-  }
-  if (content.includes("empreendedor") || content.includes("empreendedorismo") || content.includes("empreendendo") || content.includes("empresa")) {
-    return "empreendedorismo"
-  }
-  if (content.includes("cassandra") || content.includes("banco") || content.includes("database") || content.includes("nosql")) {
-    return "database"
-  }
-  return "tech"
-}
 
 /* ============================================================================
    SUB-COMPONENTS
@@ -81,7 +57,6 @@ interface PostCardProps {
 
 function PostRow({ post, featured = false, className = "" }: PostCardProps) {
   const { metadata, slug } = post
-  const category = extractCategory(post)
   const formattedDate = formatDate(metadata.date)
 
   return (
@@ -92,8 +67,6 @@ function PostRow({ post, featured = false, className = "" }: PostCardProps) {
     >
       <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
         <time>{formattedDate}</time>
-        <span className="text-[color:var(--border)]">•</span>
-        <span>[{category}]</span>
       </div>
 
       <h3
