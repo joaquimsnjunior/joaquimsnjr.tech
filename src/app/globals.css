@@ -2,25 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Alliance No.1 Font */
-@font-face {
-  font-family: 'Alliance No.1';
-  src: url('/fonts/AllianceNo1-Regular.woff2') format('woff2'),
-    url('/fonts/AllianceNo1-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
-  --background: #111;
-  --foreground: #d1d5db;
-  --font-alliance: 'Alliance No.1', system-ui, sans-serif;
+  --background: #DED6CB;
+  --foreground: #141413;
+  --muted: #474749;
+  --surface: #E3DACC;
+  --border: #9E9A9B;
+  --accent: #F26B0A;
+  --accent-soft: rgba(8, 8, 8, 0.18);
+  --code-bg: #EFE7DB;
+  --code-border: #B7B0A6;
+  --code-header: #E7DFD2;
+  --code-inline-bg: #ECE4D7;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background:
+    radial-gradient(1200px 600px at 12% -10%, rgba(155, 211, 199, 0.12), transparent 40%),
+    var(--background);
+  font-family: var(--font-space-grotesk);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--foreground);
+}
+
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.surface-hover {
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.surface-hover:hover {
+  border-color: var(--accent);
+}
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+.link-accent {
+  color: var(--foreground);
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.link-accent:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.text-muted {
+  color: var(--muted);
 }
 
 /* ============================================================================
@@ -30,7 +85,7 @@ body {
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
 
   to {
@@ -62,15 +117,12 @@ body {
 
 .shiki,
 .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
-  font-style: var(--shiki-dark-font-style) !important;
-  font-weight: var(--shiki-dark-font-weight) !important;
-  text-decoration: var(--shiki-dark-text-decoration) !important;
+  background-color: transparent !important;
 }
 
 .prose a:not(.anchor) {
-  @apply text-blue-400 no-underline hover:underline;
+  @apply no-underline;
+  color: var(--accent);
 }
 
 .prose a.anchor {
@@ -85,12 +137,21 @@ body {
   @apply opacity-100;
 }
 
+.prose hr {
+  border-color: var(--border);
+}
+
 .prose pre {
-  @apply overflow-x-auto border border-neutral-800 bg-[#111] my-4 rounded-none;
+  @apply overflow-x-auto my-4 rounded-none;
+  border: 1px solid var(--code-border);
+  background: var(--code-bg);
 }
 
 .prose code:not(pre code) {
-  @apply px-1 py-0.5 text-sm border border-gray-700 rounded text-gray-200;
+  @apply px-1 py-0.5 text-sm rounded;
+  border: 1px solid var(--code-border);
+  background: var(--code-inline-bg);
+  color: var(--foreground);
 }
 
 .prose code:not(pre code)::before,
@@ -105,5 +166,6 @@ body {
 }
 
 .prose code span {
-  @apply font-medium text-gray-200;
+  @apply font-medium;
+  color: var(--foreground);
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist_Mono } from "next/font/google"
+import { Geist_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Transition from "@/components/transition"
 import { SkipLink } from "@/components/skip-link"
@@ -10,10 +10,16 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 })
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+})
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.joaquimsnjr.tech"),
   title: {
-    default: "~/Joaquim_Silva",
+    default: "~/Joaquim/",
     template: "cd ~/%s",
   },
   description: "Meu cantinho na internet.",
@@ -62,7 +68,7 @@ export default function RootLayout({
       "https://twitter.com/joaquimsnjunior",
       "https://linkedin.com/in/joaquimsnjunior",
     ],
-    jobTitle: "SRE & Software Engineer",
+    jobTitle: "Software Engineer",
     worksFor: {
       "@type": "Organization",
       name: "All Net Educação",
@@ -108,10 +114,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistMono.variable} antialiased min-h-screen font-sans overflow-x-hidden`}
+        className={`${geistMono.variable} ${spaceGrotesk.variable} antialiased min-h-screen font-sans bg-background text-foreground overflow-x-hidden`}
       >
         <SkipLink />
-        <main id="main-content" className="max-w-7xl mx-auto px-4 py-8 overflow-hidden md:overflow-visible">
+        <main
+          id="main-content"
+          className="max-w-5xl mx-auto px-6 sm:px-8 py-10 sm:py-12"
+        >
           <Transition>{children}</Transition>
         </main>
       </body>

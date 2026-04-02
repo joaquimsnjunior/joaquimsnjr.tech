@@ -23,15 +23,15 @@ export function CopyButton({ code }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className="flex items-center gap-1.5 px-2 py-1 text-neutral-500 hover:text-neutral-200
+      className="flex items-center gap-1.5 px-2 py-1 text-[color:var(--muted)] hover:text-[color:var(--foreground)]
                  rounded transition-colors duration-200"
       aria-label={copied ? "Copiado!" : "Copiar código"}
       title={copied ? "Copiado!" : "Copiar código"}
     >
       {copied ? (
         <>
-          <Check className="w-3.5 h-3.5 text-emerald-400" />
-          <span className="text-[11px] font-medium uppercase tracking-wider text-emerald-400">copiado</span>
+          <Check className="w-3.5 h-3.5 text-[color:var(--accent)]" />
+          <span className="text-[11px] font-medium uppercase tracking-wider text-[color:var(--accent)]">copiado</span>
         </>
       ) : (
         <>
