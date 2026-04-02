@@ -23,7 +23,7 @@ export function Header() {
         <div className="space-y-5">
           <div>
             <p className="kicker">Software Engineer</p>
-            <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
+            <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[color:var(--foreground)]">
               Joaquim Silva
             </h1>
             <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
