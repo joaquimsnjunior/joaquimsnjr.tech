@@ -129,7 +129,6 @@ function TalksPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="mb-10">
-        <p className="kicker">Agenda</p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
           <ScrambleText className="font-semibold leading-none" text="Palestras e Apresentacoes" />
         </h1>
@@ -173,7 +172,7 @@ function TalksPage() {
 export const metadata: Metadata = {
   title: "Palestras e Apresentacoes",
   description: "Palestras sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.",
-  keywords: ["palestras", "talks", "apresentacoes", "Go", "Cloud Native", "SRE", "Open Source"],
+  keywords: ["palestras", "talks", "apresentacoes", "Go", "Cloud Native", "SRE", "Open Source", "engenharia de software", "sistemas distribuídos"],
   openGraph: {
     title: "Palestras e Apresentacoes | Joaquim Silva",
     description: "Palestras sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.",

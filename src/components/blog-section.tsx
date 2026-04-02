@@ -57,6 +57,9 @@ function extractCategory(post: MDXFileData): string {
   if (content.includes("api") || content.includes("rest") || content.includes("graphql") || content.includes("grpc")) {
     return "apis"
   }
+  if (content.includes("empreendedor") || content.includes("empreendedorismo") || content.includes("empreendendo") || content.includes("empresa")) {
+    return "empreendedorismo"
+  }
   if (content.includes("cassandra") || content.includes("banco") || content.includes("database") || content.includes("nosql")) {
     return "database"
   }
