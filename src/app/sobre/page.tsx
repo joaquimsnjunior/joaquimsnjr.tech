@@ -15,9 +15,9 @@ type WorkItem = {
 const workItems: WorkItem[] = [
   {
     title: "All Net Educacao",
-    role: "Educador & Mentor Tecnico",
+    role: "Educador & Mentor Técnico",
     period: "jan 2025 - atual",
-    description: "Lideranca tecnica e formacao de talentos em Backend (Go) e Arquitetura de Software. Responsavel por traduzir desafios reais de mercado em projetos praticos, focando em Clean Code, escalabilidade e boas praticas de desenvolvimento moderno.",
+    description: "Liderança técnica e formação de talentos em Backend (Go) e Arquitetura de Software. Responsável por traduzir desafios reais de mercado em projetos práticos, focando em Clean Code, escalabilidade e boas praticas de desenvolvimento moderno.",
     href: "https://allneteducacao.com.br/",
     technologies: ["Go", "Clean Architecture", "Mentoria"],
     current: true,
@@ -26,17 +26,17 @@ const workItems: WorkItem[] = [
     title: "ZinwellCorp - TB Smart",
     role: "Software Engineer | DevOps",
     period: "jan 2024 - jan 2025",
-    description: "Arquitetura e desenvolvimento de sistemas de missao critica em Go e Clean Architecture. Implementacao de infraestrutura como codigo (Terraform) e orquestracao de containers (Kubernetes/EKS), otimizando pipelines CI/CD para operacoes de alto volume.",
+    description: "Arquitetura e desenvolvimento de sistemas de missão critica em Go e Clean Architecture. Implementação de infraestrutura como codigo (Terraform) e orquestração de containers (Kubernetes/EKS), otimizando pipelines CI/CD para operações de alto volume.",
     href: "https://www.tbsmart.com.br/",
     technologies: ["Go", "Kubernetes", "Terraform", "AWS"],
   },
   {
     title: "ZinwellCorp",
-    role: "Suporte Tecnico Especializado",
+    role: "Suporte Técnico Especializado",
     period: "jul 2023 - jan 2024",
-    description: "Garantia de qualidade e eficiencia operacional atraves de testes rigorosos, elaboracao de relatorios tecnicos e suporte estrategico a clientes em tecnologias de hardware e software.",
+    description: "Garantia de qualidade e eficiência operacional através de testes rigorosos, elaboração de relatórios técnicos e suporte estratégico a clientes em tecnologias de hardware e software.",
     href: "https://www.tbsmart.com.br/",
-    technologies: ["QA", "Documentacao", "Suporte"],
+    technologies: ["QA", "Documentação", "Suporte"],
   },
 ]
 
@@ -55,14 +55,14 @@ function SobrePage() {
       "@type": "Person",
       name: "Joaquim Silva",
       jobTitle: "SRE & Software Engineer",
-      description: "Engenheiro de Software & SRE. Especialista em projetar sistemas de alto volume onde disponibilidade e performance sao inegociaveis.",
+      description: "Engenheiro de Software. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis.",
       image: "https://res.cloudinary.com/dy5xyare1/image/upload/v1767414405/Profile_01_t8clcl.jpg",
       url: "https://www.joaquimsnjr.tech",
       sameAs: [
         "https://github.com/joaquimsnjunior",
         "https://twitter.com/joaquimsnjunior",
       ],
-      knowsAbout: ["Go", "TypeScript", "Python", "AWS", "Kubernetes", "Docker", "Terraform", "PostgreSQL", "Redis"],
+      knowsAbout: ["Golang", "TypeScript", "AWS", "Kubernetes", "Docker", "Terraform", "PostgreSQL", "Redis"],
       worksFor: {
         "@type": "Organization",
         name: "All Net Educacao",
@@ -71,7 +71,7 @@ function SobrePage() {
       hasOccupation: [
         {
           "@type": "Occupation",
-          name: "Educador & Mentor Tecnico",
+          name: "Educador & Mentor Técnico",
           occupationLocation: {
             "@type": "City",
             name: "Sao Paulo",
@@ -94,7 +94,7 @@ function SobrePage() {
           <ScrambleText className="font-semibold leading-none" text="Sobre mim" />
         </h1>
         <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
-          Engenheiro de Software & SRE. Especialista em projetar sistemas de alto volume onde disponibilidade e performance sao inegociáveis. Unindo arquitetura limpa a automaçãoo de infraestrutura, entrego soluções que escalam.
+          Engenheiro de Software & SRE. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis. Unindo arquitetura limpa a automação de infraestrutura, entrego soluções que escalam.
         </p>
       </div>
 
@@ -170,11 +170,11 @@ function SobrePage() {
 
 export const metadata: Metadata = {
   title: "Sobre mim",
-  description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Conheca minha trajetoria e experiencia profissional.",
+  description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Conheça minha trajetória e experiencia profissional.",
   keywords: ["sobre", "about", "Joaquim Silva", "SRE", "Software Engineer", "experiencia", "carreira"],
   openGraph: {
     title: "Sobre mim | Joaquim Silva",
-    description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Conheca minha trajetoria e experiencia profissional.",
+    description: "Engenheiro de Software & SRE focado em Cloud Native, Go e Kubernetes. Conheça minha trajetória e experiencia profissional.",
     url: "https://www.joaquimsnjr.tech/sobre",
     siteName: "Joaquim Silva",
     locale: "pt_BR",
