@@ -44,7 +44,7 @@ export function Navbar() {
   const navItems = [
     { href: "/", label: "home", shortcut: "h" },
     { href: "/blog", label: "blog", shortcut: "b" },
-    { href: "/projects", label: "projects", shortcut: "p" },
+    { href: "/projects", label: "projetos", shortcut: "p" },
     { href: "/sobre", label: "sobre", shortcut: "s" },
     { href: "/talks", label: "talks", shortcut: "t" },
   ]
