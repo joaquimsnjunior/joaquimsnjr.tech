@@ -8,8 +8,8 @@ export function Header() {
       <div className="grid gap-8 border-b border-[color:var(--border)] pb-10 md:grid-cols-[120px,1fr] md:items-start">
         <div className="relative h-24 w-24 overflow-hidden rounded-sm">
           <Image
-            width={96}
-            height={96}
+            width={90}
+            height={90}
             src="https://res.cloudinary.com/dy5xyare1/image/upload/v1775099930/Profile_black-white_dzgqsu.jpg"
             alt="Joaquim Silva - SRE & Software Engineer"
             className="h-full w-full object-cover"
