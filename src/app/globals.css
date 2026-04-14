@@ -16,6 +16,34 @@
   --code-inline-bg: #ECE4D7;
 }
 
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #F5F5F5;
+  --muted: #A0A0A0;
+  --surface: #1a1a1a;
+  --border: #333333;
+  --accent: #F26B0A;
+  --accent-soft: rgba(242, 107, 10, 0.15);
+  --code-bg: #1a1a1a;
+  --code-border: #333333;
+  --code-header: #2a2a2a;
+  --code-inline-bg: #2a2a2a;
+}
+
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #F5F5F5;
+  --muted: #A0A0A0;
+  --surface: #1a1a1a;
+  --border: #333333;
+  --accent: #F26B0A;
+  --accent-soft: rgba(242, 107, 10, 0.15);
+  --code-bg: #1a1a1a;
+  --code-border: #333333;
+  --code-header: #2a2a2a;
+  --code-inline-bg: #2a2a2a;
+}
+
 body {
   color: var(--foreground);
   background:
@@ -23,6 +51,7 @@ body {
     var(--background);
   font-family: var(--font-space-grotesk);
   text-rendering: optimizeLegibility;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 ::selection {

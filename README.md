@@ -25,7 +25,7 @@
 - **SEO Completo** - Meta tags, Open Graph, Twitter Cards e sitemap dinâmico
 - **Performance** — Imagens otimizadas via Cloudinary, lazy loading e prefetch inteligente
 - **Design Terminal-Style** - Interface única inspirada em terminais Unix
-- **Dark Mode** - Tema escuro nativo
+- **Dark/Light Mode** - Tema escuro e claro
 - **Navegação por Atalhos** — `[h]` home, `[b]` blog, `[s]` sobre, `[t]` talks
 - **Animações Suaves** - Efeitos de scramble text e fade-in
 
