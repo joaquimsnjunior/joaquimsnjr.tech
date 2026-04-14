@@ -3,6 +3,7 @@ import { Geist_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Transition from "@/components/transition"
 import { SkipLink } from "@/components/skip-link"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -116,13 +117,15 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} ${spaceGrotesk.variable} antialiased min-h-screen font-sans bg-background text-foreground overflow-x-hidden`}
       >
-        <SkipLink />
-        <main
-          id="main-content"
-          className="max-w-5xl mx-auto px-6 sm:px-8 py-10 sm:py-12"
-        >
-          <Transition>{children}</Transition>
-        </main>
+        <ThemeProvider>
+          <SkipLink />
+          <main
+            id="main-content"
+            className="max-w-5xl mx-auto px-6 sm:px-8 py-10 sm:py-12"
+          >
+            <Transition>{children}</Transition>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )

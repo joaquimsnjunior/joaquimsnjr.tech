@@ -1,10 +1,14 @@
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   return (
     <header className="mb-16">
+      <div className="flex justify-end mb-4">
+        <ThemeToggle />
+      </div>
       <div className="grid gap-8 border-b border-[color:var(--border)] pb-10 md:grid-cols-[120px,1fr] md:items-start">
         <div className="relative h-24 w-24 overflow-hidden rounded-sm">
           <Image
