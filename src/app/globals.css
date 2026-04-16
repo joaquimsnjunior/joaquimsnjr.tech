@@ -170,6 +170,12 @@ body {
   border-color: var(--border);
 }
 
+/* Melhora legibilidade das listas de postagens */
+.prose li {
+  color: var(--muted);
+}
+/* fim do bloco de estilos para listas */
+
 .prose pre {
   @apply overflow-x-auto my-4 rounded-none;
   border: 1px solid var(--code-border);
