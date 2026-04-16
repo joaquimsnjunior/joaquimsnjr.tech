@@ -1,7 +1,6 @@
 import { ScrambleText } from "@/components/scramble-text"
 import { Metadata } from "next"
 import Link from "next/link"
-import { ExternalLink, Github } from "lucide-react"
 
 type Project = {
   title: string
@@ -120,7 +119,6 @@ function FeaturedProject({ project }: { project: Project }) {
           className="link-accent inline-flex items-center gap-2"
         >
           ver projeto
-          <ExternalLink className="h-4 w-4" />
         </Link>
         {project.github && (
           <Link
@@ -130,7 +128,6 @@ function FeaturedProject({ project }: { project: Project }) {
             className="link-accent inline-flex items-center gap-2"
           >
             codigo
-            <Github className="h-4 w-4" />
           </Link>
         )}
       </div>
@@ -170,7 +167,6 @@ function ProjectCard({ project }: { project: Project }) {
           className="link-accent inline-flex items-center gap-2"
         >
           ver projeto
-          <ExternalLink className="h-4 w-4" />
         </Link>
         {project.github && (
           <Link
@@ -180,7 +176,6 @@ function ProjectCard({ project }: { project: Project }) {
             className="link-accent inline-flex items-center gap-2"
           >
             codigo
-            <Github className="h-4 w-4" />
           </Link>
         )}
       </div>

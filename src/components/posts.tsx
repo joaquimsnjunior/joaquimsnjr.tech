@@ -80,7 +80,7 @@ export function Posts({ posts }: PostsProps) {
     <>
       {/* Search Modal - Terminal Style */}
       {isSearching && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 backdrop-blur-sm px-4 py-20">
+        <div className="fixed inset-0 z-50 flex items-start justify-center px-4 py-20">
           <div className="w-full max-w-2xl surface animate-fade-in-up">
             <div className="flex items-center justify-between border-b border-[color:var(--border)] px-4 py-3">
               <p className="text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">

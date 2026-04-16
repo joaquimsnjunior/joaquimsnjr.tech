@@ -26,7 +26,7 @@ const talks: Talk[] = [
     href: "/presentations/genios-ocultos",
     type: "palestra",
     status: "past",
-    audience: 150,
+    audience: 47,
   },
 ]
 

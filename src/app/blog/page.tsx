@@ -72,7 +72,7 @@ export default async function BlogPage() {
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuidos. Compartilhando conhecimento e experiencias.",
+  description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos. Compartilhando conhecimento e experiencias.",
   keywords: ["blog", "artigos", "Go", "Golang", "Cloud Native", "Kubernetes", "engenharia de software", "SRE"],
   openGraph: {
     title: "Blog | Joaquim Silva",

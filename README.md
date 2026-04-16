@@ -18,6 +18,14 @@
 
 ---
 
+<p align="center">
+  <h1>Preview Light Mode</h1>
+  <img src="public/Screenshot-light.png" alt="website-mode-light" width="" style="border-radius: 1%;" />
+
+  <h1>Preview Dark Mode</h1>
+  <img src="public/Screenshot-dark.png" alt="website-mode-dark" width="" style="border-radius: 1%;" />
+</p>
+
 ## ✨ Features
 
 - **Blog com MDX** — Posts técnicos com syntax highlighting (Shiki), suporte a código Go, TypeScript e mais

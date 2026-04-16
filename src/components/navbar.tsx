@@ -1,4 +1,5 @@
 "use client"
+import { s } from "framer-motion/client"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect } from "react"
@@ -34,6 +35,12 @@ export function Navbar() {
         case "t":
           router.push("/talks")
           break
+        case "r":
+          router.push("/feed.xml")
+          break
+        case "o":
+          router.push("/sites")
+          break
       }
     }
 
@@ -47,6 +54,8 @@ export function Navbar() {
     { href: "/projects", label: "projetos", shortcut: "p" },
     { href: "/sobre", label: "sobre", shortcut: "s" },
     { href: "/talks", label: "talks", shortcut: "t" },
+    { href: "/sites", label: "outros sites", shortcut: "o" },
+    { href: "/feed.xml", label: "rss", shortcut: "r" },
   ]
 
   const isActive = (href: string) => {
@@ -55,15 +64,8 @@ export function Navbar() {
   }
 
   return (
-    <nav className="mb-12">
-      <div className="flex flex-col gap-4 border-b border-[color:var(--border)] pb-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link
-          href="/"
-          className="text-xs uppercase tracking-[0.35em] text-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors"
-        >
-          Joaquim Silva
-        </Link>
-
+    <nav className="mb-5">
+      <div className="flex flex-col gap-4  pb-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em]">
           {navItems.map((item) => (
             <Link
@@ -81,9 +83,8 @@ export function Navbar() {
           ))}
         </div>
       </div>
-
       <p className="mt-3 text-[11px] text-[color:var(--muted)] hidden md:block">
-        atalhos: h / b / p / s / t
+        atalhos: h / b / p / s / t / r
       </p>
     </nav>
   )

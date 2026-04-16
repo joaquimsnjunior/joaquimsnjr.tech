@@ -29,5 +29,5 @@ export function ScrambleText({
     overdrive: true,
   })
 
-  return <span ref={ref} className={className} />
+  return <h1 ref={ref} className={className} />
 }
