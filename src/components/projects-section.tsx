@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, ExternalLink, Github } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export type Project = {
   title: string
@@ -56,7 +56,6 @@ function FeaturedProject({ project }: { project: Project }) {
           className="link-accent inline-flex items-center gap-2"
         >
           ver projeto
-          <ExternalLink className="h-4 w-4" />
         </Link>
         {project.github && (
           <Link
@@ -66,7 +65,6 @@ function FeaturedProject({ project }: { project: Project }) {
             className="link-accent inline-flex items-center gap-2"
           >
             codigo
-            <Github className="h-4 w-4" />
           </Link>
         )}
       </div>
@@ -106,7 +104,6 @@ function ProjectRow({ project }: { project: Project }) {
           className="link-accent inline-flex items-center gap-2"
         >
           ver projeto
-          <ExternalLink className="h-4 w-4" />
         </Link>
         {project.github && (
           <Link
@@ -116,7 +113,6 @@ function ProjectRow({ project }: { project: Project }) {
             className="link-accent inline-flex items-center gap-2"
           >
             codigo
-            <Github className="h-4 w-4" />
           </Link>
         )}
       </div>

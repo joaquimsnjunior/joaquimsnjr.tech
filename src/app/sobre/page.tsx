@@ -15,36 +15,37 @@ type WorkItem = {
 const workItems: WorkItem[] = [
   {
     title: "All Net Educacao",
-    role: "Educador & Mentor Técnico",
+    role: "Instrutor/Professor",
     period: "jan 2025 - atual",
-    description: "Liderança técnica e formação de talentos em Backend (Go) e Arquitetura de Software. Responsável por traduzir desafios reais de mercado em projetos práticos, focando em Clean Code, escalabilidade e boas praticas de desenvolvimento moderno.",
+    description: "Descomplicando o System Design, Descomplicando Golang, Arquitetura de Containers na AWS, Descomplicando o ECS Descomplicando o EKS Mentorias individuais e em turmas - (aulas de marketing) tópicos: Growth Hacking, Product Market Fit, Estratégias de Go To Market, etc.",
     href: "https://allneteducacao.com.br/",
-    technologies: ["Go", "Clean Architecture", "Mentoria"],
+    technologies: ["Workshops","Mentorias", "Cursos"],
     current: true,
   },
   {
     title: "ZinwellCorp - TB Smart",
-    role: "Software Engineer | DevOps",
+    role: "Suporte Técnico Especializado",
     period: "jan 2024 - jan 2025",
-    description: "Arquitetura e desenvolvimento de sistemas de missão critica em Go e Clean Architecture. Implementação de infraestrutura como codigo (Terraform) e orquestração de containers (Kubernetes/EKS), otimizando pipelines CI/CD para operações de alto volume.",
-    href: "https://www.tbsmart.com.br/",
-    technologies: ["Go", "Kubernetes", "Terraform", "AWS"],
+    description: "Implementação de soluções de monitoramento e automação, além de suporte técnico avançado para clientes corporativos, garantindo a estabilidade e eficiência dos serviços.",
+    href: "https://www.zinwell.com.tw/us/",
+    technologies: ["QA", "DevOps", "Documentação", "Suporte"],
   },
   {
-    title: "ZinwellCorp",
+    title: "ZinwellCorp - TB Smart",
     role: "Suporte Técnico Especializado",
     period: "jul 2023 - jan 2024",
     description: "Garantia de qualidade e eficiência operacional através de testes rigorosos, elaboração de relatórios técnicos e suporte estratégico a clientes em tecnologias de hardware e software.",
     href: "https://www.tbsmart.com.br/",
-    technologies: ["QA", "Documentação", "Suporte"],
+    technologies: ["QA", "Python", "Documentação", "Suporte"],
   },
 ]
 
 const skills = [
-  { category: "Languages", items: ["Golang", "TypeScript"] },
-  { category: "Cloud & Infra", items: ["AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform"] },
-  { category: "Databases", items: ["PostgreSQL", "Redis", "Cassandra", "MongoDB"] },
-  { category: "Practices", items: ["Clean Architecture", "CI/CD", "Observability", "SRE"] },
+  { category: "Languages", items: ["Golang", "Python", "TypeScript"] },
+  { category: "Cloud & Infra", items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform", "Git", "Ansible", "Argo CD"] },
+  { category: "Databases", items: ["PostgreSQL", "Redis", "MySQL", "MongoDB"] },
+  { category: "Operating Systems", items: ["Linux(Ubuntu, Debian, Arch)", "Windows"] },
+  { category: "Methodologies", items: ["Cloud Native Apps & Containers", "DevOps, Automation, Pipelines, Infrastructure as Code & Simplify with efficiency", "Reliability Engineering, Observability and Disaster Recovery", "Microservices Architecture & Performance", "Agile Development & Technical Leadership"] },
 ]
 
 function SobrePage() {
@@ -54,8 +55,8 @@ function SobrePage() {
     mainEntity: {
       "@type": "Person",
       name: "Joaquim Silva",
-      jobTitle: "SRE & Software Engineer",
-      description: "Engenheiro de Software. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis.",
+      jobTitle: "Software Engineer",
+      description: "Engenheiro de Software especializado em Cloud, DevOps e Confiabilidade.",
       image: "https://res.cloudinary.com/dy5xyare1/image/upload/v1767414405/Profile_01_t8clcl.jpg",
       url: "https://www.joaquimsnjr.tech",
       sameAs: [
@@ -94,12 +95,12 @@ function SobrePage() {
           <ScrambleText className="font-semibold leading-none" text="Sobre mim" />
         </h1>
         <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
-          Engenheiro de Software & SRE. Especialista em projetar sistemas de alto volume onde disponibilidade e performance são inegociáveis. Unindo arquitetura limpa a automação de infraestrutura, entrego soluções que escalam.
+          Engenheiro de Software especializado em Cloud, DevOps e Confiabilidade.
         </p>
       </div>
 
       <div className="mb-10">
-        <p className="kicker">Skills</p>
+        <p className="kicker mb-2">Skills</p>
         <div className="surface p-6">
           <div className="grid gap-6 sm:grid-cols-2">
             {skills.map((skill) => (
@@ -121,7 +122,7 @@ function SobrePage() {
       </div>
 
       <div className="mb-10">
-        <p className="kicker">Experiencia</p>
+        <p className="kicker mb-2">Experiências</p>
         <div className="space-y-4">
           {workItems.map((item) => (
             <Link

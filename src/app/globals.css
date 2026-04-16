@@ -59,6 +59,10 @@ body {
   color: var(--foreground);
 }
 
+span {
+  color: var(--muted);
+}
+
 .surface {
   background: var(--surface);
   border: 1px solid var(--border);

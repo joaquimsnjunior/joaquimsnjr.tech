@@ -31,8 +31,7 @@ export function Header() {
               Joaquim Silva
             </h1>
             <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
-              Engenheiro focado em confiabilidade, performance e sistemas distribuídos.
-              Construindo infraestrutura que não dorme.
+              Engenheiro de Software especializado em Cloud, DevOps e Confiabilidade.
             </p>
           </div>
 
