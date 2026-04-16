@@ -6,7 +6,7 @@ export default function BlogPostLoading() {
         Carregando...
       </h1>
       <p className="mt-4 text-sm text-[color:var(--muted)]">
-        Preparando conteudo.
+        Preparando conteúdo.
       </p>
     </section>
   )
