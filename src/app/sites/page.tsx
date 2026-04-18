@@ -8,8 +8,11 @@ function Site() {
       <div className="mb-10">
         <p className="kicker">Sites</p>
           <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
-            <ScrambleText className="font-semibold leading-none" text="Outros lugares na web — também utilizado como meu arquivo público de favoritos." />
+            <ScrambleText className="font-semibold leading-none" text="Outros lugares na web" />
           </h1>
+          <p className="text-sm text-[color:var(--muted)]">
+            Uma lista de sites que eu gosto de visitar.
+          </p>
       </div>
       <div className="mb-5 space-y-6">
         <h1 className="text-sm leading-relaxed">
@@ -60,6 +63,11 @@ function Site() {
             <a href="https://sre.google/" target="_blank" rel="noopener noreferrer" className="underline">
               sre.google
             </a> - Recursos e práticas de engenharia de confiabilidade.
+          </li>
+          <li>
+            <a href="https://roadmap.sh/" target="_blank" rel="noopener noreferrer" className="underline">
+              roadmap.sh
+            </a> - Plataforma de planejamento de carreira em tecnologia.
           </li>
           <li>
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="underline">
@@ -160,12 +168,12 @@ function Site() {
           <li>
             <a href="https://www.twitch.tv/theprimeagen" target="_blank" rel="noopener noreferrer" className="underline">
               theprimeagen
-            </a> - Canais do ThePrimeagen, especialista em desenvolvimento e tecnologia.
+            </a> - Canal da Twitch do ThePrimeagen, especialista em desenvolvimento e tecnologia.
           </li>
           <li>
             <a href="https://www.youtube.com/@Akitando" target="_blank" rel="noopener noreferrer" className="underline">
               Akitando
-            </a> - Canais do Akitando, especialista em desenvolvimento e tecnologia.
+            </a> - Canal do YouTube do saudoso Akita, especialista em desenvolvimento e tecnologia.
           </li>
         </ul>
       </div>

@@ -52,7 +52,7 @@ export function Navbar() {
     { href: "/", label: "home", shortcut: "h" },
     { href: "/blog", label: "blog", shortcut: "b" },
     { href: "/projects", label: "projetos", shortcut: "p" },
-    { href: "/sobre", label: "sobre", shortcut: "s" },
+    { href: "/about", label: "sobre", shortcut: "s" },
     { href: "/talks", label: "talks", shortcut: "t" },
     { href: "/sites", label: "outros sites", shortcut: "o" },
     { href: "/feed.xml", label: "rss", shortcut: "r" },

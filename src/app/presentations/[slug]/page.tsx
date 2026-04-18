@@ -63,7 +63,7 @@ export default function PresentationPage({ params }: { params: { slug: string } 
         <div className="surface max-w-lg w-full p-6">
           <p className="kicker">Carregando</p>
           <p className="mt-3 text-sm text-[color:var(--muted)]">
-            Preparando apresentacao...
+            Preparando apresentação...
           </p>
         </div>
       </div>

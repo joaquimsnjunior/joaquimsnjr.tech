@@ -20,7 +20,7 @@ export function Header() {
             placeholder="blur"
             blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1775099930/Profile_black-white_dzgqsu.jpg"
             priority
-            sizes="96px"
+            sizes="96px"  
           />
         </div>
 

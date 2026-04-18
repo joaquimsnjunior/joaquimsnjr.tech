@@ -115,7 +115,7 @@ export default function Deck({ slides, title, initial = 0, notes }: DeckProps) {
         <div className="surface flex items-center justify-between px-4 py-3">
           <div>
             <p className="text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
-              apresentacao
+              apresentação
             </p>
             <p className="text-sm font-medium text-[color:var(--foreground)]">
               {title ?? "deck"}
