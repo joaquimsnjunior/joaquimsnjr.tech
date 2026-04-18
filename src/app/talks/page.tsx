@@ -85,7 +85,7 @@ function TalksPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Palestras e Apresentacoes",
+    name: "Palestras e Apresentações  ",
     description: "Palestras sobre Cloud Native, Go, SRE e Open Source.",
     url: "https://www.joaquimsnjr.tech/talks",
     author: {
@@ -130,7 +130,7 @@ function TalksPage() {
       />
       <div className="mb-10">
         <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
-          <ScrambleText className="font-semibold leading-none" text="Palestras e Apresentacoes" />
+          <ScrambleText className="font-semibold leading-none" text="Palestras e Apresentações" />
         </h1>
         <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
           Apresentacoes sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.
@@ -170,11 +170,11 @@ function TalksPage() {
 }
 
 export const metadata: Metadata = {
-  title: "Palestras e Apresentacoes",
+  title: "Palestras e Apresentações",
   description: "Palestras sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.",
   keywords: ["palestras", "talks", "apresentacoes", "Go", "Cloud Native", "SRE", "Open Source", "engenharia de software", "sistemas distribuídos"],
   openGraph: {
-    title: "Palestras e Apresentacoes | Joaquim Silva",
+    title: "Palestras e Apresentações | Joaquim Silva",
     description: "Palestras sobre Cloud Native, Go, SRE e Open Source. Compartilhando conhecimento e conectando comunidades.",
     url: "https://www.joaquimsnjr.tech/talks",
     siteName: "Joaquim Silva",
