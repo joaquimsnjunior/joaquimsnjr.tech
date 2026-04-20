@@ -29,7 +29,14 @@ const navLinks = [
   { title: "sobre", href: "/about" },
   { title: "talks", href: "/talks" },
   { title: "outros sites", href: "/sites" },
-  { title: "rss", href: "/feed.xml" },
+]
+
+const llmsAndAccessibilityLinks = [
+  { title: "LLMs.txt", href: "/llms.txt" },
+  { title: "Humans.txt", href: "/humans.txt" },
+  { title: "Security.txt", href: "/.well-known/security.txt" },
+  { title: "Sitemap", href: "/sitemap.xml" },
+  { title: "RSS", href: "/feed.xml" },
 ]
 
 export function Footer() {
@@ -65,6 +72,26 @@ export function Footer() {
           <nav className="mt-3" aria-label="Conexões">
             <ul className="flex flex-col gap-2 text-sm" role="list">
               {socialLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-accent inline-flex"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div>
+          <p className="kicker">AI</p>
+          <nav className="mt-3" aria-label="Conexões">
+            <ul className="flex flex-col gap-2 text-sm" role="list">
+              {llmsAndAccessibilityLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

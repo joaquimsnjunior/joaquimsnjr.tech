@@ -60,7 +60,7 @@ const STATUS_LABEL = {
 
 function FeaturedProject({ project }: { project: Project }) {
   return (
-    <div className="surface surface-hover p-6">
+    <div className="surface p-6 rounded-lg transition-shadow">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h3 className="text-2xl font-semibold text-[color:var(--foreground)]">
@@ -137,7 +137,7 @@ function FeaturedProject({ project }: { project: Project }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="surface surface-hover p-5">
+    <div className="surface p-5 rounded-lg transition-shadow">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h3 className="text-lg font-semibold text-[color:var(--foreground)]">
           {project.title}

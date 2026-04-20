@@ -125,7 +125,7 @@ export function BlogSection() {
       </div>
 
       {featured && (
-        <div className="surface surface-hover mb-6 p-6">
+        <div className="surface mb-6 p-6 rounded-lg">
           <PostRow post={featured} featured={true} />
         </div>
       )}

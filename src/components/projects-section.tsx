@@ -21,7 +21,7 @@ const STATUS_LABEL = {
 
 function FeaturedProject({ project }: { project: Project }) {
   return (
-    <div className="surface surface-hover p-6">
+    <div className="surface p-6 rounded-lg">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h3 className="text-xl sm:text-2xl font-semibold text-[color:var(--foreground)]">
@@ -134,7 +134,7 @@ export function ProjectsSection({ projects, showFeatured = true }: ProjectsSecti
   const displayProjects = showFeatured ? rest : projects
 
   return (
-    <section className="mb-16 animate-fade-in-up" aria-labelledby="projects-section-title">
+    <section className="mb-16 animate-fade-in-up " aria-labelledby="projects-section-title">
       <div className="mb-6">
         <h2 id="projects-section-title" className="section-title">
           Projetos

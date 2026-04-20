@@ -49,13 +49,13 @@ export function Navbar() {
   }, [router])
 
   const navItems = [
-    { href: "/", label: "home", shortcut: "h" },
-    { href: "/blog", label: "blog", shortcut: "b" },
-    { href: "/projects", label: "projetos", shortcut: "p" },
-    { href: "/about", label: "sobre", shortcut: "s" },
-    { href: "/talks", label: "talks", shortcut: "t" },
-    { href: "/sites", label: "outros sites", shortcut: "o" },
-    { href: "/feed.xml", label: "rss", shortcut: "r" },
+    { href: "/", label: "[home]", shortcut: "h" },
+    { href: "/blog", label: "./blog", shortcut: "b" },
+    { href: "/projects", label: "./projects", shortcut: "p" },
+    { href: "/about", label: "./sobre", shortcut: "s" },
+    { href: "/talks", label: "./talks", shortcut: "t" },
+    { href: "/sites", label: "./sites", shortcut: "o" },
+    { href: "/feed.xml", label: "./rss", shortcut: "r" },
   ]
 
   const isActive = (href: string) => {

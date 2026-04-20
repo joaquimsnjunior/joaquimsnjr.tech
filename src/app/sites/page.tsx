@@ -85,6 +85,11 @@ function Site() {
             </a> - Jogo de adivinhação de localização.
           </li>
           <li>
+            <a href="https://www.plonkit.net/" target="_blank" rel="noopener noreferrer" className="underline">
+              plonkit.net
+            </a> - Plataforma de aprendizado e desenvolvimento de habilidades.
+          </li>
+          <li>
             <a href="https://www.nature.com/" target="_blank" rel="noopener noreferrer" className="underline">
               nature.com
             </a> - Revista científica de renome.
