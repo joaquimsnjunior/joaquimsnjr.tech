@@ -25,10 +25,10 @@ const socialLinks = [
 
 const navLinks = [
   { title: "blog", href: "/blog" },
+  { title: "livros", href: "/books" },
   { title: "projetos", href: "/projects" },
   { title: "sobre", href: "/about" },
   { title: "talks", href: "/talks" },
-  { title: "outros sites", href: "/sites" },
 ]
 
 const llmsAndAccessibilityLinks = [
