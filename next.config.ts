@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '/**', // Permite todos os caminhos dentro do Cloudinary
       },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        pathname: '/**', // Permite todos os caminhos de imagens do Amazon
+      },
     ],
   },
 }

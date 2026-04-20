@@ -1,5 +1,4 @@
 "use client"
-import { s } from "framer-motion/client"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect } from "react"
@@ -29,6 +28,9 @@ export function Navbar() {
         case "b":
           router.push("/blog")
           break
+        case "l":
+          router.push("/books")
+          break
         case "p":
           router.push("/projects")
           break
@@ -51,11 +53,11 @@ export function Navbar() {
   const navItems = [
     { href: "/", label: "[home]", shortcut: "h" },
     { href: "/blog", label: "./blog", shortcut: "b" },
-    { href: "/projects", label: "./projects", shortcut: "p" },
+    { href: "/books", label: "./livros", shortcut: "l" },
+    { href: "/projects", label: "./projetos", shortcut: "p" },
     { href: "/about", label: "./sobre", shortcut: "s" },
     { href: "/talks", label: "./talks", shortcut: "t" },
     { href: "/sites", label: "./sites", shortcut: "o" },
-    { href: "/feed.xml", label: "./rss", shortcut: "r" },
   ]
 
   const isActive = (href: string) => {
@@ -65,8 +67,8 @@ export function Navbar() {
 
   return (
     <nav className="mb-5">
-      <div className="flex flex-col gap-4  pb-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em]">
+      <div className="flex flex-col gap-4 pb-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em]">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -84,8 +86,9 @@ export function Navbar() {
         </div>
       </div>
       <p className="mt-3 text-[11px] text-[color:var(--muted)] hidden md:block">
-        atalhos: h / b / p / s / t / r
+        atalhos: h / b / l / p / s / t 
       </p>
     </nav>
   )
 }
+
