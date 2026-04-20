@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #F4F2EE;
+  --background: #E3DACC;
   --foreground: #141413;
   --muted: #474749;
-  --surface: #FFFFFF;
+  --surface: #F0EEE6;
   --border: #9E9A9B;
-  --accent: #F26B0A;
+  --accent: #D77454;
   --accent-soft: rgba(8, 8, 8, 0.18);
   --code-bg: #F4F2EE;
   --code-border: #B7B0A6;
@@ -17,13 +17,13 @@
 }
 
 html.dark {
-  --background: #0a0a0a;
+  --background: #1F1F1E;
   --foreground: #F5F5F5;
   --muted: #A0A0A0;
-  --surface: #1a1a1a;
+  --surface: #2C2C2A;
   --border: #333333;
-  --accent: #F26B0A;
-  --accent-soft: rgba(242, 107, 10, 0.15);
+  --accent: #D77454;
+  --accent-soft: rgba(215, 116, 84, 0.15);
   --code-bg: #1a1a1a;
   --code-border: #333333;
   --code-header: #2a2a2a;
@@ -31,13 +31,13 @@ html.dark {
 }
 
 html[data-theme="dark"] {
-  --background: #0a0a0a;
+  --background: #1F1F1E;
   --foreground: #F5F5F5;
   --muted: #A0A0A0;
-  --surface: #1a1a1a;
+  --surface: #2C2C2A;
   --border: #333333;
-  --accent: #F26B0A;
-  --accent-soft: rgba(242, 107, 10, 0.15);
+  --accent: #D77454;
+  --accent-soft: rgba(215, 116, 84, 0.15);
   --code-bg: #1a1a1a;
   --code-border: #333333;
   --code-header: #2a2a2a;

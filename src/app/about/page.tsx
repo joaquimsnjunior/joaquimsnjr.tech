@@ -101,11 +101,11 @@ function SobrePage() {
 
       <div className="mb-10">
         <p className="kicker mb-2">Skills</p>
-        <div className="surface p-6">
+        <div className="surface p-6 rounded-lg">
           <div className="grid gap-6 sm:grid-cols-2">
             {skills.map((skill) => (
               <div key={skill.category}>
-                <p className="text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                <p className="text-white font-bold text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
                   {skill.category}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-[color:var(--muted)]">
@@ -130,7 +130,7 @@ function SobrePage() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="surface surface-hover block p-5"
+              className="surface block p-5 rounded-lg"
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <h3 className="text-lg font-semibold text-[color:var(--foreground)]">

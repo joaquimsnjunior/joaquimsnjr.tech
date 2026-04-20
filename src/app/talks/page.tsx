@@ -38,7 +38,7 @@ const TYPE_LABEL = {
 
 function TalkCard({ talk }: { talk: Talk }) {
   return (
-    <Link href={talk.href} className="surface surface-hover block p-5">
+    <Link href={talk.href} className="surface rounded-lg block p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-[color:var(--foreground)]">
           {talk.title}
