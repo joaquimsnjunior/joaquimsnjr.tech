@@ -115,16 +115,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistMono.variable} ${spaceGrotesk.variable} antialiased min-h-screen font-sans bg-background text-foreground overflow-x-hidden`}
+        className={`${geistMono.variable} ${spaceGrotesk.variable} antialiased font-sans bg-background overflow-x-hidden`}
       >
         <ThemeProvider>
           <SkipLink />
-          <main
-            id="main-content"
-            className="max-w-5xl mx-auto px-6 sm:px-8 py-10 sm:py-12"
-          >
-            <Transition>{children}</Transition>
-          </main>
+          <main className="container mx-auto px-4 overflow-hidden md:overflow-visible p-4">
+              <Transition>{children}</Transition>
+            </main>
         </ThemeProvider>
       </body>
     </html>
