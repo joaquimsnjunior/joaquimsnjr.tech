@@ -1,3 +1,4 @@
+import { GeistPixelSquare } from 'geist/font/pixel';
 import Link from "next/link"
 
 const socialLinks = [
@@ -52,7 +53,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="p-4">
+        <div className="p-4 border border-[color:var(--border)] rounded-lg surface">
           <p className="kicker">Navegação</p>
           <nav className="mt-3" aria-label="Navegação do rodapé">
             <ul className="flex flex-col gap-2 text-sm" role="list">
@@ -67,7 +68,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="border border-[color:var(--border)] p-4 rounded-lg">
+        <div className="border border-[color:var(--border)] p-4 rounded-lg w-full">
           <p className="kicker">Conexões</p>
           <nav className="mt-3" aria-label="Conexões">
             <ul className="flex flex-col gap-2 text-sm" role="list">
@@ -118,7 +119,9 @@ export function Footer() {
       </div>
 
       <div className="mt-10">
-        <h5 className="text-[120px] sm:text-[450px] leading-none select-none">JOAQUIM</h5>
+        <h5 className={`${GeistPixelSquare.className} text-[120px] sm:text-[450px] font-extrabold leading-none select-none`}>
+          JOAQUIM
+        </h5>
       </div>
         
     </footer>
