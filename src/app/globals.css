@@ -63,6 +63,14 @@ span {
   color: var(--muted);
 }
 
+td {
+  color: var(--muted);
+}
+
+tr:hover td {
+  color: var(--foreground);
+}
+
 .surface {
   background: var(--surface);
   border: 1px solid var(--border);

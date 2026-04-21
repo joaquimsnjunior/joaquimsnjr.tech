@@ -118,12 +118,12 @@ export function Footer() {
         </p>
       </div>
 
-      <div className="mt-10">
-        <h5 className={`${GeistPixelSquare.className} text-[120px] sm:text-[450px] font-extrabold leading-none select-none`}>
+      <div className='mt-10'>
+        <h1 className={`${GeistPixelSquare.className} text-[130px] sm:text-[450px] font-extrabold leading-none select-none`}>
           JOAQUIM
-        </h5>
+        </h1>
       </div>
-        
+  
     </footer>
   )
 }
