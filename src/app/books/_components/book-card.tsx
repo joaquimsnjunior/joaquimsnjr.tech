@@ -61,7 +61,7 @@ export function BookCard({
       <button
         type="button"
         aria-label={`Open ${title} on Amazon`}
-        className="relative w-52 h-52 mx-auto bg-[color:var(--muted)] cursor-pointer p-0 border-0 rounded-md overflow-hidden shrink-0 hover:outline-2 hover:outline-offset-2 hover:outline-[color:var(--accent)] transition-all focus-visible:outline-2 focus-visible:outline-[color:var(--accent)]"
+        className="relative w-44 h-64 mt-4 mx-auto bg-[color:var(--muted)] cursor-pointer p-0 border-0 rounded-md overflow-hidden shrink-0 hover:outline-2 hover:outline-offset-2 hover:outline-[color:var(--accent)] transition-all focus-visible:outline-2 focus-visible:outline-[color:var(--accent)]"
         onClick={handleOpenAmazon}
       >
         <Image
@@ -69,7 +69,7 @@ export function BookCard({
           alt={title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="128px"
+          sizes="176px"
         />
       </button>
 

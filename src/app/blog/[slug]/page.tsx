@@ -58,7 +58,7 @@ export default async function Post({ params }: PageProps) {
   }
   // console.log(post) joaquimsnjr.tech
   return (
-    <section className="animate-fade-in-up max-w-3xl mx-auto">
+    <section className="animate-fade-in-up max-w-7xl mx-auto">
       <script
         type="application/ld+json"
         suppressHydrationWarning
