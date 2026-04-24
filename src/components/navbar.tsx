@@ -85,9 +85,6 @@ export function Navbar() {
           ))}
         </div>
       </div>
-      <p className="mt-3 text-[11px] text-[color:var(--muted)] hidden md:block">
-        atalhos: h / b / l / p / s / t 
-      </p>
     </nav>
   )
 }

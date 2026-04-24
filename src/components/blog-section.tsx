@@ -96,7 +96,7 @@ function ContentCard({ post, index }: ContentCardProps) {
 
           {/* Metadados */}
           <p className="text-sm text-[color:var(--muted)] leading-relaxed">
-            <span className="inline-block">Artigo/Post</span>
+            <span className="inline-block">artigo</span>
             <span className="mx-3 text-zinc-700">•</span>
             <time className="inline-block">{formattedDate}</time>
           </p>

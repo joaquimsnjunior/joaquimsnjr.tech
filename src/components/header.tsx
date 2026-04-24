@@ -1,25 +1,23 @@
-import { ArrowUpRight } from "lucide-react"
-import { GeistPixelSquare } from 'geist/font/pixel';
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   return (
-    <header className="mb-16">
+    <header className="mb-10">
       <div className="flex justify-end mb-4">
         <ThemeToggle />
       </div>
-      <div className="grid gap-8 border-b border-[color:var(--border)] pb-10 md:grid-cols-[120px,1fr] md:items-start">
-        <div className="relative h-40 w-40 overflow-hidden">
+      <div className="grid gap-8 border rounded-lg p-6 border-[color:var(--border)] pb-10 md:grid-cols-[120px,1fr] md:items-start">
+        <div className="relative">
           <Image
-            width={90}
-            height={90}
-            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777035518/3d_lpeagj.png"
+            width={60}
+            height={60}
+            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777048991/Profile_tratamento_lhvfvz.jpg"
             alt="Joaquim Silva - SRE & Software Engineer"
-            className="h-full w-full object-cover"
+            className="h-46 w-36 object-cover rounded-lg"
             placeholder="blur"
-            blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1777035518/3d_lpeagj.png"
+            blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1777048991/Profile_tratamento_lhvfvz.jpg"
             priority
             sizes="96px"  
           />
@@ -28,16 +26,16 @@ export function Header() {
         <div className="space-y-5">
           <div>
             <p className="kicker">Software Engineer</p>
-            <h1 className={`${GeistPixelSquare.className} mt-2 text-5xl sm:text-6xl font-extrabold text-[color:var(--foreground)]`}>
+            <h1 className="mt-4 text-4xl sm:text-5xl font-semibold text-[color:var(--foreground)] leading-snug tracking-tight">
               Joaquim Silva
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed border-l-2 border-[color:var(--accent)] pl-2">
+            <p className="mt-2 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed border-l-2 border-[color:var(--accent)] pl-2">
               Engenheiro de Software especializado em Cloud, DevOps e Confiabilidade.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.22em] text-[color:var(--muted)]">
-            <span className="mt-8">São Paulo, Brasil</span>
+            <span className="mt-2">São Paulo, Brasil</span>
           </div>
 
           <div className="flex flex-wrap gap-4 text-sm">
@@ -54,7 +52,6 @@ export function Header() {
               className="link-accent inline-flex items-center gap-1"
             >
               github
-              <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>

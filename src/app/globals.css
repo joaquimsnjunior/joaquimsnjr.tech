@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #F0EEE6;
+  --background: #FBFAF4;
   --foreground: #1F1E1D;
   --muted: #474749;
-  --surface: #E3DACC;
-  --border: #9E9A9B;
-  --accent: #D77454;
+  --surface: #F1F0E8;
+  --border: #DDF0F0;
+  --accent: #13343B;
   --accent-soft: rgba(8, 8, 8, 0.18);
   --code-bg: #F4F2EE;
   --code-border: #B7B0A6;
@@ -17,12 +17,12 @@
 }
 
 html.dark {
-  --background: #1F1F1E;
-  --foreground: #F5F5F5;
-  --muted: #A0A0A0;
+  --background: #171615;
+  --foreground: #FFFFFF;
+  --muted: #989796;
   --surface: #2C2C2A;
   --border: #333333;
-  --accent: #D77454;
+  --accent: #45858E;
   --accent-soft: rgba(215, 116, 84, 0.15);
   --code-bg: #1a1a1a;
   --code-border: #333333;
@@ -31,12 +31,12 @@ html.dark {
 }
 
 html[data-theme="dark"] {
-  --background: #1F1F1E;
-  --foreground: #F5F5F5;
-  --muted: #A0A0A0;
+  --background: #171615;
+  --foreground: #FFFFFF;
+  --muted: #989796;
   --surface: #2C2C2A;
   --border: #333333;
-  --accent: #D77454;
+  --accent: #45858E;
   --accent-soft: rgba(215, 116, 84, 0.15);
   --code-bg: #1a1a1a;
   --code-border: #333333;

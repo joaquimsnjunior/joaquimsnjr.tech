@@ -119,7 +119,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SkipLink />
-          <main className="container mx-auto px-4 overflow-hidden md:overflow-visible p-6">
+          <main className="container mx-auto px-4 overflow-hidden md:overflow-visible p-6 max-w-7xl">
               <Transition>{children}</Transition>
             </main>
         </ThemeProvider>
