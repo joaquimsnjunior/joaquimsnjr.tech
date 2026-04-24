@@ -109,6 +109,12 @@ export function Footer() {
         </div>
       </div>
 
+      <div className='mt-10'>
+        <h1 className={`${GeistPixelSquare.className} text-[100px] sm:text-[350px] font-extrabold leading-none select-none`}>
+          JOAQUIM
+        </h1>
+      </div>
+
       <div className="mt-10 flex flex-col gap-2 text-[11px] text-[color:var(--muted)] sm:flex-row sm:items-center sm:justify-between">
         <p className="border border-[color:var(--border)] p-4 rounded-lg">
           © <time dateTime={`${currentYear}`}>{currentYear}</time> · Feito com café e código
@@ -116,12 +122,6 @@ export function Footer() {
         <p className="border border-[color:var(--border)] p-4 rounded-lg surface">
           São Paulo, BRASIL
         </p>
-      </div>
-
-      <div className='mt-10'>
-        <h1 className={`${GeistPixelSquare.className} text-[130px] sm:text-[450px] font-extrabold leading-none select-none`}>
-          JOAQUIM
-        </h1>
       </div>
   
     </footer>
