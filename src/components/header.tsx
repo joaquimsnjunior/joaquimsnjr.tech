@@ -14,11 +14,11 @@ export function Header() {
           <Image
             width={90}
             height={90}
-            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1776701966/Profile_colorized_transparent_fn6t30.png"
+            src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777035518/3d_lpeagj.png"
             alt="Joaquim Silva - SRE & Software Engineer"
             className="h-full w-full object-cover"
             placeholder="blur"
-            blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1776701966/Profile_colorized_transparent_fn6t30.png"
+            blurDataURL="https://res.cloudinary.com/dy5xyare1/image/upload/v1777035518/3d_lpeagj.png"
             priority
             sizes="96px"  
           />
