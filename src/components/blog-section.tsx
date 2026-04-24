@@ -1,19 +1,20 @@
 /**
- * BlogSection - Componente de listagem de posts do blog para a homepage.
+ * BlogSection - Modern Dark Minimal Research-Style Content Grid
  *
- * @description Design elegante estilo Bento Grid harmonizado com a
- * estética minimalista e técnica do site. Cards com bordas sutis,
- * acentos em azul e transições suaves.
+ * @description Seção moderna de listagem de conteúdos recentes com design
+ * dark minimalista, inspirado em páginas de pesquisa técnica contemporâneas.
  *
  * @features
- * - Bento Grid Layout responsivo
- * - Card principal em destaque com overlay elegante
- * - Cards secundários com hover effects refinados
- * - Estética consistente com o restante do site
- * - Totalmente responsivo (mobile-first)
+ * - Container centralizado com max-width 7xl
+ * - Grid responsivo: 3 colunas (desktop) → 2 (tablet) → 1 (mobile)
+ * - Cards com thumbnail 1:1 usando capas reais dos artigos
+ * - Hover effects com scale suave
+ * - Tipografia moderna e espaço negativo generoso
+ * - Design editorial limpo e profissional
  */
 
 import Link from "next/link"
+import Image from "next/image"
 import { getPosts, type MDXFileData } from "@/lib/blog"
 import { ArrowRight } from "lucide-react"
 
@@ -21,14 +22,14 @@ import { ArrowRight } from "lucide-react"
    CONSTANTS
    ============================================================================ */
 
-const MAX_POSTS_DISPLAY = 5
+const MAX_POSTS_DISPLAY = 6
 
 /* ============================================================================
    UTILITY FUNCTIONS
    ============================================================================ */
 
 /**
- * Formata uma data para exibição em português.
+ * Formata data para português (ex: "10 de mar. de 2026")
  */
 function formatDate(dateString: string): string {
   return new Date(dateString)
@@ -42,50 +43,65 @@ function formatDate(dateString: string): string {
 
 
 
+
+
 /* ============================================================================
    SUB-COMPONENTS
    ============================================================================ */
 
 /**
- * PostRow - Linha minimalista para post do blog.
+ * ContentCard - Card individual com thumbnail, título e metadados.
  */
-interface PostCardProps {
+interface ContentCardProps {
   post: MDXFileData
-  featured?: boolean
-  className?: string
+  index: number
 }
 
-function PostRow({ post, featured = false, className = "" }: PostCardProps) {
+function ContentCard({ post, index }: ContentCardProps) {
   const { metadata, slug } = post
   const formattedDate = formatDate(metadata.date)
 
   return (
     <Link
       href={`/blog/${slug}`}
-      className={`group block ${className}`}
+      className="group block h-full transition-transform duration-200 ease-out hover:scale-[1.02]"
       aria-label={`Ler artigo: ${metadata.title}`}
     >
-      <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">
-        <time>{formattedDate}</time>
+      {/* Card Container */}
+      <div className="flex flex-col h-full gap-3">
+        {/* Thumbnail - 1:1 Aspect Ratio */}
+        <div className="relative w-full aspect-square rounded-[12px] overflow-hidden flex-shrink-0">
+          {metadata.coverImage ? (
+            <Image
+              src={metadata.coverImage}
+              alt={metadata.title}
+              fill
+              className="object-cover group-hover:brightness-90 transition-all duration-300"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+          )}
+
+          {/* Overlay de interação */}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+        </div>
+
+        {/* Conteúdo */}
+        <div className="flex flex-col gap-2 flex-1 justify-between">
+          {/* Título */}
+          <h3 className="text-base font-medium leading-snug text-[color:var(--foreground)] transition-colors duration-200">
+            {metadata.title}
+          </h3>
+
+          {/* Metadados */}
+          <p className="text-sm text-[color:var(--muted)] leading-relaxed">
+            <span className="inline-block">Artigo/Post</span>
+            <span className="mx-3 text-zinc-700">•</span>
+            <time className="inline-block">{formattedDate}</time>
+          </p>
+        </div>
       </div>
-
-      <h3
-        className={`mt-3 font-semibold transition-colors duration-200 group-hover:text-[color:var(--accent)] ${
-          featured ? "text-xl sm:text-2xl" : "text-base sm:text-lg"
-        } text-[color:var(--foreground)]`}
-      >
-        {metadata.title}
-      </h3>
-
-      {metadata.description && (
-        <p
-          className={`mt-2 text-sm text-[color:var(--muted)] ${
-            featured ? "line-clamp-2" : "line-clamp-1"
-          }`}
-        >
-          {metadata.description}
-        </p>
-      )}
     </Link>
   )
 }
@@ -109,42 +125,37 @@ export function BlogSection() {
     return null
   }
 
-  // Distribui posts no grid
-  const [featured, ...rest] = posts
-  const [second, third, fourth, fifth] = rest
-  const listPosts = [second, third, fourth, fifth].filter(
-    (post): post is MDXFileData => Boolean(post)
-  )
-
   return (
-    <section className="mb-16 animate-fade-in-up" aria-labelledby="blog-section-title">
-      <div className="mb-6">
-        <h2 id="blog-section-title" className="section-title">
-          Blog
-        </h2>
-      </div>
-
-      {featured && (
-        <div className="surface mb-6 p-6 rounded-lg">
-          <PostRow post={featured} featured={true} />
+    <section
+      className="w-full mb-24"
+      aria-labelledby="blog-section-title"
+    >
+      <div className="mx-auto w-full">
+        {/* Header com Título e Link */}
+        <div className="mb-12 flex items-center justify-between">
+          <h2
+            id="blog-section-title"
+            className="text-4xl font-bold text-[color:var(--foreground)]"
+          >
+            Blog
+          </h2>
+          <Link
+            href="/blog"
+            className="flex items-center gap-2 text-sm text-[color:var(--muted)] transition-colors duration-200 hover:text-[color:var(--foreground)]"
+            aria-label="Ver todos os artigos"
+          >
+            Ver tudo
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-      )}
 
-      <div className="divide-y divide-[color:var(--border)]">
-        {listPosts.map((post) => (
-          <div key={post.slug} className="py-4">
-            <PostRow post={post} />
-          </div>
-        ))}
+        {/* Grid Responsivo */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, index) => (
+            <ContentCard key={post.slug} post={post} index={index} />
+          ))}
+        </div>
       </div>
-
-      <Link
-        href="/blog"
-        className="mt-6 inline-flex items-center gap-2 text-sm text-[color:var(--muted)] hover:text-[color:var(--accent)] transition-colors"
-      >
-        todos os posts
-        <ArrowRight className="h-4 w-4" />
-      </Link>
     </section>
   )
 }

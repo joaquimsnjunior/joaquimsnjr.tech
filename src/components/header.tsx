@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react"
+import { GeistPixelSquare } from 'geist/font/pixel';
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -27,7 +28,7 @@ export function Header() {
         <div className="space-y-5">
           <div>
             <p className="kicker">Software Engineer</p>
-            <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[color:var(--foreground)]">
+            <h1 className={`${GeistPixelSquare.className} mt-2 text-5xl sm:text-6xl font-extrabold text-[color:var(--foreground)]`}>
               Joaquim Silva
             </h1>
             <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed border-l-2 border-[color:var(--accent)] pl-2">
