@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://res.cloudinary.com/dy5xyare1/image/upload/v1775099930/Profile_black-white_dzgqsu.jpg" alt="Joaquim Silva" width="120" style="border-radius: 10%;" />
+  <img src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777048991/Profile_tratamento_lhvfvz.jpg" alt="Joaquim Silva" width="120" style="border-radius: 10%;" />
   
   # joaquimsnjr.tech
   
@@ -20,10 +20,10 @@
 
 <p align="center">
   <h1>Preview Light Mode</h1>
-  <img src="public/Screenshot-light.png" alt="website-mode-light" width="" style="border-radius: 1%;" />
+  <img src="public/Screenshot.png" alt="website-mode-light" width="" style="border-radius: 1%;" />
 
   <h1>Preview Dark Mode</h1>
-  <img src="public/Screenshot-dark.png" alt="website-mode-dark" width="" style="border-radius: 1%;" />
+  <img src="public/Screenshot-1.png" alt="website-mode-dark" width="" style="border-radius: 1%;" />
 </p>
 
 ## ✨ Features

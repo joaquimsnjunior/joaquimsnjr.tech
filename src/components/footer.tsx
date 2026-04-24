@@ -1,4 +1,4 @@
-import { GeistPixelSquare } from 'geist/font/pixel';
+import { GeistPixelLine } from 'geist/font/pixel';
 import Link from "next/link"
 
 const socialLinks = [
@@ -110,7 +110,7 @@ export function Footer() {
       </div>
 
       <div className='mt-10'>
-        <h1 className={`${GeistPixelSquare.className} text-[100px] sm:text-[350px] font-extrabold leading-none select-none`}>
+        <h1 className={`${GeistPixelLine.className} text-[100px] sm:text-[350px] font-extrabold leading-none select-none`}>
           JOAQUIM
         </h1>
       </div>
