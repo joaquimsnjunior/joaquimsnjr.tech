@@ -84,7 +84,7 @@ function ContentCard({ post, index }: ContentCardProps) {
           )}
 
           {/* Overlay de interação */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
         </div>
 
         {/* Conteúdo */}
@@ -96,8 +96,6 @@ function ContentCard({ post, index }: ContentCardProps) {
 
           {/* Metadados */}
           <p className="text-sm text-[color:var(--muted)] leading-relaxed">
-            <span className="inline-block">artigo</span>
-            <span className="mx-3 text-zinc-700">•</span>
             <time className="inline-block">{formattedDate}</time>
           </p>
         </div>
@@ -132,10 +130,10 @@ export function BlogSection() {
     >
       <div className="mx-auto w-full">
         {/* Header com Título e Link */}
-        <div className="mb-12 flex items-center justify-between">
+        <div className="mb-10 flex items-center justify-between">
           <h2
             id="blog-section-title"
-            className="text-4xl font-bold text-[color:var(--foreground)]"
+            className="text-5xl font-bold text-[color:var(--foreground)]"
           >
             Blog
           </h2>

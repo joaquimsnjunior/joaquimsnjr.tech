@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { useEffect } from "react"
+import { ThemeToggle } from "./theme-toggle"
 
 export function Navbar() {
   const router = useRouter()
@@ -40,9 +41,6 @@ export function Navbar() {
         case "r":
           router.push("/feed.xml")
           break
-        case "o":
-          router.push("/sites")
-          break
       }
     }
 
@@ -52,12 +50,11 @@ export function Navbar() {
 
   const navItems = [
     { href: "/", label: "[home]", shortcut: "h" },
-    { href: "/blog", label: "./blog", shortcut: "b" },
-    { href: "/books", label: "./livros", shortcut: "l" },
-    { href: "/projects", label: "./projetos", shortcut: "p" },
-    { href: "/about", label: "./sobre", shortcut: "s" },
-    { href: "/talks", label: "./talks", shortcut: "t" },
-    { href: "/sites", label: "./sites", shortcut: "o" },
+    { href: "/blog", label: "/blog", shortcut: "b" },
+    { href: "/books", label: "/livros", shortcut: "l" },
+    { href: "/projects", label: "/projetos", shortcut: "p" },
+    { href: "/about", label: "/sobre", shortcut: "s" },
+    { href: "/talks", label: "/talks", shortcut: "t" },
   ]
 
   const isActive = (href: string) => {
@@ -66,9 +63,9 @@ export function Navbar() {
   }
 
   return (
-    <nav className="mb-5">
-      <div className="flex flex-col gap-4 pb-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em]">
+    <nav className="mb-5 flex w-full animate-fade-in-up justify-between">
+      <div className="flex flex-col sm:flex-row justify-between sm:justify-between">
+        <div className="flex flex-wrap items-center gap-4 text-sm uppercase">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -84,6 +81,10 @@ export function Navbar() {
             </Link>
           ))}
         </div>
+        
+      </div>
+      <div className="flex justify-end">
+        <ThemeToggle />
       </div>
     </nav>
   )

@@ -83,8 +83,7 @@ export default async function Post({ params }: PageProps) {
       />
 
       <header className="mb-10">
-        <p className="kicker">Post</p>
-        <h1 className="mt-2 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
+        <h1 className="mt-5 text-3xl sm:text-4xl font-semibold text-[color:var(--foreground)]">
           {post.metadata.title}
         </h1>
         {post.metadata.description && (

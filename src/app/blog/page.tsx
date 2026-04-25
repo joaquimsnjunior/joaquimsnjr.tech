@@ -13,7 +13,7 @@ export default async function BlogPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Blog | Joaquim Silva",
-    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuidos.",
+    description: "Artigos sobre engenharia de software, Cloud Native, Go e sistemas distribuídos.",
     url: "https://www.joaquimsnjr.tech/blog",
     author: {
       "@type": "Person",
@@ -51,16 +51,16 @@ export default async function BlogPage() {
       <div className="mb-8 flex flex-wrap items-center gap-4 text-[11px] text-[color:var(--muted)]">
         <span className="uppercase tracking-[0.28em]">atalhos</span>
         <div className="flex items-center gap-2">
-          <kbd className="px-2 py-1 border border-[color:var(--border)]">/</kbd>
+          <kbd className="px-2 py-1 border border-[color:var(--border)] rounded-lg">/</kbd>
           <span>buscar</span>
         </div>
         <div className="flex items-center gap-2">
-          <kbd className="px-2 py-1 border border-[color:var(--border)]">up</kbd>
-          <kbd className="px-2 py-1 border border-[color:var(--border)]">down</kbd>
+          <kbd className="px-2 py-1 border border-[color:var(--border)] rounded-lg">up</kbd>
+          <kbd className="px-2 py-1 border border-[color:var(--border)] rounded-lg">down</kbd>
           <span>navegar</span>
         </div>
         <div className="flex items-center gap-2">
-          <kbd className="px-2 py-1 border border-[color:var(--border)]">enter</kbd>
+          <kbd className="px-2 py-1 border border-[color:var(--border)] rounded-lg">enter</kbd>
           <span>abrir</span>
         </div>
       </div>

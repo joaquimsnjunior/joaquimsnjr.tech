@@ -4,6 +4,7 @@ import { ProjectsSection, type Project } from "@/components/projects-section"
 import { Navbar } from '../components/navbar'
 import { Footer } from "@/components/footer"
 import { Metadata } from "next"
+import HeroSection from "@/components/hero"
 
 export const metadata: Metadata = {
   title: {
@@ -80,7 +81,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <Header />
+      <HeroSection />
       <BlogSection />
       <ProjectsSection projects={projects} showFeatured={true} />
       <Footer />

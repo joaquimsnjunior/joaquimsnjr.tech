@@ -23,7 +23,7 @@ html.dark {
   --surface: #2C2C2A;
   --border: #333333;
   --accent: #45858E;
-  --accent-soft: rgba(215, 116, 84, 0.15);
+  --accent-soft: rgba(8, 8, 8, 0.18);
   --code-bg: #1a1a1a;
   --code-border: #333333;
   --code-header: #2a2a2a;
@@ -37,7 +37,7 @@ html[data-theme="dark"] {
   --surface: #2C2C2A;
   --border: #333333;
   --accent: #45858E;
-  --accent-soft: rgba(215, 116, 84, 0.15);
+  --accent-soft: rgba(8, 8, 8, 0.18);
   --code-bg: #1a1a1a;
   --code-border: #333333;
   --code-header: #2a2a2a;
