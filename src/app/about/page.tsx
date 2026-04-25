@@ -105,7 +105,7 @@ function SobrePage() {
           <div className="grid gap-6 sm:grid-cols-2">
             {skills.map((skill) => (
               <div key={skill.category}>
-                <p className="text-white font-bold text-xs uppercase tracking-[0.28em] text-[color:var(--muted)]">
+                <p className="text-[color:var(--foreground)] font-bold text-xs uppercase tracking-[0.28em]">
                   {skill.category}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-[color:var(--muted)]">

@@ -93,7 +93,7 @@ function FeaturedProject({ project }: { project: Project }) {
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-[color:var(--muted)]">
             {project.technologies.map((tech) => (
-              <span key={tech} className="border border-[color:var(--border)] px-2 py-0.5">
+              <span key={tech} className="border border-[color:var(--border)] rounded-lg px-2 py-0.5">
                 {tech.toLowerCase()}
               </span>
             ))}
@@ -154,7 +154,7 @@ function ProjectCard({ project }: { project: Project }) {
       </p>
       <div className="mt-4 flex flex-wrap gap-2 text-[11px] text-[color:var(--muted)]">
         {project.technologies.slice(0, 6).map((tech) => (
-          <span key={tech} className="border border-[color:var(--border)] px-2 py-0.5">
+          <span key={tech} className="border border-[color:var(--border)] rounded-lg px-2 py-0.5">
             {tech.toLowerCase()}
           </span>
         ))}
@@ -229,7 +229,7 @@ export default function ProjectsPage() {
           <ScrambleText className="font-semibold leading-none" text="Projetos" />
         </h1>
         <p className="mt-4 text-sm sm:text-base text-[color:var(--muted)] leading-relaxed">
-          Aqui estao alguns dos projetos em que trabalhei. Adoro construir ferramentas que
+          Aqui estão alguns dos projetos em que trabalhei. Adoro construir ferramentas que
           facilitam a vida dos desenvolvedores e explorar novas tecnologias ao longo do caminho.
         </p>
         <p className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[color:var(--muted)]">

@@ -20,20 +20,6 @@ function calculateReadingTime(content: string): number {
   return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE))
 }
 
-/**
- * Extrai categoria do post.
- */
-function extractCategory(post: MDXFileData): string {
-  const title = post.metadata.title.toLowerCase()
-  const description = post.metadata.description?.toLowerCase() || ""
-  const content = title + " " + description
-
-  if (content.includes("cloud") || content.includes("aws") || content.includes("arquitetura")) return "cloud"
-  if (content.includes("go") || content.includes("golang") || content.includes("goroutine")) return "golang"
-  if (content.includes("api") || content.includes("rest") || content.includes("graphql") || content.includes("grpc")) return "apis"
-  if (content.includes("cassandra") || content.includes("banco") || content.includes("database")) return "database"
-  return "tech"
-}
 
 type PostItemProps = {
   post: MDXFileData
@@ -43,7 +29,6 @@ type PostItemProps = {
 
 export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
   const readingTime = calculateReadingTime(post.content)
-  const category = extractCategory(post)
 
   return (
     <Link
@@ -59,8 +44,6 @@ export function PostItem({ post, isSelected, index = 0 }: PostItemProps) {
         </time>
         <span className="text-[color:var(--border)]">•</span>
         <span>{readingTime} min</span>
-        <span className="text-[color:var(--border)]">•</span>
-        <span>[{category}]</span>
       </div>
 
       <h4
