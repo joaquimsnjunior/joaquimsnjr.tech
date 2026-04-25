@@ -12,7 +12,7 @@ export function ThemeToggle() {
         className="p-2 rounded-md transition-colors"
         aria-label="Alternar tema"
       >
-        <Sun className="h-5 w-5" />
+        <Sun className="h-4 w-4" />
       </button>
     )
   }
@@ -25,9 +25,9 @@ export function ThemeToggle() {
       title={`Tema atual: ${theme === "light" ? "claro" : "escuro"}`}
     >
       {theme === "light" ? (
-        <Moon className="h-5 w-5 text-[color:var(--foreground)]" />
+        <Moon className="h-4 w-4 text-[color:var(--foreground)]" />
       ) : (
-        <Sun className="h-5 w-5 text-[color:var(--foreground)]" />
+        <Sun className="h-4 w-4 text-[color:var(--foreground)]" />
       )}
     </button>
   )

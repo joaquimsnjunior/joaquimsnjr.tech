@@ -54,7 +54,6 @@ export function Navbar() {
     { href: "/books", label: "/livros", shortcut: "l" },
     { href: "/projects", label: "/projetos", shortcut: "p" },
     { href: "/about", label: "/sobre", shortcut: "s" },
-    { href: "/talks", label: "/talks", shortcut: "t" },
   ]
 
   const isActive = (href: string) => {

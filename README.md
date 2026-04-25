@@ -20,10 +20,10 @@
 
 <p align="center">
   <h1>Preview Light Mode</h1>
-  <img src="public/Screenshot-1.png" alt="website-mode-light" width="" style="border-radius: 1%;" />
+  <img src="public/Screenshot_light.png" alt="website-mode-light" width="" style="border-radius: 1%;" />
 
   <h1>Preview Dark Mode</h1>
-  <img src="public/Screenshot.png" alt="website-mode-dark" width="" style="border-radius: 1%;" />
+  <img src="public/Screenshot_dark.png" alt="website-mode-dark" width="" style="border-radius: 1%;" />
 </p>
 
 ## ✨ Features

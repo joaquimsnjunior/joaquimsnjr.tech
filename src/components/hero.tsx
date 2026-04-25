@@ -16,7 +16,7 @@ function HeroSection() {
           <div className="lg:col-span-9 w-full h-full min-h-[400px] lg:min-h-[460px]">
             <div className="relative w-full h-full rounded-[12px] overflow-hidden">
               <Image 
-                src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777073800/hero_mjo6ya.png"
+                src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777131410/Hero_image_zpqux7.jpg"
                 alt="Hero Image"
                 layout="fill"
                 objectFit="cover"
