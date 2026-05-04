@@ -13,17 +13,14 @@ function HeroSection() {
         {/* Grid Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 w-full items-center h-full">
           {/* Left Column - Visual (72%) */}
-          <div className="lg:col-span-9 w-full h-full min-h-[400px] lg:min-h-[460px]">
-            <div className="relative w-full h-full rounded-[12px] overflow-hidden">
+          <div className="lg:col-span-9 w-full h-full min-h-[420px] lg:min-h-[480px]">
+            <div className="relative w-full h-full overflow-hidden">
               <Image 
-                src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777131410/Hero_image_zpqux7.jpg"
+                src="https://res.cloudinary.com/dy5xyare1/image/upload/v1777933132/hero-image-website_tciwcu.jpg"
                 alt="Hero Image"
                 layout="fill"
                 objectFit="cover"
-                className="rounded-lg"
               />
-              {/* Overlay com sombra */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#13343B]/55 via-[#13343B]/5 to-transparent rounded-[12px]"></div>
             </div>
           </div>
 
