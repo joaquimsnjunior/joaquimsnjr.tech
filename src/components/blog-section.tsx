@@ -70,7 +70,7 @@ function ContentCard({ post, index }: ContentCardProps) {
       {/* Card Container */}
       <div className="flex flex-col h-full gap-3">
         {/* Thumbnail - 1:1 Aspect Ratio */}
-        <div className="relative w-full aspect-square rounded-[12px] overflow-hidden flex-shrink-0">
+        <div className="relative w-full aspect-square overflow-hidden flex-shrink-0">
           {metadata.coverImage ? (
             <Image
               src={metadata.coverImage}
