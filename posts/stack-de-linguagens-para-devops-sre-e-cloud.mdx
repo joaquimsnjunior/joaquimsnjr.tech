@@ -1,0 +1,242 @@
+---
+title: "Minhas Escolhas de Linguagens para DevOps, SRE e Cloud: Um Guia Pessoal e Prático"
+description: "Qual linguagem aprender para DevOps em 2026? Python ou Go? Bash ou PowerShell? Um guia pessoal e direto."
+date: "May 15, 2026"
+coverImage: "https://res.cloudinary.com/dy5xyare1/image/upload/v1777919604/texture-1_l7udxs.webp"
+---
+
+# A Pergunta que Todo Mundo Faz
+
+É esta: **"Qual linguagem de programação eu devo aprender para entrar em DevOps?"**.
+
+A resposta curta sempre foi: **Python ou Go para programação; Bash ou PowerShell para shell**. Mas o "porquê" por trás dessa resposta é o que realmente importa. E esse "porquê" mudou bastante nos últimos anos — especialmente com a ascensão de Kubernetes, plataformas de observabilidade e a necessidade de automação em escala.
+
+Neste artigo, não vou apenas listar linguagens. Vou compartilhar **como eu as utilizo no dia a dia**, onde cada uma brilha, e como você pode tomar essa decisão com base no ambiente onde atua e nos problemas que quer resolver.
+
+---
+
+## As Duas Frentes: Programação e Shell
+
+Antes de tudo, é essencial separar as linguagens em duas categorias que se complementam:
+
+<table>
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Propósito</th>
+      <th>Minha Escolha Principal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Programação</strong></td>
+      <td>Construir ferramentas, APIs, operadores Kubernetes, scripts complexos</td>
+      <td>Golang e Python</td>
+    </tr>
+    <tr>
+      <td><strong>Shell</strong></td>
+      <td>Automatizar tarefas do sistema, pipelines CI/CD, scripts de bootstrap</td>
+      <td>Bash</td>
+    </tr>
+  </tbody>
+</table>
+
+Você **precisa das duas**. Uma linguagem de programação resolve problemas de lógica e integração; uma linguagem de shell resolve o "fazer rápido no terminal".
+
+---
+
+## Python: A Faca Suíça que Resolve Problemas Rápido
+
+**Python foi minha porta de entrada na automação — e continua sendo a ferramenta que busco quando preciso resolver algo EM MINUTOS.**
+
+### Por que Python ainda é relevante em 2026?
+
+1. **Ferramentas DevOps são escritas em Python**: Ansible, SaltStack, AWS CLI, Azure CLI — todas têm Python no coração. Entender a linguagem significa entender o que está acontecendo "por baixo dos panos".
+2. **Automação de tarefas chatas**: Processar logs, manipular JSON, consumir APIs de cloud, gerar relatórios. Com `requests`, `boto3` e `json`, você resolve 80% dos problemas operacionais.
+3. **Curva de aprendizado suave**: Ideal para quem está migrando de infra/suporte para DevOps. A sintaxe limpa permite focar na lógica, não em detalhes de compilação.
+
+### Onde eu uso Python no meu dia a dia:
+
+- **Scripts de automação multi-cloud**: Provisionar recursos na AWS e Azure que o Terraform não cobre (ex: ajustes pós-deploy).
+- **Ferramentas internas de mentoria**: Plataformas que geram relatórios de progresso dos alunos.
+- **Protótipos rápidos**: Antes de escrever um operador Kubernetes em Go, testo a lógica em Python.
+
+> **Dica prática**: Se você é iniciante, comece com o livro *"Automate the Boring Stuff with Python"*. É direto ao ponto e já te coloca no mundo real.
+
+---
+
+## Golang: A Linguagem da Infraestrutura Moderna
+
+**Go é a linguagem que me fez entender Kubernetes, containers e sistemas distribuídos de verdade.**
+
+### Por que Go domina o ecossistema Cloud Native?
+
+1. **Kubernetes, Docker, Terraform, Prometheus, Grafana (partes), cert-manager**: Todas as ferramentas que definem a infraestrutura moderna são escritas em Go. Se você quer contribuir, extender ou debugar essas ferramentas, **precisa de Go**.
+2. **Performance e concorrência nativas**: Goroutines tornam Go perfeito para construir ferramentas de rede, proxies e operadores Kubernetes que precisam lidar com milhares de eventos simultâneos.
+3. **Binário único e estático**: Esqueça "funciona na minha máquina". Go compila para um executável que roda em qualquer lugar. Ideal para containers minimalistas (distroless).
+
+### Onde eu uso Go no meu dia a dia:
+
+- **Operadores Kubernetes**: Como o Error Budget Operator que bloqueia deploys no Argo CD.
+- **Ferramentas de observabilidade**: Exporters personalizados, integração com APIs do Grafana.
+- **CLIs internas**: Ferramentas que distribuo para squads de desenvolvimento consumirem.
+- **Cursos de System Design e Arquitetura de Containers**: Go é a linguagem que uso para demonstrar conceitos de escala e resiliência.
+
+> **Dica prática**: Não comece Go achando que é "Python com sintaxe diferente". Estude os fundamentos de concorrência, interfaces e o sistema de tipos. O *Tour of Go* é o melhor ponto de partida.
+
+---
+
+## Python vs. Go: Qual Eu Recomendo?
+
+Não é uma competição. É sobre contexto.
+
+<table>
+  <thead>
+    <tr>
+      <th>Critério</th>
+      <th>Python</th>
+      <th>Golang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Velocidade de desenvolvimento</strong></td>
+      <td>⚡ Muito rápido (scripts)</td>
+      <td>🐢 Mais lento (compilação, tipagem)</td>
+    </tr>
+    <tr>
+      <td><strong>Performance em produção</strong></td>
+      <td>Médio (interpretado)</td>
+      <td>⚡ Alto (compilado, nativo)</td>
+    </tr>
+    <tr>
+      <td><strong>Curva de aprendizado</strong></td>
+      <td>Suave</td>
+      <td>Média (conceitos como ponteiros, goroutines)</td>
+    </tr>
+    <tr>
+      <td><strong>Ecossistema DevOps</strong></td>
+      <td>Config management (Ansible), CLI clouds</td>
+      <td>Kubernetes, observabilidade, operadores</td>
+    </tr>
+    <tr>
+      <td><strong>Projetos grandes e concorrentes</strong></td>
+      <td>Sofre (GIL)</td>
+      <td>Brilha</td>
+    </tr>
+  </tbody>
+</table>
+
+### Minha recomendação pessoal (2026):
+
+1. **Aprenda Python primeiro** — especialmente se você está migrando de áreas de infra/suporte. Ele te dará vitórias rápidas e confiança.
+2. **Aprenda Go em seguida** — quando você começar a lidar com Kubernetes, operadores e sistemas que exigem performance. Go é o que separa um "usuário de ferramentas" de um "construtor de plataformas".
+3. **Não pare no básico**: Saber `if` e `for` não basta. Aprofunde-se em testes ( pytest, testing package do Go), profiling e otimização.
+
+---
+
+## E o TypeScript?
+
+![Gif Lenny, The Simpsons](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemtjOGducG1la2V4cmExMnNoMGU3MG5ub2M5djdidHU3dGV0anJ1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eNTxLwTGW7E64/giphy.gif)
+
+Você pode notar que TypeScript está na minha stack. Ele vive em um espaço diferente: **ferramentas de front-end de plataformas, dashboards internos e automação de UI**. Não é uma linguagem "core" de DevOps, mas aparece quando você constrói portais de autoatendimento para times de desenvolvimento ou integrações com APIs web complexas. É complementar, não substituta.
+
+---
+
+## Shell: O Pão com Manteiga do Dia a Dia
+
+**Bash é a linguagem que uso dezenas de vezes por dia — no terminal, nos pipelines, nos Dockerfiles.**
+
+### O que você precisa dominar em Bash:
+
+- **Manipulação de texto**: `grep`, `awk`, `sed`, `jq` (para JSON).
+- **Laços e condicionais**: Para scripts de bootstrap e entrypoint de containers.
+- **Gerenciamento de processos**: Sinais, background jobs, redirecionamento.
+- **Integração com CI/CD**: Scripts de build, deploy e rollback no GitHub Actions, GitLab CI.
+
+### E o PowerShell?
+
+Trabalhei com Windows no início da carreira e reconheço o poder do PowerShell — especialmente para ambientes Microsoft e Azure. Mas em 2026, com o domínio do Linux nos clusters Kubernetes e ferramentas cloud-native, **Bash é o denominador comum**. Se seu ambiente é majoritariamente Windows Server, PowerShell Core é sua ferramenta. Para todo o resto, Bash resolve.
+
+---
+
+## Minha Stack de Linguagens em 2026
+
+<table>
+  <thead>
+    <tr>
+      <th>Linguagem</th>
+      <th>Quando Uso</th>
+      <th>Nível de Importância</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Golang</strong></td>
+      <td>Operadores, CLIs, sistemas concorrentes</td>
+      <td>⭐⭐⭐⭐⭐ Essencial</td>
+    </tr>
+    <tr>
+      <td><strong>Python</strong></td>
+      <td>Automação, prototipação, integração cloud</td>
+      <td>⭐⭐⭐⭐⭐ Essencial</td>
+    </tr>
+    <tr>
+      <td><strong>Bash</strong></td>
+      <td>Scripts de sistema, CI/CD, containers</td>
+      <td>⭐⭐⭐⭐⭐ Essencial</td>
+    </tr>
+    <tr>
+      <td><strong>TypeScript</strong></td>
+      <td>Dashboards, portais, automação de UI</td>
+      <td>⭐⭐⭐ Complementar</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Conclusão: Escolha com Propósito
+
+A pergunta não é "qual linguagem devo aprender?", mas sim **"quais problemas eu quero resolver?"**.
+
+- Quer automatizar a infraestrutura rapidamente? **Python + Bash.**
+- Quer construir plataformas e contribuir com o ecossistema Kubernetes? **Go.**
+- Quer trabalhar em ambientes Microsoft? **PowerShell + C# (para ferramentas).**
+
+E lembre-se: **linguagem é ferramenta, não religião**. O especialista de verdade transita entre elas conforme o desafio exige. Eu uso Go, Python e Bash toda semana — e cada uma tem seu lugar no cinto de ferramentas.
+
+---
+
+**E você?** Qual linguagem tem usado mais no seu dia a dia de DevOps/SRE? Tem sentido falta de alguma na sua stack? Me chama no [LinkedIn](https://www.linkedin.com/in/joaquimsnjr/) — adoro trocar ideia sobre isso.
+
+---
+
+### Referências e Leitura Complementar
+
+<table>
+  <thead>
+    <tr>
+      <th>Recurso</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tour of Go</td>
+      <td><a href="https://go.dev/tour/">https://go.dev/tour/</a></td>
+    </tr>
+    <tr>
+      <td>Automate the Boring Stuff (Python)</td>
+      <td><a href="https://automatetheboringstuff.com/">https://automatetheboringstuff.com/</a></td>
+    </tr>
+    <tr>
+      <td>Effective Go</td>
+      <td><a href="https://go.dev/doc/effective_go">https://go.dev/doc/effective_go</a></td>
+    </tr>
+    <tr>
+      <td>Bash Guide for Beginners</td>
+      <td><a href="https://tldp.org/LDP/Bash-Beginners-Guide/html/">https://tldp.org/LDP/Bash-Beginners-Guide/html/</a></td>
+    </tr>
+  </tbody>
+</table>
