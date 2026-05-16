@@ -1,5 +1,5 @@
 'use client'
-import { GeistPixelLine, GeistPixelSquare } from 'geist/font/pixel';
+import { GeistPixelSquare } from 'geist/font/pixel';
 import Image from 'next/image'
 import React from 'react'
 
@@ -11,12 +11,12 @@ function HeroSection() {
     >
       <div className="max-w-7xl mx-auto mt-10 h-full flex items-center">
         {/* Grid Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 w-full items-center h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 w-full items-center h-full border border-[color:var(--border)] p-6 rounded-lg">
           {/* Left Column - Visual (72%) */}
-          <div className="lg:col-span-9 w-full h-full min-h-[420px] lg:min-h-[480px]">
+          <div className="lg:col-span-9 w-full h-full min-h-[420px] lg:min-h-[480px] border border-[color:var(--border)] overflow-hidden">
             <div className="relative w-full h-full overflow-hidden">
               <Image 
-                src="https://res.cloudinary.com/dy5xyare1/image/upload/v1778794563/full-resolution-pixelated_yqyiqy.png"
+                src="https://res.cloudinary.com/dy5xyare1/image/upload/v1778953296/hero-image-8bit_sw5h1t.png"
                 alt="Hero Image"
                 layout="fill"
                 objectFit="cover"
@@ -27,14 +27,13 @@ function HeroSection() {
           {/* Right Column - Content (28%) */}
           <div className="lg:col-span-3 w-full flex flex-col justify-center space-y-6">
             {/* Title */}
-            <h1 className={`${GeistPixelLine.className} text-5xl lg:text-6xl font-semibold leading-tight text-[color:var(--foreground)]`}>
+            <h1 className={`${GeistPixelSquare.className} text-5xl lg:text-6xl font-semibold leading-tight text-[color:var(--foreground)]`}>
               Joaquim Silva
             </h1>
 
             {/* Paragraph */}
             <p className="text-base lg:text-lg text-[color:var(--muted)] leading-relaxed font-normal">
               Engenheiro de Software especializado em Cloud, DevOps e Confiabilidade.
-              <span className={`${GeistPixelSquare.className} block mt-2 font-extrabold text-2xl text-[color:var(--accent)]`}>Site Reliability Engineer</span>
             </p>
 
             <span>
